@@ -38,7 +38,7 @@ export default function About() {
             <div className="grid md:grid-cols-3 gap-16">
               <div className="md:col-span-2 space-y-6">
                 <h2 className="text-3xl font-light mb-8">Background</h2>
-                <p className="text-xl text-muted-foreground leading-relaxed">
+                <div className="text-xl text-muted-foreground leading-relaxed">
                   <div>
                     Souheila's work spans editorial, showroom, and runway, with
                     a focus on sculptural silhouettes and minimal aesthetics.
@@ -64,7 +64,7 @@ export default function About() {
                       <br />
                     </div>
                   </div>
-                </p>
+                </div>
               </div>
 
               <div className="space-y-8">
