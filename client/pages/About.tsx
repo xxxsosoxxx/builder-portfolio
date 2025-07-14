@@ -15,13 +15,13 @@ export default function About() {
                   About
                 </h1>
                 <p className="text-xl text-muted-foreground animate-fade-in-up">
-                  Fashion model based in Brussels, specializing in editorial and
-                  runway work with a passion for timeless elegance.
+                  Model based in Brussels, specializing in editorial and runway
+                  work with a passion for timeless elegance.
                 </p>
               </div>
               <div className="animate-fade-in">
                 <img
-                  src="https://images.unsplash.com/photo-1502823403499-6ccfcf4fb453?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1287&q=80"
+                  src="https://cdn.builder.io/api/v1/image/assets%2F32dbebdc41de4f02a397c4bcb49e3699%2Fa9c6c355c3b34ef5af9ab0329c7dd443"
                   alt="Souheila Said"
                   className="w-full h-[600px] object-cover object-center"
                 />
@@ -38,67 +38,54 @@ export default function About() {
             <div className="grid md:grid-cols-3 gap-16">
               <div className="md:col-span-2 space-y-6">
                 <h2 className="text-3xl font-light mb-8">Background</h2>
-                <p className="text-lg text-muted-foreground leading-relaxed">
-                  Based in Brussels, I bring a unique perspective to fashion
-                  modeling with a focus on editorial excellence and runway
-                  sophistication. My work spans across various creative
-                  collaborations, always maintaining an aesthetic rooted in
-                  timeless elegance.
+                <p className="text-xl text-muted-foreground leading-relaxed">
+                  <div>
+                    Souheila's work spans editorial, showroom, and runway, with
+                    a focus on sculptural silhouettes and minimal aesthetics.
+                  </div>
+                  <div>
+                    Her look and presence align with brands such as Alaïa, The
+                    Row, and Saint Laurent.
+                    <br />
+                    <div>
+                      <br />
+                    </div>
+                    <div>
+                      Her aesthetic is defined by strong lines, quiet power, and
+                      natural elegance, inspired by sculptural design and high
+                      fashion imagery.
+                    </div>
+                    <div>
+                      <br />
+                    </div>
+                    <div>
+                      Open to editorial, showroom, and runway projects in Paris,
+                      Antwerp, London, Milan, and beyond.
+                      <br />
+                    </div>
+                  </div>
                 </p>
-                <p className="text-lg text-muted-foreground leading-relaxed">
-                  I specialize in high-fashion editorial work and runway
-                  presentations, drawing inspiration from the minimalist
-                  sophistication of brands like Alaïa and The Row. My approach
-                  to modeling emphasizes clean lines, natural movement, and the
-                  ability to embody the essence of each creative vision.
-                </p>
-
-                <div className="pt-8">
-                  <h3 className="text-xl font-medium mb-6">
-                    Goals & Aspirations
-                  </h3>
-                  <ul className="space-y-3 text-muted-foreground">
-                    <li className="flex items-start">
-                      <span className="w-2 h-2 bg-foreground rounded-full mt-2 mr-4 flex-shrink-0" />
-                      Walking for major fashion weeks in Paris, Milan, and New
-                      York
-                    </li>
-                    <li className="flex items-start">
-                      <span className="w-2 h-2 bg-foreground rounded-full mt-2 mr-4 flex-shrink-0" />
-                      Collaborating with prestigious editorial brands and
-                      magazines
-                    </li>
-                    <li className="flex items-start">
-                      <span className="w-2 h-2 bg-foreground rounded-full mt-2 mr-4 flex-shrink-0" />
-                      Building long-term relationships with creative teams
-                    </li>
-                    <li className="flex items-start">
-                      <span className="w-2 h-2 bg-foreground rounded-full mt-2 mr-4 flex-shrink-0" />
-                      Expanding into sustainable and conscious fashion advocacy
-                    </li>
-                  </ul>
-                </div>
               </div>
 
               <div className="space-y-8">
-                <div>
+                <div className="font-semibold text-xl">
                   <h3 className="text-xl font-medium mb-6">Measurements</h3>
                   <div className="space-y-3 text-muted-foreground">
                     <div className="flex justify-between">
                       <span>Height</span>
-                      <span>175 cm</span>
+                      <span>177 cm</span>
                     </div>
                     <div className="flex justify-between">
                       <span>Bust</span>
-                      <span>86 cm</span>
+                      <span>83 cm</span>
                     </div>
                     <div className="flex justify-between">
                       <span>Waist</span>
-                      <span>61 cm</span>
+                      <span>65 cm</span>
                     </div>
                     <div className="flex justify-between">
                       <span>Hips</span>
-                      <span>89 cm</span>
+                      <span>86 cm</span>
                     </div>
                     <div className="flex justify-between">
                       <span>Shoe Size</span>
@@ -116,26 +103,10 @@ export default function About() {
                 </div>
 
                 <div>
-                  <h3 className="text-xl font-medium mb-6">Experience</h3>
                   <div className="space-y-4 text-muted-foreground">
-                    <div>
-                      <h4 className="font-medium text-foreground">
-                        Editorial Work
-                      </h4>
-                      <p className="text-sm">Fashion magazines & campaigns</p>
-                    </div>
-                    <div>
-                      <h4 className="font-medium text-foreground">
-                        Runway Shows
-                      </h4>
-                      <p className="text-sm">Local & international designers</p>
-                    </div>
-                    <div>
-                      <h4 className="font-medium text-foreground">
-                        Commercial
-                      </h4>
-                      <p className="text-sm">Brand campaigns & lookbooks</p>
-                    </div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
                   </div>
                 </div>
               </div>
