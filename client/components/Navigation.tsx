@@ -44,7 +44,9 @@ export function Navigation() {
               to="/"
               className="text-xl font-light tracking-wider text-foreground hover:text-muted-foreground transition-colors duration-300"
             >
-              SOUHEILA SAID
+              <span>
+                <b>SOUHEILA SAID</b>
+              </span>
             </Link>
 
             {/* Desktop Navigation */}
