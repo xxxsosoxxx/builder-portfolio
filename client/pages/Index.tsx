@@ -70,14 +70,18 @@ export default function Index() {
                   timeless elegance.
                 </p>
                 <div className="pt-4">
-                  <a href="/portfolio" className="btn-minimal inline-block">
+                  <a
+                    href="/portfolio"
+                    className="btn-minimal inline-block"
+                    style={{ cursor: "pointer" }}
+                  >
                     View Portfolio
                   </a>
                 </div>
               </div>
               <div className="relative">
                 <img
-                  src="https://cdn.builder.io/api/v1/image/assets%2F32dbebdc41de4f02a397c4bcb49e3699%2F17200c70e2d64c0e8eba039905db2c65"
+                  src="https://cdn.builder.io/api/v1/image/assets%2F32dbebdc41de4f02a397c4bcb49e3699%2Fd50b715b548f4eaca830b5aa1af7221e"
                   alt="Souheila Said Portrait"
                   className="w-full h-[600px] object-cover object-center"
                 />
@@ -112,7 +116,7 @@ export default function Index() {
                   About
                 </h3>
                 <p className="text-body text-muted-foreground mb-6">
-                  Professional background and measurements
+                  Background and measurements
                 </p>
                 <a
                   href="/about"
