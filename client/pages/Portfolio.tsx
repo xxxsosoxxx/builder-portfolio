@@ -1,7 +1,9 @@
 import { Navigation } from "@/components/Navigation";
 import { PhotoGallery } from "@/components/PhotoGallery";
+import { useSmoothScroll } from "@/hooks/use-smooth-scroll";
 
 export default function Portfolio() {
+  useSmoothScroll();
   return (
     <div className="min-h-screen bg-white">
       <Navigation />
