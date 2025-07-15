@@ -127,6 +127,10 @@ export function PhotoGallery() {
     }
   };
 
+  const handleImageLoad = (photoId: number) => {
+    setLoadedImages((prev) => new Set([...prev, photoId]));
+  };
+
   return (
     <>
       {/* Gallery Grid */}
