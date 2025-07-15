@@ -13,8 +13,46 @@ export default function About() {
               <div>
                 <h1 className="text-hero mb-8 animate-fade-in-up">About</h1>
                 <p className="text-subhero text-muted-foreground animate-fade-in-up">
-                  Model based in Brussels, specializing in editorial and runway
-                  work with a passion for timeless elegance.
+                  <br />
+                  <br />I believe in fashion as form, not distraction.
+                  <br />
+                  <span
+                    style={{
+                      color: "inherit",
+                      fontFamily: "inherit",
+                      fontSize: "inherit",
+                      fontWeight: "inherit",
+                      letterSpacing: "inherit",
+                      textAlign: "inherit",
+                    }}
+                  >
+                    My body is not a product. It's a language.
+                    <br />I belong to form. To tension. To matter.
+                  </span>
+                  <br />
+                  <br />
+                  I stand with those who cut, fold, build, and question.
+                  <br />
+                  Who see fabric as structure, and the body as statement.
+                  <br />
+                  <br />
+                  Not a logo. Not a trend. Not an accessory.
+                  <br />
+                  <br />
+                  I believe in silhouettes that hold space.
+                  <br />
+                  In vision that outlives hype.
+                  <br />
+                  In silence that resists noise.
+                  <br />
+                  <br />
+                  I move for designers, not marketers.
+                  <br />
+                  For creators who shape futures, not followers.
+                  <br />
+                  <br />
+                  I am not here to decorate.
+                  <br />I am here to collaborate.
                 </p>
               </div>
               <div className="animate-fade-in">
@@ -36,32 +74,28 @@ export default function About() {
             <div className="grid md:grid-cols-3 gap-16">
               <div className="md:col-span-2 space-y-6">
                 <h2 className="text-section-title mb-8">Background</h2>
-                <div className="text-body-large text-muted-foreground">
-                  <div>
-                    Souheila's work spans editorial, showroom, and runway, with
-                    a focus on sculptural silhouettes and minimal aesthetics.
-                  </div>
-                  <div>
-                    Her look and presence align with brands such as Alaïa, The
-                    Row, and Saint Laurent.
+                <div className="text-body text-muted-foreground">
+                  <p>
+                    Souheila moves fluidly between editorial, conceptual, and
+                    runway projects, focusing on sculptural silhouettes and a
+                    quiet power.
                     <br />
-                    <div>
-                      <br />
-                    </div>
-                    <div>
-                      Her aesthetic is defined by strong lines, quiet power, and
-                      natural elegance, inspired by sculptural design and high
-                      fashion imagery.
-                    </div>
-                    <div>
-                      <br />
-                    </div>
-                    <div>
-                      Open to editorial, showroom, and runway projects in Paris,
-                      Antwerp, London, Milan, and beyond.
-                      <br />
-                    </div>
-                  </div>
+                    <br />
+                  </p>
+                  <p>
+                    Her presence is precise and instinctive, where structure
+                    meets sensuality.
+                  </p>
+                  <p>
+                    She gravitates towards creative directions that value
+                    strength, elegance, and intention.
+                    <br />
+                    <br />
+                  </p>
+                  <p>
+                    Based in Brussels, available for opportunities in Paris,
+                    Antwerp, and beyond.
+                  </p>
                 </div>
               </div>
 
@@ -73,31 +107,51 @@ export default function About() {
                   <div className="space-y-3 text-muted-foreground">
                     <div className="flex justify-between">
                       <span>Height</span>
-                      <span>177 cm</span>
+                      <span>
+                        <span style={{ fontWeight: "normal" }}>177 </span>
+                        <span>|</span>
+                        <span style={{ fontWeight: "normal" }}> 5'9.5"</span>
+                      </span>
                     </div>
                     <div className="flex justify-between">
                       <span>Bust</span>
-                      <span>83 cm</span>
+                      <span>
+                        <span style={{ fontWeight: "normal" }}>83 </span>|
+                        <span style={{ fontWeight: "normal" }}>32.5"</span>
+                      </span>
                     </div>
                     <div className="flex justify-between">
                       <span>Waist</span>
-                      <span>65 cm</span>
+                      <span>
+                        <span style={{ fontWeight: "normal" }}>65 </span>|
+                        <span style={{ fontWeight: "normal" }}>25.5"</span>
+                      </span>
                     </div>
                     <div className="flex justify-between">
                       <span>Hips</span>
-                      <span>86 cm</span>
+                      <span>
+                        <span style={{ fontWeight: "normal" }}>86 </span>|
+                        <span style={{ fontWeight: "normal" }}>34"</span>
+                      </span>
                     </div>
                     <div className="flex justify-between">
-                      <span>Shoe Size</span>
-                      <span>39 EU</span>
+                      <span>Shoes</span>
+                      <span>
+                        <span style={{ fontWeight: "normal" }}>39 </span>
+                        <span style={{ fontWeight: "normal" }}>EU</span>
+                      </span>
                     </div>
                     <div className="flex justify-between">
                       <span>Hair</span>
-                      <span>Dark Brown</span>
+                      <span>
+                        <span style={{ fontWeight: "normal" }}>Dark Brown</span>
+                      </span>
                     </div>
                     <div className="flex justify-between">
                       <span>Eyes</span>
-                      <span>Brown</span>
+                      <span>
+                        <span style={{ fontWeight: "normal" }}>Brown</span>
+                      </span>
                     </div>
                   </div>
                 </div>
