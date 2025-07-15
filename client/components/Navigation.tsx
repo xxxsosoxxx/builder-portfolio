@@ -44,8 +44,8 @@ export function Navigation() {
               to="/"
               className="text-xl font-light tracking-wider text-foreground hover:text-muted-foreground transition-colors duration-300"
             >
-              <span>
-                <b>SOUHEILA SAID</b>
+              <span style={{ fontFamily: "Space Grotesk, sans-serif" }}>
+                SOUHEILA SAID
               </span>
             </Link>
 
