@@ -103,14 +103,14 @@ function GalleryItem({
   return (
     <div
       ref={ref}
-      className={`group relative break-inside-avoid cursor-pointer overflow-hidden bg-white border border-gray-100 hover:border-gray-300 transition-all duration-700 ${
+      className={`group relative break-inside-avoid cursor-pointer overflow-hidden bg-white border border-gray-100 hover:border-gray-300 transition-all duration-700 hover:shadow-2xl ${
         isVisible
           ? "animate-fade-in opacity-100 translate-y-0"
           : "opacity-0 translate-y-8"
       }`}
       onClick={() => onOpen(photo)}
       style={{
-        transitionDelay: `${index * 0.1}s`,
+        transitionDelay: `${index * 0.05}s`,
       }}
     >
       {/* Image */}
@@ -145,7 +145,7 @@ function GalleryItem({
       </div>
 
       {/* Hover shadow effect */}
-      <div className="absolute -inset-4 bg-black/10 rounded-lg opacity-0 group-hover:opacity-100 transition-all duration-500 -z-10 blur-xl" />
+      <div className="absolute -inset-2 bg-black/5 rounded-lg opacity-0 group-hover:opacity-100 transition-all duration-500 -z-10 blur-sm" />
     </div>
   );
 }
@@ -175,6 +175,19 @@ export function PhotoGallery() {
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, [selectedPhoto, currentIndex]);
 
+  // Prevent body scroll when lightbox is open
+  useEffect(() => {
+    if (selectedPhoto) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "unset";
+    }
+
+    return () => {
+      document.body.style.overflow = "unset";
+    };
+  }, [selectedPhoto]);
+
   const openLightbox = (photo: Photo) => {
     setSelectedPhoto(photo);
     setCurrentIndex(portfolioPhotos.findIndex((p) => p.id === photo.id));
@@ -192,62 +205,19 @@ export function PhotoGallery() {
     }
   };
 
-  const handleImageLoad = (photoId: number) => {
-    setLoadedImages((prev) => new Set([...prev, photoId]));
-  };
-
   return (
     <>
       {/* Gallery Grid */}
       <div className="w-full bg-white">
         <div className="mx-auto max-w-none px-0">
-          <div className="columns-1 gap-4 space-y-4 md:columns-2 lg:columns-3 xl:columns-4 p-4">
+          <div className="columns-1 gap-4 space-y-4 md:columns-2 lg:columns-3 xl:columns-4 p-4 masonry-grid">
             {portfolioPhotos.map((photo, index) => (
-              <div
+              <GalleryItem
                 key={photo.id}
-                className="group relative break-inside-avoid cursor-pointer overflow-hidden bg-white border border-gray-100 hover:border-gray-300 transition-all duration-500"
-                onClick={() => openLightbox(photo)}
-                style={{
-                  animationDelay: `${index * 0.1}s`,
-                }}
-              >
-                {/* Image */}
-                <div className="relative overflow-hidden">
-                  {/* Loading placeholder */}
-                  {!loadedImages.has(photo.id) && (
-                    <div className="absolute inset-0 bg-gray-100 animate-pulse flex items-center justify-center">
-                      <div className="w-8 h-8 border-2 border-gray-300 border-t-gray-600 rounded-full animate-spin"></div>
-                    </div>
-                  )}
-
-                  <img
-                    src={photo.src}
-                    alt={photo.title}
-                    className={`w-full h-auto object-cover transition-all duration-700 ease-out group-hover:scale-110 ${
-                      loadedImages.has(photo.id) ? "opacity-100" : "opacity-0"
-                    }`}
-                    loading="lazy"
-                    onLoad={() => handleImageLoad(photo.id)}
-                  />
-
-                  {/* Overlay */}
-                  <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all duration-500" />
-
-                  {/* Shadow on hover */}
-                  <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 shadow-2xl" />
-                </div>
-
-                {/* Info overlay */}
-                <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500 transform translate-y-full group-hover:translate-y-0">
-                  <h3 className="text-white font-heading font-semibold text-lg mb-1">
-                    {photo.title}
-                  </h3>
-                  <p className="text-white/80 text-caption">{photo.date}</p>
-                </div>
-
-                {/* Hover shadow effect */}
-                <div className="absolute -inset-4 bg-black/10 rounded-lg opacity-0 group-hover:opacity-100 transition-all duration-500 -z-10 blur-xl" />
-              </div>
+                photo={photo}
+                index={index}
+                onOpen={openLightbox}
+              />
             ))}
           </div>
         </div>
@@ -255,11 +225,14 @@ export function PhotoGallery() {
 
       {/* Lightbox Modal */}
       {selectedPhoto && (
-        <div className="fixed inset-0 z-50 bg-black/95 flex items-center justify-center p-4">
+        <div
+          className="fixed inset-0 z-50 bg-black/95 flex items-center justify-center p-4 lightbox-enter"
+          onClick={closeLightbox}
+        >
           {/* Close button */}
           <button
             onClick={closeLightbox}
-            className="absolute top-6 right-6 z-60 text-white hover:text-gray-300 transition-colors duration-300"
+            className="absolute top-6 right-6 z-60 text-white hover:text-gray-300 transition-colors duration-300 p-2 rounded-full hover:bg-white/10"
             aria-label="Close lightbox"
           >
             <X size={32} />
@@ -268,8 +241,11 @@ export function PhotoGallery() {
           {/* Navigation buttons */}
           {currentIndex > 0 && (
             <button
-              onClick={() => navigatePhoto(-1)}
-              className="absolute left-6 top-1/2 -translate-y-1/2 z-60 text-white hover:text-gray-300 transition-colors duration-300"
+              onClick={(e) => {
+                e.stopPropagation();
+                navigatePhoto(-1);
+              }}
+              className="absolute left-6 top-1/2 -translate-y-1/2 z-60 text-white hover:text-gray-300 transition-colors duration-300 p-2 rounded-full hover:bg-white/10"
               aria-label="Previous image"
             >
               <ChevronLeft size={48} />
@@ -278,8 +254,11 @@ export function PhotoGallery() {
 
           {currentIndex < portfolioPhotos.length - 1 && (
             <button
-              onClick={() => navigatePhoto(1)}
-              className="absolute right-6 top-1/2 -translate-y-1/2 z-60 text-white hover:text-gray-300 transition-colors duration-300"
+              onClick={(e) => {
+                e.stopPropagation();
+                navigatePhoto(1);
+              }}
+              className="absolute right-6 top-1/2 -translate-y-1/2 z-60 text-white hover:text-gray-300 transition-colors duration-300 p-2 rounded-full hover:bg-white/10"
               aria-label="Next image"
             >
               <ChevronRight size={48} />
@@ -287,7 +266,10 @@ export function PhotoGallery() {
           )}
 
           {/* Main image */}
-          <div className="relative max-w-full max-h-full flex items-center justify-center">
+          <div
+            className="relative max-w-full max-h-full flex items-center justify-center"
+            onClick={(e) => e.stopPropagation()}
+          >
             <img
               src={selectedPhoto.src}
               alt={selectedPhoto.title}
@@ -309,7 +291,7 @@ export function PhotoGallery() {
           </div>
 
           {/* Image counter */}
-          <div className="absolute bottom-6 left-1/2 -translate-x-1/2 text-white text-sm">
+          <div className="absolute bottom-6 left-1/2 -translate-x-1/2 text-white text-sm bg-black/30 px-3 py-1 rounded-full">
             {currentIndex + 1} / {portfolioPhotos.length}
           </div>
         </div>
