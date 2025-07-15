@@ -97,9 +97,24 @@ export default function About() {
         <div className="section-padding">
           <div className="container-narrow">
             <div className="grid md:grid-cols-3 gap-16">
-              <div className="md:col-span-2 space-y-6 flex flex-col justify-center">
-                <h2 className="text-section-title mb-8">Background</h2>
-                <div className="text-body text-muted-foreground leading-relaxed max-w-2xl">
+              <div
+                className="md:col-span-2 space-y-6 flex flex-col justify-center"
+                style={{ marginBottom: "-1px" }}
+              >
+                <h2
+                  className="text-section-title"
+                  style={{
+                    margin: "-56px 0 32px",
+                    fontSize: "36px",
+                    lineHeight: "48px",
+                  }}
+                >
+                  Background
+                </h2>
+                <div
+                  className="text-body text-muted-foreground max-w-2xl"
+                  style={{ lineHeight: "26px", marginTop: "24px" }}
+                >
                   <p>
                     Souheila moves fluidly between editorial, conceptual, and
                     runway projects, focusing on sculptural silhouettes and a
