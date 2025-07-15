@@ -10,7 +10,10 @@ export default function About() {
       <section className="pt-32 pb-16 bg-background">
         <div className="section-padding">
           <div className="container-narrow">
-            <div className="grid md:grid-cols-2 gap-16 items-center">
+            <div
+              className="grid md:grid-cols-2 gap-16 items-center"
+              style={{ marginTop: "-1px", paddingTop: "5px" }}
+            >
               <div>
                 <h1 className="text-hero mb-8 animate-fade-in-up">About</h1>
                 <p className="text-subhero text-muted-foreground animate-fade-in-up">
