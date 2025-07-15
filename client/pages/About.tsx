@@ -28,7 +28,15 @@ export default function About() {
                 >
                   About
                 </h1>
-                <p className="text-subhero text-muted-foreground animate-fade-in-up">
+                <p
+                  className="text-subhero text-muted-foreground animate-fade-in-up"
+                  style={{
+                    borderRadius: "2px",
+                    overflow: "hidden",
+                    borderWidth: "2px",
+                    borderStyle: "none",
+                  }}
+                >
                   <br />
                   <br />I believe in fashion as form, not distraction.
                   <br />
