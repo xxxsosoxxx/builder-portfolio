@@ -85,10 +85,74 @@ const portfolioPhotos: Photo[] = [
   },
 ];
 
+function GalleryItem({
+  photo,
+  index,
+  onOpen,
+}: {
+  photo: Photo;
+  index: number;
+  onOpen: (photo: Photo) => void;
+}) {
+  const { ref, isVisible } = useIntersectionObserver({
+    threshold: 0.1,
+    freezeOnceVisible: true,
+  });
+  const [isLoaded, setIsLoaded] = useState(false);
+
+  return (
+    <div
+      ref={ref}
+      className={`group relative break-inside-avoid cursor-pointer overflow-hidden bg-white border border-gray-100 hover:border-gray-300 transition-all duration-700 ${
+        isVisible
+          ? "animate-fade-in opacity-100 translate-y-0"
+          : "opacity-0 translate-y-8"
+      }`}
+      onClick={() => onOpen(photo)}
+      style={{
+        transitionDelay: `${index * 0.1}s`,
+      }}
+    >
+      {/* Image */}
+      <div className="relative overflow-hidden">
+        {/* Loading placeholder */}
+        {!isLoaded && (
+          <div className="absolute inset-0 bg-gray-100 animate-pulse flex items-center justify-center">
+            <div className="w-8 h-8 border-2 border-gray-300 border-t-gray-600 rounded-full animate-spin"></div>
+          </div>
+        )}
+
+        <img
+          src={photo.src}
+          alt={photo.title}
+          className={`w-full h-auto object-cover transition-all duration-700 ease-out group-hover:scale-110 ${
+            isLoaded ? "opacity-100" : "opacity-0"
+          }`}
+          loading="lazy"
+          onLoad={() => setIsLoaded(true)}
+        />
+
+        {/* Overlay */}
+        <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all duration-500" />
+      </div>
+
+      {/* Info overlay */}
+      <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500 transform translate-y-full group-hover:translate-y-0">
+        <h3 className="text-white font-heading font-semibold text-lg mb-1">
+          {photo.title}
+        </h3>
+        <p className="text-white/80 text-caption">{photo.date}</p>
+      </div>
+
+      {/* Hover shadow effect */}
+      <div className="absolute -inset-4 bg-black/10 rounded-lg opacity-0 group-hover:opacity-100 transition-all duration-500 -z-10 blur-xl" />
+    </div>
+  );
+}
+
 export function PhotoGallery() {
   const [selectedPhoto, setSelectedPhoto] = useState<Photo | null>(null);
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [loadedImages, setLoadedImages] = useState<Set<number>>(new Set());
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
