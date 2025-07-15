@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Navigation } from "@/components/Navigation";
+import { Footer } from "@/components/Footer";
 
 export default function Index() {
   const [isLoaded, setIsLoaded] = useState(false);
@@ -92,10 +93,10 @@ export default function Index() {
       </section>
 
       {/* Quick Links Section */}
-      <section className="py-16 bg-secondary/30">
+      <section className="py-20 bg-[#f5f5f5] border-t border-border">
         <div className="section-padding">
           <div className="container-wide">
-            <div className="grid md:grid-cols-3 gap-8 text-center">
+            <div className="grid md:grid-cols-3 gap-12 text-center">
               <div className="group">
                 <h3 className="text-xl font-heading font-semibold mb-4 group-hover:text-muted-foreground transition-colors duration-300">
                   Portfolio
@@ -145,6 +146,8 @@ export default function Index() {
           </div>
         </div>
       </section>
+
+      <Footer />
     </div>
   );
 }
