@@ -31,10 +31,8 @@ export default function Contact() {
       <section className="pt-32 pb-16 bg-background">
         <div className="section-padding">
           <div className="container-narrow text-center">
-            <h1 className="text-5xl md:text-6xl font-light mb-8 animate-fade-in-up">
-              Contact
-            </h1>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto animate-fade-in-up">
+            <h1 className="text-hero mb-8 animate-fade-in-up">Contact</h1>
+            <p className="text-subhero text-muted-foreground max-w-2xl mx-auto animate-fade-in-up">
               Ready to collaborate? Let's create something beautiful together.
             </p>
           </div>
@@ -48,7 +46,7 @@ export default function Contact() {
             <div className="grid md:grid-cols-2 gap-16">
               {/* Contact Form */}
               <div className="animate-fade-in">
-                <h2 className="text-3xl font-light mb-8">Send a Message</h2>
+                <h2 className="text-section-title mb-8">Send a Message</h2>
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div>
                     <label
@@ -121,10 +119,12 @@ export default function Contact() {
               {/* Contact Information */}
               <div className="animate-fade-in space-y-8">
                 <div>
-                  <h2 className="text-3xl font-light mb-8">Get in Touch</h2>
+                  <h2 className="text-section-title mb-8">Get in Touch</h2>
                   <div className="space-y-6">
                     <div>
-                      <h3 className="text-lg font-medium mb-2">Email</h3>
+                      <h3 className="text-lg font-heading font-semibold mb-2">
+                        Email
+                      </h3>
                       <a
                         href="mailto:hello@souheila-said.com"
                         className="text-muted-foreground hover:text-foreground transition-colors duration-300"
@@ -134,12 +134,18 @@ export default function Contact() {
                     </div>
 
                     <div>
-                      <h3 className="text-lg font-medium mb-2">Location</h3>
-                      <p className="text-muted-foreground">Brussels, Belgium</p>
+                      <h3 className="text-lg font-heading font-semibold mb-2">
+                        Location
+                      </h3>
+                      <p className="text-body text-muted-foreground">
+                        Brussels, Belgium
+                      </p>
                     </div>
 
                     <div>
-                      <h3 className="text-lg font-medium mb-2">Social</h3>
+                      <h3 className="text-lg font-heading font-semibold mb-2">
+                        Social
+                      </h3>
                       <div className="space-y-2">
                         <a
                           href="https://instagram.com/souheila.said"
@@ -163,10 +169,10 @@ export default function Contact() {
                 </div>
 
                 <div className="pt-8">
-                  <h3 className="text-lg font-medium mb-4">
+                  <h3 className="text-lg font-heading font-semibold mb-4">
                     Professional Inquiries
                   </h3>
-                  <p className="text-muted-foreground leading-relaxed">
+                  <p className="text-body text-muted-foreground">
                     Available for editorial shoots, runway shows, and creative
                     collaborations. Based in Brussels with availability for
                     travel across Europe and internationally.
@@ -174,8 +180,10 @@ export default function Contact() {
                 </div>
 
                 <div className="pt-8">
-                  <h3 className="text-lg font-medium mb-4">Response Time</h3>
-                  <p className="text-muted-foreground">
+                  <h3 className="text-lg font-heading font-semibold mb-4">
+                    Response Time
+                  </h3>
+                  <p className="text-body text-muted-foreground">
                     I typically respond to inquiries within 24-48 hours.
                   </p>
                 </div>
