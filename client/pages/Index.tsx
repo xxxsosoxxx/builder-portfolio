@@ -32,10 +32,8 @@ export default function Index() {
             isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
           }`}
         >
-          <h1 className="text-hero font-light mb-6 leading-none">
-            Souheila Said
-          </h1>
-          <p className="text-subhero max-w-2xl mx-auto leading-relaxed">
+          <h1 className="text-hero mb-6 leading-none">Souheila Said</h1>
+          <p className="text-subhero max-w-2xl mx-auto">
             Fashion model based in Brussels.
             <br />
             Available for editorial and runway.
@@ -63,10 +61,10 @@ export default function Index() {
               }`}
             >
               <div className="space-y-6">
-                <h2 className="text-3xl md:text-4xl font-light text-foreground">
+                <h2 className="text-section-title text-foreground">
                   Editorial Excellence
                 </h2>
-                <p className="text-lg text-muted-foreground leading-relaxed">
+                <p className="text-body-large text-muted-foreground">
                   Bringing sophistication and grace to every frame. Specializing
                   in high-fashion editorial work and runway presentations with a
                   focus on timeless elegance.
@@ -95,10 +93,10 @@ export default function Index() {
           <div className="container-wide">
             <div className="grid md:grid-cols-3 gap-8 text-center">
               <div className="group">
-                <h3 className="text-xl font-medium mb-4 group-hover:text-muted-foreground transition-colors duration-300">
+                <h3 className="text-xl font-heading font-semibold mb-4 group-hover:text-muted-foreground transition-colors duration-300">
                   Portfolio
                 </h3>
-                <p className="text-muted-foreground mb-6">
+                <p className="text-body text-muted-foreground mb-6">
                   Editorial shoots, runway moments, and behind-the-scenes
                   captures
                 </p>
@@ -111,10 +109,10 @@ export default function Index() {
               </div>
 
               <div className="group">
-                <h3 className="text-xl font-medium mb-4 group-hover:text-muted-foreground transition-colors duration-300">
+                <h3 className="text-xl font-heading font-semibold mb-4 group-hover:text-muted-foreground transition-colors duration-300">
                   About
                 </h3>
-                <p className="text-muted-foreground mb-6">
+                <p className="text-body text-muted-foreground mb-6">
                   Professional background, measurements, and modeling
                   aspirations
                 </p>
@@ -127,10 +125,10 @@ export default function Index() {
               </div>
 
               <div className="group">
-                <h3 className="text-xl font-medium mb-4 group-hover:text-muted-foreground transition-colors duration-300">
+                <h3 className="text-xl font-heading font-semibold mb-4 group-hover:text-muted-foreground transition-colors duration-300">
                   Contact
                 </h3>
-                <p className="text-muted-foreground mb-6">
+                <p className="text-body text-muted-foreground mb-6">
                   Ready to collaborate? Let's create something beautiful
                   together
                 </p>
