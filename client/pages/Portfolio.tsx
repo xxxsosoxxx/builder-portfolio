@@ -1,5 +1,6 @@
 import { Navigation } from "@/components/Navigation";
 import { PhotoGallery } from "@/components/PhotoGallery";
+import { Footer } from "@/components/Footer";
 import { useSmoothScroll } from "@/hooks/use-smooth-scroll";
 
 export default function Portfolio() {
@@ -39,6 +40,8 @@ export default function Portfolio() {
           </div>
         </div>
       </section>
+
+      <Footer />
     </div>
   );
 }
