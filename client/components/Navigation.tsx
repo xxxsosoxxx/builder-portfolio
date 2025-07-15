@@ -21,7 +21,6 @@ export function Navigation() {
   }, [location]);
 
   const navItems = [
-    { href: "/", label: "Home" },
     { href: "/portfolio", label: "Portfolio" },
     { href: "/about", label: "About" },
     { href: "/contact", label: "Contact" },
@@ -43,10 +42,9 @@ export function Navigation() {
             <Link
               to="/"
               className="text-xl font-light tracking-wider text-foreground hover:text-muted-foreground transition-colors duration-300"
+              style={{ font: "300 20px/28px Space Grotesk, sans-serif" }}
             >
-              <span style={{ fontFamily: "Space Grotesk, sans-serif" }}>
-                SOUHEILA SAID
-              </span>
+              SOUHEILA SAID
             </Link>
 
             {/* Desktop Navigation */}
