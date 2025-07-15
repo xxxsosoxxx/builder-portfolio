@@ -9,10 +9,8 @@ export default function Portfolio() {
       <section className="pt-32 pb-16 bg-background">
         <div className="section-padding">
           <div className="container-narrow text-center">
-            <h1 className="text-5xl md:text-6xl font-light mb-8 animate-fade-in-up">
-              Portfolio
-            </h1>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto animate-fade-in-up">
+            <h1 className="text-hero mb-8 animate-fade-in-up">Portfolio</h1>
+            <p className="text-subhero text-muted-foreground max-w-2xl mx-auto animate-fade-in-up">
               A curated collection of editorial shoots, runway moments, and
               creative collaborations
             </p>
@@ -42,9 +40,7 @@ export default function Portfolio() {
                     />
                   </div>
                   <div className="mt-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    <p className="text-sm text-muted-foreground">
-                      Editorial {index}
-                    </p>
+                    <p className="text-caption">Editorial {index}</p>
                   </div>
                 </div>
               ))}
@@ -57,10 +53,10 @@ export default function Portfolio() {
       <section className="py-16 bg-secondary/30">
         <div className="section-padding">
           <div className="container-narrow text-center">
-            <h2 className="text-3xl font-light mb-6">
+            <h2 className="text-section-title mb-6">
               Interested in working together?
             </h2>
-            <p className="text-lg text-muted-foreground mb-8">
+            <p className="text-body-large text-muted-foreground mb-8">
               Let's create something beautiful
             </p>
             <a href="/contact" className="btn-minimal">
