@@ -83,7 +83,8 @@ export default function About() {
                 <img
                   src="https://cdn.builder.io/api/v1/image/assets%2F32dbebdc41de4f02a397c4bcb49e3699%2Fa9c6c355c3b34ef5af9ab0329c7dd443"
                   alt="Souheila Said"
-                  className="w-full h-[600px] object-cover object-center"
+                  className="w-full object-cover object-center"
+                  style={{ height: "758px" }}
                 />
               </div>
             </div>
