@@ -14,8 +14,20 @@ export default function About() {
               className="grid md:grid-cols-2 gap-16 items-center"
               style={{ marginTop: "-1px", paddingTop: "5px" }}
             >
-              <div>
-                <h1 className="text-hero mb-8 animate-fade-in-up">About</h1>
+              <div
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  justifyContent: "flex-start",
+                  alignItems: "flex-start",
+                }}
+              >
+                <h1
+                  className="text-hero animate-fade-in-up"
+                  style={{ paddingTop: "74px", margin: "19px 0 -23px" }}
+                >
+                  About
+                </h1>
                 <p className="text-subhero text-muted-foreground animate-fade-in-up">
                   <br />
                   <br />I believe in fashion as form, not distraction.
