@@ -148,11 +148,21 @@ export function PhotoGallery() {
               >
                 {/* Image */}
                 <div className="relative overflow-hidden">
+                  {/* Loading placeholder */}
+                  {!loadedImages.has(photo.id) && (
+                    <div className="absolute inset-0 bg-gray-100 animate-pulse flex items-center justify-center">
+                      <div className="w-8 h-8 border-2 border-gray-300 border-t-gray-600 rounded-full animate-spin"></div>
+                    </div>
+                  )}
+
                   <img
                     src={photo.src}
                     alt={photo.title}
-                    className="w-full h-auto object-cover transition-transform duration-700 ease-out group-hover:scale-110"
+                    className={`w-full h-auto object-cover transition-all duration-700 ease-out group-hover:scale-110 ${
+                      loadedImages.has(photo.id) ? "opacity-100" : "opacity-0"
+                    }`}
                     loading="lazy"
+                    onLoad={() => handleImageLoad(photo.id)}
                   />
 
                   {/* Overlay */}
