@@ -33,9 +33,6 @@ export default function Portfolio() {
             <h2 className="text-section-title mb-6">
               Interested in working together?
             </h2>
-            <p className="text-body-large text-muted-foreground mb-8">
-              Let's create something beautiful
-            </p>
             <a href="/contact" className="btn-minimal">
               Get In Touch
             </a>
