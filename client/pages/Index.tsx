@@ -17,7 +17,7 @@ export default function Index() {
         {/* Background Image */}
         <div className="absolute inset-0 z-0">
           <img
-            src="https://images.unsplash.com/photo-1469334031218-e382a71b716b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2340&q=80"
+            src="https://cdn.builder.io/api/v1/image/assets%2F32dbebdc41de4f02a397c4bcb49e3699%2F7f99b673551e42f7a1aa9f5d299383b4"
             alt="Souheila Said Fashion Model"
             className="w-full h-full object-cover object-center"
             onLoad={() => setIsLoaded(true)}
@@ -32,9 +32,9 @@ export default function Index() {
             isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
           }`}
         >
-          <h1 className="text-hero mb-6 leading-none">Souheila Said</h1>
+          <h1 className="text-hero mb-6 leading-none">SOUHEILA SAID</h1>
           <p className="text-subhero max-w-2xl mx-auto">
-            Fashion model based in Brussels.
+            Model based in Brussels.
             <br />
             Available for editorial and runway.
           </p>
@@ -66,8 +66,8 @@ export default function Index() {
                 </h2>
                 <p className="text-body-large text-muted-foreground">
                   Bringing sophistication and grace to every frame. Specializing
-                  in high-fashion editorial work and runway presentations with a
-                  focus on timeless elegance.
+                  in high-fashion editorial work and runway with a focus on
+                  timeless elegance.
                 </p>
                 <div className="pt-4">
                   <a href="/portfolio" className="btn-minimal inline-block">
@@ -77,7 +77,7 @@ export default function Index() {
               </div>
               <div className="relative">
                 <img
-                  src="https://images.unsplash.com/photo-1509631179647-0177331693ae?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1288&q=80"
+                  src="https://cdn.builder.io/api/v1/image/assets%2F32dbebdc41de4f02a397c4bcb49e3699%2F17200c70e2d64c0e8eba039905db2c65"
                   alt="Souheila Said Portrait"
                   className="w-full h-[600px] object-cover object-center"
                 />
@@ -97,8 +97,7 @@ export default function Index() {
                   Portfolio
                 </h3>
                 <p className="text-body text-muted-foreground mb-6">
-                  Editorial shoots, runway moments, and behind-the-scenes
-                  captures
+                  Editorial shoots and polaroïds
                 </p>
                 <a
                   href="/portfolio"
@@ -113,8 +112,7 @@ export default function Index() {
                   About
                 </h3>
                 <p className="text-body text-muted-foreground mb-6">
-                  Professional background, measurements, and modeling
-                  aspirations
+                  Professional background and measurements
                 </p>
                 <a
                   href="/about"
@@ -129,8 +127,8 @@ export default function Index() {
                   Contact
                 </h3>
                 <p className="text-body text-muted-foreground mb-6">
-                  Ready to collaborate? Let's create something beautiful
-                  together
+                  Ready to collaborate?
+                  <br />
                 </p>
                 <a
                   href="/contact"
