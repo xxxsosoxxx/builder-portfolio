@@ -83,6 +83,60 @@ const portfolioPhotos: Photo[] = [
     title: "Urban Portrait",
     date: "2021",
   },
+  {
+    id: 13,
+    src: "https://cdn.builder.io/api/v1/image/assets%2F32dbebdc41de4f02a397c4bcb49e3699%2F17200c70e2d64c0e8eba039905db2c65",
+    title: "Portrait Study",
+    date: "2024",
+  },
+  {
+    id: 14,
+    src: "https://cdn.builder.io/api/v1/image/assets%2F32dbebdc41de4f02a397c4bcb49e3699%2F0562957d56cf4bd18ded609b02b50e00",
+    title: "Studio Light",
+    date: "2024",
+  },
+  {
+    id: 15,
+    src: "https://cdn.builder.io/api/v1/image/assets%2F32dbebdc41de4f02a397c4bcb49e3699%2F0200cc01787f490eaa8122f66952b4f0",
+    title: "Fashion Editorial",
+    date: "2023",
+  },
+  {
+    id: 16,
+    src: "https://cdn.builder.io/api/v1/image/assets%2F32dbebdc41de4f02a397c4bcb49e3699%2F0c9adc978fbe4938adb202fd43a1f468",
+    title: "Minimalist",
+    date: "2023",
+  },
+  {
+    id: 17,
+    src: "https://cdn.builder.io/api/v1/image/assets%2F32dbebdc41de4f02a397c4bcb49e3699%2F946bd4609e2b441cb635f38424e86641",
+    title: "Shadow Play",
+    date: "2022",
+  },
+  {
+    id: 18,
+    src: "https://cdn.builder.io/api/v1/image/assets%2F32dbebdc41de4f02a397c4bcb49e3699%2Fb37e95118d1a4c5e8ed81a8f89762619",
+    title: "Contrast",
+    date: "2022",
+  },
+  {
+    id: 19,
+    src: "https://cdn.builder.io/api/v1/image/assets%2F32dbebdc41de4f02a397c4bcb49e3699%2Fd4f7acf18df94a8280d5188219cd95d9",
+    title: "Modern Lines",
+    date: "2022",
+  },
+  {
+    id: 20,
+    src: "https://cdn.builder.io/api/v1/image/assets%2F32dbebdc41de4f02a397c4bcb49e3699%2Fc7872546826c4597b69b729b00d39bb7",
+    title: "Architectural",
+    date: "2021",
+  },
+  {
+    id: 21,
+    src: "https://cdn.builder.io/api/v1/image/assets%2F32dbebdc41de4f02a397c4bcb49e3699%2F73a97eecdfca43aa9b84c4314ba17abd",
+    title: "Vertical",
+    date: "2021",
+  },
 ];
 
 function GalleryItem({
