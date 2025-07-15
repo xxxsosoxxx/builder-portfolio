@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { X, ChevronLeft, ChevronRight } from "lucide-react";
+import { useIntersectionObserver } from "@/hooks/use-intersection-observer";
 
 interface Photo {
   id: number;
