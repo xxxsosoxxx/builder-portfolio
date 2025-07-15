@@ -73,9 +73,9 @@ export default function About() {
         <div className="section-padding">
           <div className="container-narrow">
             <div className="grid md:grid-cols-3 gap-16">
-              <div className="md:col-span-2 space-y-6">
+              <div className="md:col-span-2 space-y-6 flex flex-col justify-center">
                 <h2 className="text-section-title mb-8">Background</h2>
-                <div className="text-body text-muted-foreground">
+                <div className="text-body text-muted-foreground leading-relaxed max-w-2xl">
                   <p>
                     Souheila moves fluidly between editorial, conceptual, and
                     runway projects, focusing on sculptural silhouettes and a
