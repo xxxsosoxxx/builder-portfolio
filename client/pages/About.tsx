@@ -155,19 +155,25 @@ export default function About() {
                   <div className="space-y-3 text-muted-foreground">
                     <div className="flex justify-between">
                       <span>Height</span>
-                      <span>
-                        <span style={{ fontWeight: "normal" }}>
-                          177 cm | 5'9.5"
-                        </span>
-                      </span>
+                      <span>177 cm | 5'9.5"</span>
+                    </div>
+                    <div
+                      className="flex justify-between"
+                      style={{ marginTop: "3px" }}
+                    >
+                      <span>Chest</span>
+                      <span>81 cm | 32</span>
+                    </div>
+                    <div
+                      className="flex justify-between"
+                      style={{ marginTop: "3px" }}
+                    >
+                      <span>Waist</span>
+                      <span>63 cm | 25</span>
                     </div>
                     <div className="flex justify-between">
-                      <span>Measurements</span>
-                      <span>
-                        <span style={{ fontWeight: "normal" }}>
-                          81/63/81 cm (EU) — 32/25/32 in (US)
-                        </span>
-                      </span>
+                      <span>Hips</span>
+                      <span>81 cm | 32</span>
                     </div>
                     <div className="flex justify-between">
                       <span>Shoes</span>
