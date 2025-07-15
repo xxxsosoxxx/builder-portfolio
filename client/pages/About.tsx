@@ -11,10 +11,8 @@ export default function About() {
           <div className="container-narrow">
             <div className="grid md:grid-cols-2 gap-16 items-center">
               <div>
-                <h1 className="text-5xl md:text-6xl font-light mb-8 animate-fade-in-up">
-                  About
-                </h1>
-                <p className="text-xl text-muted-foreground animate-fade-in-up">
+                <h1 className="text-hero mb-8 animate-fade-in-up">About</h1>
+                <p className="text-subhero text-muted-foreground animate-fade-in-up">
                   Model based in Brussels, specializing in editorial and runway
                   work with a passion for timeless elegance.
                 </p>
@@ -37,8 +35,8 @@ export default function About() {
           <div className="container-narrow">
             <div className="grid md:grid-cols-3 gap-16">
               <div className="md:col-span-2 space-y-6">
-                <h2 className="text-3xl font-light mb-8">Background</h2>
-                <div className="text-xl text-muted-foreground leading-relaxed">
+                <h2 className="text-section-title mb-8">Background</h2>
+                <div className="text-body-large text-muted-foreground">
                   <div>
                     Souheila's work spans editorial, showroom, and runway, with
                     a focus on sculptural silhouettes and minimal aesthetics.
@@ -69,7 +67,9 @@ export default function About() {
 
               <div className="space-y-8">
                 <div className="font-semibold text-xl">
-                  <h3 className="text-xl font-medium mb-6">Measurements</h3>
+                  <h3 className="text-xl font-heading font-semibold mb-6">
+                    Measurements
+                  </h3>
                   <div className="space-y-3 text-muted-foreground">
                     <div className="flex justify-between">
                       <span>Height</span>
