@@ -141,7 +141,15 @@ export default function About() {
 
               <div className="space-y-8">
                 <div className="font-semibold text-xl">
-                  <h3 className="text-xl font-heading font-semibold mb-6">
+                  <h3
+                    className="font-heading font-semibold"
+                    style={{
+                      margin: "-15px 0 24px",
+                      fontSize: "36px",
+                      fontWeight: "600",
+                      letterSpacing: "-0.2px",
+                    }}
+                  >
                     Measurements
                   </h3>
                   <div className="space-y-3 text-muted-foreground">
