@@ -102,7 +102,10 @@ export default function Index() {
       </section>
 
       {/* Quick Links Section */}
-      <section className="py-20 bg-[#f5f5f5] border-t border-border">
+      <section
+        className="py-20 border-t border-border"
+        style={{ backgroundColor: "#d3d3d3" }}
+      >
         <div className="section-padding">
           <div className="container-wide">
             <div className="grid md:grid-cols-3 gap-12 text-center">
