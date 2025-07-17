@@ -129,12 +129,16 @@ export default function Index() {
                 <h3 className="text-xl font-heading font-semibold mb-4 group-hover:text-muted-foreground transition-colors duration-300">
                   About
                 </h3>
-                <p className="text-body text-muted-foreground mb-6">
+                <p
+                  className="text-body mb-6"
+                  style={{ color: "rgba(74, 74, 74, 1)" }}
+                >
                   Background and measurements
                 </p>
                 <a
                   href="/about"
-                  className="text-sm font-medium tracking-wider uppercase hover:text-muted-foreground transition-colors duration-300"
+                  className="tracking-wider uppercase hover:text-muted-foreground transition-colors duration-300"
+                  style={{ font: "500 14px/20px Orbitron, sans-serif" }}
                 >
                   Learn More →
                 </a>
@@ -152,7 +156,7 @@ export default function Index() {
                   href="/contact"
                   className="text-sm font-medium tracking-wider uppercase hover:text-muted-foreground transition-colors duration-300"
                 >
-                  Get In Touch →
+                  Get In Touch ��
                 </a>
               </div>
             </div>
