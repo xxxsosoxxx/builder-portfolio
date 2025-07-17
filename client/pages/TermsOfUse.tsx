@@ -49,7 +49,7 @@ export default function TermsOfUse() {
 
                 <div>
                   <h2 className="text-section-title mb-4">3. Contact</h2>
-                  <p>For questions about these terms, you may contact us at:</p>
+                  <p>For questions about these terms, you may contact me at:</p>
                   <div className="my-4">
                     <p className="text-lg">
                       📧{" "}
