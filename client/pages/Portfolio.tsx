@@ -34,7 +34,11 @@ export default function Portfolio() {
             <h2 className="text-section-title mb-6">
               Interested in working together?
             </h2>
-            <a href="/contact" className="btn-minimal">
+            <a
+              href="/contact"
+              className="btn-minimal"
+              style={{ fontFamily: "Orbitron, sans-serif" }}
+            >
               Get In Touch
             </a>
           </div>
