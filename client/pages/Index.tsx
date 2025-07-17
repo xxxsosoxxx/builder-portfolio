@@ -33,7 +33,12 @@ export default function Index() {
             isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
           }`}
         >
-          <h1 className="text-hero mb-6 leading-none">SOUHEILA SAID</h1>
+          <h1
+            className="text-hero mb-6 leading-none"
+            style={{ font: "64px/64px Orbitron, sans-serif" }}
+          >
+            SOUHEILA SAID
+          </h1>
           <p className="text-subhero max-w-2xl mx-auto">
             Model based in Brussels.
             <br />
