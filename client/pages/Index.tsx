@@ -63,12 +63,13 @@ export default function Index() {
             >
               <div className="space-y-6">
                 <h2 className="text-section-title text-foreground">
-                  Editorial Excellence
+                  Long legs don't care.
                 </h2>
                 <p className="text-body-large text-muted-foreground">
-                  Bringing sophistication and grace to every frame. Specializing
-                  in high-fashion editorial work and runway with a focus on
-                  timeless elegance.
+                  Too tall to hide.
+                  <br />
+                  Too tired to conform.
+                  <br />
                 </p>
                 <div className="pt-4">
                   <a
