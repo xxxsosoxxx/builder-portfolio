@@ -21,7 +21,7 @@ export function Footer() {
                 href="/legal"
                 className="text-sm text-muted-foreground hover:text-foreground transition-colors duration-300"
               >
-                Legal notice
+                <p>Terms of Use</p>
               </a>
             </div>
           </div>
