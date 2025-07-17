@@ -110,6 +110,7 @@ export default function Contact() {
                     <button
                       type="submit"
                       className="btn-minimal w-full md:w-auto"
+                      style={{ fontFamily: "Orbitron, sans-serif" }}
                     >
                       Send Message
                     </button>
