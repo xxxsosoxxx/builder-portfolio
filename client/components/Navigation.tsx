@@ -42,7 +42,7 @@ export function Navigation() {
             <Link
               to="/"
               className="text-xl font-light tracking-wider text-foreground hover:text-muted-foreground transition-colors duration-300"
-              style={{ font: "300 20px/28px Space Grotesk, sans-serif" }}
+              style={{ font: "25px/28px Orbitron, sans-serif" }}
             >
               SOUHEILA SAID
             </Link>
