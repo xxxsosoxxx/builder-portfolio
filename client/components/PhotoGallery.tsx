@@ -14,7 +14,7 @@ const portfolioPhotos: Photo[] = [
   {
     id: 1,
     src: "https://cdn.builder.io/api/v1/image/assets%2F32dbebdc41de4f02a397c4bcb49e3699%2F7f99b673551e42f7a1aa9f5d299383b4",
-    title: "Editorial Elegance",
+    title: "Portrait",
     date: "2024",
   },
   {
