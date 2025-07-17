@@ -128,10 +128,10 @@ export default function Contact() {
                         Email
                       </h3>
                       <a
-                        href="mailto:hello@souheila-said.com"
+                        href="mailto:contact@souheilasaid.com"
                         className="text-muted-foreground hover:text-foreground transition-colors duration-300"
                       >
-                        hello@souheila-said.com
+                        contact@souheilasaid.com
                       </a>
                     </div>
 
@@ -177,7 +177,7 @@ export default function Contact() {
                   <p className="text-body text-muted-foreground">
                     Available for editorial shoots, runway shows, and creative
                     collaborations. Based in Brussels with availability for
-                    travel across Europe and internationally.
+                    travel across Europe.
                   </p>
                 </div>
 
