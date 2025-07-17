@@ -118,7 +118,8 @@ export default function Index() {
                 </p>
                 <a
                   href="/portfolio"
-                  className="text-sm font-medium tracking-wider uppercase hover:text-muted-foreground transition-colors duration-300"
+                  className="tracking-wider uppercase hover:text-muted-foreground transition-colors duration-300"
+                  style={{ font: "500 14px/20px Orbitron, sans-serif" }}
                 >
                   Explore Work →
                 </a>
