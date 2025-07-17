@@ -80,7 +80,10 @@ export default function Index() {
                   <a
                     href="/portfolio"
                     className="btn-minimal inline-block"
-                    style={{ cursor: "pointer" }}
+                    style={{
+                      cursor: "pointer",
+                      font: "400 14px/22.4px Orbitron, sans-serif",
+                    }}
                   >
                     View Portfolio
                   </a>
