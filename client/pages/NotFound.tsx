@@ -16,7 +16,11 @@ export default function NotFound() {
             <p className="text-body-large text-muted-foreground mb-12 max-w-lg mx-auto">
               The page you're looking for doesn't exist or has been moved.
             </p>
-            <a href="/" className="btn-minimal">
+            <a
+              href="/"
+              className="btn-minimal"
+              style={{ fontFamily: "Orbitron, sans-serif" }}
+            >
               Return Home
             </a>
           </div>
