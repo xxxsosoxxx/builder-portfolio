@@ -18,10 +18,10 @@ export function Footer() {
                 Accessibility statement
               </a>
               <a
-                href="/legal"
+                href="/terms-of-use"
                 className="text-sm text-muted-foreground hover:text-foreground transition-colors duration-300"
               >
-                <p>Terms of Use</p>
+                Terms of Use
               </a>
             </div>
           </div>
