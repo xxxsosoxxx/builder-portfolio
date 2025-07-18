@@ -25,62 +25,58 @@ export default function About() {
         <div className="section-padding">
           <div className="container-narrow">
 
-            {/* Desktop layout : 2 colonnes About + Photo */}
-            <div className="flex flex-col md:flex-row md:gap-16">
-
-              {/* Photo : à droite sur desktop, en premier sur mobile */}
+            {/* About section */}
+            <div className="flex flex-col md:flex-row md:gap-16 items-stretch">
+              
+              {/* Image */}
               <div
-                className="order-1 md:order-2 flex items-center justify-center mb-8 md:mb-0"
-                style={{ height: aboutHeight || "auto", minWidth: "300px", flex: '1' }}
+                className="order-1 md:order-2 flex justify-center md:items-stretch mb-8 md:mb-0 w-full md:w-1/2"
               >
                 <img
                   src="/DSC_0666.jpg"
                   alt="Souheila"
-                  className="rounded-lg shadow-lg w-auto max-h-full object-contain"
-                  style={{ maxHeight: aboutHeight }}
+                  className="rounded-lg shadow-lg object-cover w-full h-full"
+                  style={{ height: aboutHeight }}
                 />
               </div>
 
-              {/* Texte About : à gauche sur desktop, en second sur mobile */}
+              {/* About Text */}
               <div
                 ref={aboutRef}
-                className="order-2 md:order-1 max-w-xl flex flex-col justify-center flex-1"
-                style={{ fontSize: "16px", lineHeight: "24px" }}
+                className="order-2 md:order-1 flex flex-col justify-between w-full md:w-1/2"
               >
-                <h1 className="text-4xl font-semibold mb-6">About</h1>
-                <p className="text-subhero text-muted-foreground">
-                  <br />
-                  <br />I believe in fashion as form, not distraction.
-                  <br />
-                  <span className="about-text">
-                    <span className="about-text-highlight">
-                      My body is not a product. It is an expression.  
-                      <br />It belongs to form, to movement, to substance.
+                <div>
+                  <h1 className="text-4xl font-semibold mb-6">About</h1>
+                </div>
+                <div className="text-subhero text-muted-foreground text-sm leading-relaxed">
+                  <p>
+                    I believe in fashion as form, not distraction.
+                    <br />
+                    <span className="about-text">
+                      <span className="about-text-highlight">
+                        My body is not a product. It is an expression.
+                        <br />It belongs to form, to movement, to substance.
+                      </span>
+                      <br /><br />
+                      I stand with those who design, construct, and reflect. Those who see fabric as structure, and the body as narrative.
+                      <br /><br />
+                      Not a label. Not a passing style. Not an accessory.
+                      <br /><br />
+                      I believe in silhouettes that create presence.
+                      <br />
+                      In visions that endure.
+                      <br />
+                      In quiet strength that speaks beyond the noise.
+                      <br /><br />
+                      I move with designers who imagine the future.
+                      <br />
+                      With creators who build meaning.
+                      <br /><br />
+                      I am not here to embellish.
+                      <br />I am here to contribute.
                     </span>
-                    <br />
-                    <br />
-                    I stand with those who design, construct, and reflect. Those who see fabric as structure, and the body as narrative.  
-                    <br />
-                    <br />
-                    Not a label. Not a passing style. Not an accessory.  
-                    <br />
-                    <br />
-                    I believe in silhouettes that create presence.  
-                    <br />
-                    In visions that endure.  
-                    <br />
-                    In quiet strength that speaks beyond the noise.  
-                    <br />
-                    <br />
-                    I move with designers who imagine the future.  
-                    <br />
-                    With creators who build meaning.  
-                    <br />
-                    <br />
-                    I am not here to embellish.  
-                    <br />I am here to contribute.
-                  </span>
-                </p>
+                  </p>
+                </div>
               </div>
             </div>
 
@@ -106,8 +102,7 @@ export default function About() {
                   <p>
                     Souheila collaborates on editorial, conceptual, and
                     runway projects, focusing on sculptural silhouettes and quiet power.
-                    <br />
-                    <br />
+                    <br /><br />
                   </p>
                   <p>
                     Her presence is precise and instinctive, where structure
@@ -116,8 +111,7 @@ export default function About() {
                   <p>
                     She gravitates towards creative directions that value
                     strength, elegance, and intention.
-                    <br />
-                    <br />
+                    <br /><br />
                   </p>
                   <p>
                     Based in Brussels, available for opportunities in Paris,
