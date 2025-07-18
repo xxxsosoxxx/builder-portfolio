@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import { X, ChevronLeft, ChevronRight } from "lucide-react";
 import { portfolioPhotos } from "./portfolioPhotos";
 
@@ -14,39 +14,22 @@ function GalleryItem({
   photo,
   index,
   onOpen,
-  setRowSpan,
 }: {
   photo: Photo;
   index: number;
   onOpen: (photo: Photo) => void;
-  setRowSpan: (index: number, span: number) => void;
 }) {
-  const imgRef = useRef<HTMLImageElement>(null);
-
-  // When image loads, measure its height and set grid row span
-  const handleLoad = () => {
-    if (imgRef.current) {
-      // 1px is the grid auto-rows value below
-      const rowHeight = 1;
-      const height = imgRef.current.getBoundingClientRect().height;
-      const span = Math.ceil(height / rowHeight);
-      setRowSpan(index, span);
-    }
-  };
-
   return (
     <div
-      className="group relative cursor-pointer overflow-hidden bg-white border border-gray-100 hover:border-gray-300 transition-all duration-700 hover:shadow-2xl rounded-lg"
+      className="group relative mb-4 cursor-pointer overflow-hidden bg-white border border-gray-100 hover:border-gray-300 transition-all duration-700 hover:shadow-2xl rounded-lg"
       onClick={() => onOpen(photo)}
     >
       <div className="relative w-full overflow-hidden rounded-lg">
         <img
-          ref={imgRef}
           src={photo.src}
           alt={photo.title}
           className="w-full h-auto object-cover transition-transform duration-500 ease-out group-hover:scale-105 rounded-lg"
           loading="lazy"
-          onLoad={handleLoad}
         />
 
         {/* Overlay */}
@@ -67,32 +50,6 @@ function GalleryItem({
 export function PhotoGallery() {
   const [selectedPhoto, setSelectedPhoto] = useState<Photo | null>(null);
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [columnCount, setColumnCount] = useState(4);
-  const [rowSpans, setRowSpans] = useState<number[]>(() =>
-    Array(portfolioPhotos.length).fill(30)
-  );
-
-  // Responsive column count
-  useEffect(() => {
-    const updateColumnCount = () => {
-      if (window.innerWidth >= 1280) setColumnCount(4); // xl
-      else if (window.innerWidth >= 1024) setColumnCount(3); // lg
-      else if (window.innerWidth >= 768) setColumnCount(2); // md
-      else setColumnCount(1);
-    };
-    updateColumnCount();
-    window.addEventListener("resize", updateColumnCount);
-    return () => window.removeEventListener("resize", updateColumnCount);
-  }, []);
-
-  // Set row span for each image
-  const setRowSpan = (index: number, span: number) => {
-    setRowSpans((prev) => {
-      const next = [...prev];
-      next[index] = span;
-      return next;
-    });
-  };
 
   const openLightbox = (photo: Photo) => {
     setSelectedPhoto(photo);
@@ -113,31 +70,17 @@ export function PhotoGallery() {
 
   return (
     <>
-      {/* Masonry Grid */}
+      {/* Masonry Columns */}
       <div className="w-full bg-white">
         <div className="mx-auto max-w-none px-0">
-          <div
-            className={`grid gap-4 p-4
-              grid-cols-1
-              md:grid-cols-2
-              lg:grid-cols-3
-              xl:grid-cols-4
-              auto-rows-[1px]`}
-          >
+          <div className="columns-1 md:columns-2 lg:columns-3 xl:columns-4 gap-4 p-4">
             {portfolioPhotos.map((photo, index) => (
-              <div
+              <GalleryItem
                 key={photo.id}
-                style={{
-                  gridRowEnd: `span ${rowSpans[index]}`,
-                }}
-              >
-                <GalleryItem
-                  photo={photo}
-                  index={index}
-                  onOpen={openLightbox}
-                  setRowSpan={setRowSpan}
-                />
-              </div>
+                photo={photo}
+                index={index}
+                onOpen={openLightbox}
+              />
             ))}
           </div>
         </div>
