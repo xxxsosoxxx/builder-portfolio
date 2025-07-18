@@ -183,12 +183,11 @@ function GalleryItem({
         <p className="text-white/80 text-caption">{photo.date}</p>
       </div>
 
-      {/* Hover shadow effect */}
-      <div className="absolute inset-0 bg-black/10 opacity-0 group-hover:opacity-100 transition-all duration-500 -z-10 blur-sm rounded-md" />
-    </div>
-  );
-}
-
+ {/* Hover shadow effect */}
+<div
+  className="absolute inset-0 bg-black/10 opacity-0 group-hover:opacity-100 transition-all duration-500 -z-10 rounded-md"
+  style={{ margin: "-4px" }}
+/>      
 export function PhotoGallery() {
   const [selectedPhoto, setSelectedPhoto] = useState<Photo | null>(null);
   const [currentIndex, setCurrentIndex] = useState(0);

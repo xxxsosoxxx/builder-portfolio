@@ -15,7 +15,7 @@ export default function Portfolio() {
           <div className="container-narrow text-center">
             <h1 className="text-hero mb-8 animate-fade-in-up">Portfolio</h1>
             <p className="text-subhero text-muted-foreground max-w-2xl mx-auto animate-fade-in-up">
-              A curated collection of studio shoots, and creative collaborations
+              A curated collection of studio shoots and creative collaborations
             </p>
           </div>
         </div>
