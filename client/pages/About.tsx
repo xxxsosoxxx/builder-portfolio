@@ -112,7 +112,7 @@ export default function About() {
                 {/* PHOTO */}
                 <div className="w-full flex justify-center mb-8">
                   <img
-                    src="/DSC0666.jpg"
+                    src="/DSC_0666.jpg"
                     alt="Souheila"
                     className="rounded-lg shadow-lg max-w-xs w-full h-auto"
                     style={{ objectFit: "cover" }}
