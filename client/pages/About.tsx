@@ -108,6 +108,16 @@ export default function About() {
               </div>
 
               <div className="space-y-8">
+                {/* PHOTO */}
+                <div className="w-full flex justify-center">
+                  <img
+                    src="/IMG_4742.png" 
+                    alt="Souheila"
+                    className="rounded-lg shadow-lg max-w-xs w-full h-auto"
+                    style={{ objectFit: "cover" }}
+                  />
+                </div>
+                {/* MESURES */}
                 <div className="font-semibold text-xl">
                   <h3
                     className="font-heading font-semibold"
@@ -171,7 +181,7 @@ export default function About() {
                     <div></div>
                     <div></div>
                   </div>
-                </div>
+                </div>          
               </div>
             </div>
           </div>
