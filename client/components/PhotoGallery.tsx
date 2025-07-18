@@ -139,7 +139,7 @@ function GalleryItem({
   return (
     <div
       ref={ref}
-      className={`group relative break-inside-avoid cursor-pointer overflow-hidden bg-white border border-gray-100 hover:border-gray-300 transition-all duration-700 hover:shadow-2xl ${
+      className={`group relative break-inside-avoid cursor-pointer overflow-hidden bg-white border border-gray-100 hover:border-gray-300 transition-all duration-700 hover:shadow-2xl rounded-lg ${
         isVisible
           ? "animate-fade-in opacity-100 translate-y-0"
           : "opacity-0 translate-y-8"
@@ -147,9 +147,9 @@ function GalleryItem({
       onClick={() => onOpen(photo)}
       style={{ transitionDelay: `${index * 0.05}s` }}
     >
-      <div className="relative w-full overflow-hidden ">
+      <div className="relative w-full aspect-[4/5] overflow-hidden rounded-lg">
         {!isLoaded && (
-          <div className="absolute inset-0 bg-gray-100 animate-pulse flex items-center justify-center z-10">
+          <div className="absolute inset-0 bg-gray-100 animate-pulse flex items-center justify-center z-10 rounded-lg">
             <div className="w-8 h-8 border-2 border-gray-300 border-t-gray-600 rounded-full animate-spin"></div>
           </div>
         )}
@@ -157,18 +157,18 @@ function GalleryItem({
         <img
           src={photo.src}
           alt={photo.title}
-          className={`w-full h-full object-contain object-top transition-transform duration-500 ease-out group-hover:scale-105 ${
-          isLoaded ? "opacity-100" : "opacity-0"
+          className={`w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-105 rounded-lg ${
+            isLoaded ? "opacity-100" : "opacity-0"
           }`}
           loading="lazy"
           onLoad={() => setIsLoaded(true)}
         />
 
         {/* Overlay qui couvre toute la photo */}
-        <div className="absolute inset-0 bg-black/0 group-hover:bg-black/25 transition duration-500 pointer-events-none z-20" />
+        <div className="absolute inset-0 bg-black/0 group-hover:bg-black/25 transition duration-500 pointer-events-none z-20 rounded-lg" />
 
         {/* Texte positionné en bas avec gradient */}
-        <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-30">
+        <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-30 rounded-b-lg">
           <h3 className="text-white font-heading font-semibold text-lg mb-1 leading-tight">
             {photo.title}
           </h3>
