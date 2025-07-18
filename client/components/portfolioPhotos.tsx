@@ -93,7 +93,7 @@ export const portfolioPhotos: Photo[] = [
   },
   {
     id: 16,
-    src: "\public\DSC_0724.jpg",
+    src: "/DSC_0724.jpg", // Correct path for public folder images
     title: "Studio, Aix-en-Provence",
     date: "2023",
   },
@@ -116,3 +116,6 @@ export const portfolioPhotos: Photo[] = [
     date: "2024",
   },
 ];
+
+// Remove example usage from this file.
+// Use portfolioPhotos by importing it in another file where you define your React component.
