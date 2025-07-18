@@ -3,13 +3,13 @@ import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
 
 export default function About() {
-  const aboutRef = useRef<HTMLDivElement>(null);
+  const aboutContentRef = useRef<HTMLDivElement>(null);
   const [aboutHeight, setAboutHeight] = useState<number>(0);
 
   useEffect(() => {
     function updateHeight() {
-      if (aboutRef.current) {
-        setAboutHeight(aboutRef.current.clientHeight);
+      if (aboutContentRef.current) {
+        setAboutHeight(aboutContentRef.current.offsetHeight);
       }
     }
     updateHeight();
@@ -24,58 +24,70 @@ export default function About() {
       <section className="flex-1 bg-background pt-32 pb-16">
         <div className="section-padding">
           <div className="container-narrow">
-
-            {/* About section */}
-            <div className="flex flex-col md:flex-row md:gap-16 items-stretch">
-              
-              {/* Image */}
+            {/* About Section */}
+            <div className="flex flex-col md:flex-row md:gap-16">
+              {/* Photo */}
               <div
-                className="order-1 md:order-2 flex justify-center md:items-stretch mb-8 md:mb-0 w-full md:w-1/2"
+                className="order-1 md:order-2 flex items-start justify-center mb-8 md:mb-0"
+                style={{
+                  height: aboutHeight || "auto",
+                  minWidth: "300px",
+                  flex: 1,
+                }}
               >
                 <img
                   src="/DSC_0666.jpg"
                   alt="Souheila"
-                  className="rounded-lg shadow-lg object-cover w-full h-full"
-                  style={{ height: aboutHeight }}
+                  className="rounded-lg shadow-lg w-auto h-full object-cover max-h-[1000px]"
                 />
               </div>
 
               {/* About Text */}
               <div
-                ref={aboutRef}
-                className="order-2 md:order-1 flex flex-col justify-between w-full md:w-1/2"
+                ref={aboutContentRef}
+                className="order-2 md:order-1 max-w-xl flex flex-col justify-between flex-1"
+                style={{ fontSize: "16px", lineHeight: "24px" }}
               >
-                <div>
-                  <h1 className="text-4xl font-semibold mb-6">About</h1>
-                </div>
-                <div className="text-subhero text-muted-foreground text-sm leading-relaxed">
-                  <p>
-                    I believe in fashion as form, not distraction.
-                    <br />
-                    <span className="about-text">
-                      <span className="about-text-highlight">
-                        My body is not a product. It is an expression.
-                        <br />It belongs to form, to movement, to substance.
-                      </span>
-                      <br /><br />
-                      I stand with those who design, construct, and reflect. Those who see fabric as structure, and the body as narrative.
-                      <br /><br />
-                      Not a label. Not a passing style. Not an accessory.
-                      <br /><br />
-                      I believe in silhouettes that create presence.
+                {/* Title at the top */}
+                <h1 className="text-4xl font-semibold mb-6">About</h1>
+
+                {/* Text aligned bottom */}
+                <div className="text-subhero text-muted-foreground mt-auto">
+                  <br />
+                  <br />
+                  I believe in fashion as form, not distraction.
+                  <br />
+                  <span className="about-text">
+                    <span className="about-text-highlight">
+                      My body is not a product. It is an expression.
                       <br />
-                      In visions that endure.
-                      <br />
-                      In quiet strength that speaks beyond the noise.
-                      <br /><br />
-                      I move with designers who imagine the future.
-                      <br />
-                      With creators who build meaning.
-                      <br /><br />
-                      I am not here to embellish.
-                      <br />I am here to contribute.
+                      It belongs to form, to movement, to substance.
                     </span>
-                  </p>
+                    <br />
+                    <br />
+                    I stand with those who design, construct, and reflect.
+                    Those who see fabric as structure, and the body as
+                    narrative.
+                    <br />
+                    <br />
+                    Not a label. Not a passing style. Not an accessory.
+                    <br />
+                    <br />
+                    I believe in silhouettes that create presence.
+                    <br />
+                    In visions that endure.
+                    <br />
+                    In quiet strength that speaks beyond the noise.
+                    <br />
+                    <br />
+                    I move with designers who imagine the future.
+                    <br />
+                    With creators who build meaning.
+                    <br />
+                    <br />
+                    I am not here to embellish.
+                    <br />I am here to contribute.
+                  </span>
                 </div>
               </div>
             </div>
@@ -100,9 +112,11 @@ export default function About() {
                   style={{ fontSize: "18px", lineHeight: "28px" }}
                 >
                   <p>
-                    Souheila collaborates on editorial, conceptual, and
-                    runway projects, focusing on sculptural silhouettes and quiet power.
-                    <br /><br />
+                    Souheila collaborates on editorial, conceptual, and runway
+                    projects, focusing on sculptural silhouettes and quiet
+                    power.
+                    <br />
+                    <br />
                   </p>
                   <p>
                     Her presence is precise and instinctive, where structure
@@ -111,7 +125,8 @@ export default function About() {
                   <p>
                     She gravitates towards creative directions that value
                     strength, elegance, and intention.
-                    <br /><br />
+                    <br />
+                    <br />
                   </p>
                   <p>
                     Based in Brussels, available for opportunities in Paris,
@@ -133,7 +148,10 @@ export default function About() {
                 >
                   Measurements
                 </h3>
-                <div className="space-y-3 text-muted-foreground" style={{ fontSize: "18px" }}>
+                <div
+                  className="space-y-3 text-muted-foreground"
+                  style={{ fontSize: "18px" }}
+                >
                   <div className="flex justify-between">
                     <span>Height</span>
                     <span>177 cm | 5'9.5</span>
@@ -172,7 +190,6 @@ export default function About() {
                 </div>
               </div>
             </div>
-
           </div>
         </div>
       </section>
