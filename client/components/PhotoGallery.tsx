@@ -184,7 +184,7 @@ function GalleryItem({
       </div>
 
       {/* Hover shadow effect */}
-      <div className="absolute -inset-2 bg-black/5 rounded-lg opacity-0 group-hover:opacity-100 transition-all duration-500 -z-10 blur-sm" />
+      <div className="absolute inset-0 bg-black/10 opacity-0 group-hover:opacity-100 transition-all duration-500 -z-10 blur-sm rounded-md" />
     </div>
   );
 }
