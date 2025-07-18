@@ -10,135 +10,75 @@ export default function About() {
       <section className="flex-1 bg-background pt-32 pb-16">
         <div className="section-padding">
           <div className="container-narrow">
-            <div
-              className="grid md:grid-cols-2 gap-16 items-start"
-              style={{ marginTop: "-1px", paddingTop: "5px" }}
-            >
-              {/* Left Column: About + Background */}
-              <div className="flex flex-col justify-between h-full">
+            {/* Conteneur flex horizontal avec hauteur égale */}
+            <div className="flex flex-col md:flex-row gap-16">
+              {/* Colonne gauche About */}
+              <div className="flex-1 flex flex-col justify-between min-h-[420px]">
+                {/* Texte About */}
                 <div>
-                  <h1
-                    className="text-hero animate-fade-in-up"
-                    style={{ margin: "0 0 24px" }}
-                  >
-                    About
-                  </h1>
-                  <p
-                    className="text-subhero text-muted-foreground animate-fade-in-up"
-                    style={{
-                      borderRadius: "2px",
-                      overflow: "hidden",
-                      borderWidth: "2px",
-                      borderStyle: "none",
-                      fontSize: "20px",
-                      lineHeight: "32px",
-                      maxWidth: "480px",
-                    }}
-                  >
+                  <h1 className="text-4xl font-bold mb-6 animate-fade-in-up">About</h1>
+                  <p className="text-lg text-muted-foreground max-w-xl leading-relaxed animate-fade-in-up">
                     <br />
-                    <br />I believe in fashion as form, not distraction.
                     <br />
-                    <span className="about-text">
-                      <span className="about-text-highlight">
-                        My body is not a product. It is an expression.  
-                        <br />It belongs to form, to movement, to substance.
-                      </span>
+                    I believe in fashion as form, not distraction.
+                    <br />
+                    <span className="block mt-4 mb-6 font-semibold text-base leading-relaxed text-gray-900">
+                      My body is not a product. It is an expression.
                       <br />
-                      <br />
-                      I stand with those who design, construct, and reflect. Those who see fabric as structure, and the body as narrative.  
-                      <br />
-                      <br />
-                      Not a label. Not a passing style. Not an accessory.  
-                      <br />
-                      <br />
-                      I believe in silhouettes that create presence.  
-                      <br />
-                      In visions that endure.  
-                      <br />
-                      In quiet strength that speaks beyond the noise.  
-                      <br />
-                      <br />
-                      I move with designers who imagine the future.  
-                      <br />
-                      With creators who build meaning.  
-                      <br />
-                      <br />
-                      I am not here to embellish.  
-                      <br />I am here to contribute.
+                      It belongs to form, to movement, to substance.
                     </span>
+                    <br />
+                    I stand with those who design, construct, and reflect. Those who see fabric as structure, and the body as narrative.
+                    <br />
+                    <br />
+                    Not a label. Not a passing style. Not an accessory.
+                    <br />
+                    <br />
+                    I believe in silhouettes that create presence.
+                    <br />
+                    In visions that endure.
+                    <br />
+                    In quiet strength that speaks beyond the noise.
+                    <br />
+                    <br />
+                    I move with designers who imagine the future.
+                    <br />
+                    With creators who build meaning.
+                    <br />
+                    <br />
+                    I am not here to embellish.
+                    <br />
+                    I am here to contribute.
                   </p>
                 </div>
-                {/* Background Section */}
-                <div style={{ marginTop: "48px" }}>
-                  <h2
-                    className="font-heading font-semibold"
-                    style={{
-                      margin: "0 0 24px",
-                      fontSize: "36px",
-                      fontWeight: "600",
-                      letterSpacing: "-0.2px",
-                      lineHeight: "44px",
-                    }}
-                  >
-                    Background
-                  </h2>
-                  <div
-                    className="text-body text-muted-foreground max-w-xl"
-                    style={{ fontSize: "18px", lineHeight: "28px" }}
-                  >
+
+                {/* Background */}
+                <div className="mt-12">
+                  <h2 className="text-3xl font-semibold mb-6">Background</h2>
+                  <div className="text-body text-muted-foreground max-w-xl text-base leading-relaxed space-y-4">
                     <p>
-                      Souheila collaborates on editorial, conceptual, and
-                      runway projects, focusing on sculptural silhouettes and quiet power.
-                      <br />
-                      <br />
+                      Souheila collaborates on editorial, conceptual, and runway projects, focusing on sculptural silhouettes and quiet power.
                     </p>
-                    <p>
-                      Her presence is precise and instinctive, where structure
-                      meets sensuality.
-                    </p>
-                    <p>
-                      She gravitates towards creative directions that value
-                      strength, elegance, and intention.
-                      <br />
-                      <br />
-                    </p>
-                    <p>
-                      Based in Brussels, available for opportunities in Paris,
-                      Antwerp, and beyond.
-                    </p>
+                    <p>Her presence is precise and instinctive, where structure meets sensuality.</p>
+                    <p>She gravitates towards creative directions that value strength, elegance, and intention.</p>
+                    <p>Based in Brussels, available for opportunities in Paris, Antwerp, and beyond.</p>
                   </div>
                 </div>
               </div>
 
-              {/* Right Column: Photo + Measurements */}
-              <div className="flex flex-col justify-between h-full items-center">
-                <div className="w-full flex justify-center" style={{ marginBottom: "24px" }}>
+              {/* Colonne droite Photo + Measurements */}
+              <div className="flex-1 flex flex-col justify-between min-h-[420px] items-center">
+                <div className="w-full max-w-md mb-6">
                   <img
                     src="/DSC_0666.jpg"
                     alt="Souheila"
-                    className="rounded-lg shadow-lg"
-                    style={{
-                      maxWidth: "340px",
-                      width: "100%",
-                      height: "420px",
-                      objectFit: "cover",
-                    }}
+                    className="rounded-lg shadow-lg w-full h-[420px] object-cover"
                   />
                 </div>
-                <div className="font-semibold text-xl self-stretch" style={{ marginTop: "48px" }}>
-                  <h3
-                    className="font-heading font-semibold"
-                    style={{
-                      margin: "0 0 24px",
-                      fontSize: "36px",
-                      fontWeight: "600",
-                      letterSpacing: "-0.2px",
-                      lineHeight: "44px",
-                    }}
-                  >
-                    Measurements
-                  </h3>
-                  <div className="space-y-3 text-muted-foreground" style={{ fontSize: "18px" }}>
+
+                <div className="w-full max-w-md mt-12">
+                  <h3 className="text-3xl font-semibold mb-6">Measurements</h3>
+                  <div className="space-y-4 text-muted-foreground text-base leading-relaxed">
                     <div className="flex justify-between">
                       <span>Height</span>
                       <span>177 cm | 5'9.5</span>
@@ -157,22 +97,15 @@ export default function About() {
                     </div>
                     <div className="flex justify-between">
                       <span>Shoes</span>
-                      <span>
-                        <span style={{ fontWeight: "normal" }}>39 </span>
-                        <span style={{ fontWeight: "normal" }}>EU</span>
-                      </span>
+                      <span>39 EU</span>
                     </div>
                     <div className="flex justify-between">
                       <span>Hair</span>
-                      <span>
-                        <span style={{ fontWeight: "normal" }}>Dark Brown</span>
-                      </span>
+                      <span>Dark Brown</span>
                     </div>
                     <div className="flex justify-between">
                       <span>Eyes</span>
-                      <span>
-                        <span style={{ fontWeight: "normal" }}>Brown</span>
-                      </span>
+                      <span>Brown</span>
                     </div>
                   </div>
                 </div>
