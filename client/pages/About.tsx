@@ -48,9 +48,7 @@ export default function About() {
   </span>
   <br />
   <br />
-  I stand with those who design, construct, and reflect.  
-  <br />
-  Those who see fabric as structure, and the body as narrative.  
+  I stand with those who design, construct, and reflect. Those who see fabric as structure, and the body as narrative.  
   <br />
   <br />
   Not a label. Not a passing style. Not an accessory.  
@@ -87,9 +85,8 @@ export default function About() {
                   style={{ lineHeight: "26px", marginTop: "24px" }}
                 >
                   <p>
-                    Souheila moves fluidly between editorial, conceptual, and
-                    runway projects, focusing on sculptural silhouettes and a
-                    quiet power.
+                    Souheila collaborates on editorial, conceptual, and
+                    runway projects, focusing on sculptural silhouettes and quiet power.
                     <br />
                     <br />
                   </p>
@@ -126,7 +123,7 @@ export default function About() {
                   <div className="space-y-3 text-muted-foreground">
                     <div className="flex justify-between">
                       <span>Height</span>
-                      <span>177 cm | 5'9.5"</span>
+                      <span>177 cm | 5'9.5</span>
                     </div>
                     <div
                       className="flex justify-between"
