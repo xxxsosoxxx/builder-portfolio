@@ -26,8 +26,8 @@ function GalleryItem({
   // When image loads, measure its height and set grid row span
   const handleLoad = () => {
     if (imgRef.current) {
-      // 8px is the grid auto-rows value below
-      const rowHeight = 8;
+      // 1px is the grid auto-rows value below
+      const rowHeight = 1;
       const height = imgRef.current.getBoundingClientRect().height;
       const span = Math.ceil(height / rowHeight);
       setRowSpan(index, span);
@@ -122,7 +122,7 @@ export function PhotoGallery() {
               md:grid-cols-2
               lg:grid-cols-3
               xl:grid-cols-4
-              auto-rows-[8px]`}
+              auto-rows-[1px]`}
           >
             {portfolioPhotos.map((photo, index) => (
               <div
