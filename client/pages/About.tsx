@@ -6,26 +6,33 @@ export default function About() {
     <div className="min-h-screen flex flex-col">
       <Navigation />
 
+      {/* Hero Section */}
       <section className="flex-1 bg-background pt-32 pb-16">
         <div className="section-padding">
           <div className="container-narrow">
-            {/* Conteneur flex horizontal */}
-            <div className="flex flex-col md:flex-row gap-16">
-              {/* Colonne gauche : About + Background */}
-              <div className="flex-1 flex flex-col" style={{ minHeight: "420px" }}>
-                {/* Texte About */}
-                <div className="flex-1">
-                  <h1 className="text-4xl font-bold mb-6 animate-fade-in-up">About</h1>
-                  <p className="text-lg text-muted-foreground max-w-xl leading-relaxed animate-fade-in-up">
+            <div
+              className="flex flex-col md:flex-row gap-16"
+              style={{ marginTop: "-1px", paddingTop: "5px" }}
+            >
+              {/* Left Column: About + Background */}
+              <div className="flex-1 flex flex-col">
+                {/* About uniquement */}
+                <div
+                  className="about-text flex-grow max-w-xl"
+                  style={{ fontSize: "16px", lineHeight: "24px" }}
+                >
+                  <h1 className="text-4xl font-semibold mb-6">About</h1>
+                  <p className="text-subhero text-muted-foreground">
                     <br />
                     <br />
                     I believe in fashion as form, not distraction.
                     <br />
-                    <span className="block mt-4 mb-6 font-semibold text-base leading-relaxed text-gray-900">
+                    <span className="about-text-highlight">
                       My body is not a product. It is an expression.
                       <br />
                       It belongs to form, to movement, to substance.
                     </span>
+                    <br />
                     <br />
                     I stand with those who design, construct, and reflect. Those who see fabric as structure, and the body as narrative.
                     <br />
@@ -51,73 +58,110 @@ export default function About() {
                   </p>
                 </div>
 
-                {/* Bloc Background */}
-                <div className="mt-12">
-                  <h2 className="text-3xl font-semibold mb-6">Background</h2>
-                  <div className="text-body text-muted-foreground max-w-xl text-base leading-relaxed space-y-4">
+                {/* Background */}
+                <div style={{ marginTop: "48px" }}>
+                  <h2
+                    className="font-heading font-semibold"
+                    style={{
+                      margin: "0 0 24px",
+                      fontSize: "36px",
+                      fontWeight: "600",
+                      letterSpacing: "-0.2px",
+                      lineHeight: "44px",
+                    }}
+                  >
+                    Background
+                  </h2>
+                  <div
+                    className="text-body text-muted-foreground max-w-xl"
+                    style={{ fontSize: "18px", lineHeight: "28px" }}
+                  >
                     <p>
-                      Souheila collaborates on editorial, conceptual, and runway projects, focusing on sculptural silhouettes and quiet power.
+                      Souheila collaborates on editorial, conceptual, and
+                      runway projects, focusing on sculptural silhouettes and quiet power.
+                      <br />
+                      <br />
                     </p>
-                    <p>Her presence is precise and instinctive, where structure meets sensuality.</p>
-                    <p>She gravitates towards creative directions that value strength, elegance, and intention.</p>
-                    <p>Based in Brussels, available for opportunities in Paris, Antwerp, and beyond.</p>
+                    <p>
+                      Her presence is precise and instinctive, where structure
+                      meets sensuality.
+                    </p>
+                    <p>
+                      She gravitates towards creative directions that value
+                      strength, elegance, and intention.
+                      <br />
+                      <br />
+                    </p>
+                    <p>
+                      Based in Brussels, available for opportunities in Paris,
+                      Antwerp, and beyond.
+                    </p>
                   </div>
                 </div>
               </div>
 
-              {/* Colonne droite : photo + measurements */}
-              <div className="flex-1 flex flex-col" style={{ minHeight: "420px" }}>
-                {/* Photo avec hauteur 100% pour matcher la hauteur de la colonne gauche */}
-                <div className="w-full flex justify-center mb-6" style={{ height: "60%" }}>
+              {/* Right Column: Photo + Measurements */}
+              <div className="flex-1 flex flex-col">
+                {/* Photo qui prend la hauteur du bloc About */}
+                <div className="flex-grow" style={{ minHeight: 0 }}>
                   <img
                     src="/DSC_0666.jpg"
                     alt="Souheila"
-                    className="rounded-lg shadow-lg w-auto h-full object-cover"
+                    className="w-full h-full object-cover rounded-lg shadow-lg"
+                    style={{ maxHeight: "100%" }}
                   />
                 </div>
 
-                {/* Conteneur flex horizontal pour measurements aligné avec Background */}
-                <div className="flex justify-between items-start w-full mt-12 gap-8">
-                  {/* Bloc Measurements */}
-                  <div className="flex-1 max-w-xs">
-                    <h3 className="text-3xl font-semibold mb-6">Measurements</h3>
-                    <div className="space-y-4 text-muted-foreground text-base leading-relaxed">
-                      <div className="flex justify-between">
-                        <span>Height</span>
-                        <span>177 cm | 5'9.5</span>
-                      </div>
-                      <div className="flex justify-between">
-                        <span>Chest</span>
-                        <span>81 cm | 32</span>
-                      </div>
-                      <div className="flex justify-between">
-                        <span>Waist</span>
-                        <span>63 cm | 25</span>
-                      </div>
-                      <div className="flex justify-between">
-                        <span>Hips</span>
-                        <span>81 cm | 32</span>
-                      </div>
-                      <div className="flex justify-between">
-                        <span>Shoes</span>
-                        <span>39 EU</span>
-                      </div>
-                      <div className="flex justify-between">
-                        <span>Hair</span>
-                        <span>Dark Brown</span>
-                      </div>
-                      <div className="flex justify-between">
-                        <span>Eyes</span>
-                        <span>Brown</span>
-                      </div>
+                {/* Measurements */}
+                <div className="font-semibold text-xl self-stretch" style={{ marginTop: "48px" }}>
+                  <h3
+                    className="font-heading font-semibold"
+                    style={{
+                      margin: "0 0 24px",
+                      fontSize: "36px",
+                      fontWeight: "600",
+                      letterSpacing: "-0.2px",
+                      lineHeight: "44px",
+                    }}
+                  >
+                    Measurements
+                  </h3>
+                  <div className="space-y-3 text-muted-foreground" style={{ fontSize: "18px" }}>
+                    <div className="flex justify-between">
+                      <span>Height</span>
+                      <span>177 cm | 5'9.5</span>
                     </div>
-                  </div>
-
-                  {/* Bloc Background vide, pour forcer la hauteur identique */}
-                  <div className="flex-1 max-w-xl invisible">
-                    {/* On peut y mettre une copie du Background si besoin,
-                        sinon invisible pour forcer l'alignement */}
-                    Background placeholder
+                    <div className="flex justify-between">
+                      <span>Chest</span>
+                      <span>81 cm | 32</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span>Waist</span>
+                      <span>63 cm | 25</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span>Hips</span>
+                      <span>81 cm | 32</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span>Shoes</span>
+                      <span>
+                        <span style={{ fontWeight: "normal" }}>39 </span>
+                        <span style={{ fontWeight: "normal" }}>EU</span>
+                      </span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span>Hair</span>
+                      <span>
+                        <span style={{ fontWeight: "normal" }}>Dark Brown</span>
+                      </span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span>Eyes</span>
+                      <span>
+                        <span style={{ fontWeight: "normal" }}>Brown</span>
+                      </span>
+                    </div>
                   </div>
                 </div>
               </div>
