@@ -185,9 +185,8 @@ function GalleryItem({
 
  {/* Hover shadow effect */}
 <div
-  className="absolute inset-0 bg-black/10 opacity-0 group-hover:opacity-100 transition-all duration-500 -z-10 rounded-md"
-  style={{ margin: "-4px" }}
-/>      
+className="absolute top-0 left-0 w-full h-full bg-black/10 opacity-0 group-hover:opacity-100 transition-all duration-500 -z-10 rounded-md pointer-events-none" />
+    
 export function PhotoGallery() {
   const [selectedPhoto, setSelectedPhoto] = useState<Photo | null>(null);
   const [currentIndex, setCurrentIndex] = useState(0);
