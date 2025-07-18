@@ -102,19 +102,25 @@ const portfolioPhotos: Photo[] = [
     date: "2023",
   },
   {
-    id: 16,
+  id: 16,
+  src: "\public\DSC_0724.jpg",
+  title: "Studio, Aix-en-Provence",
+  date: "2023",
+},
+  {
+    id: 17,
     src: "https://cdn.builder.io/api/v1/image/assets%2F32dbebdc41de4f02a397c4bcb49e3699%2Fb37e95118d1a4c5e8ed81a8f89762619",
     title: "Profile, Marseille",
     date: "2022",
   },
   {
-    id: 17,
+    id: 18,
     src: "https://cdn.builder.io/api/v1/image/assets%2F32dbebdc41de4f02a397c4bcb49e3699%2Fc7872546826c4597b69b729b00d39bb7",
     title: "Winter Portrait, Italy",
     date: "2024",
   },
   {
-    id: 18,
+    id: 19,
     src: "https://cdn.builder.io/api/v1/image/assets%2F32dbebdc41de4f02a397c4bcb49e3699%2F73a97eecdfca43aa9b84c4314ba17abd",
     title: "Winter Portrait, Italy",
     date: "2024",
