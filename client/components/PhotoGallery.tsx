@@ -169,11 +169,9 @@ function GalleryItem({
         />
 
         {/* Overlay */}
-        <div
-          className="absolute left-0 right-0 bottom-0 bg-black/0 group-hover:bg-black/20 transition-all duration-500"
-          style={{ top: "12px", width: "100%" }}
-        />
-      </div>
+<div
+  className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all duration-500"
+/>
 
       {/* Info overlay */}
       <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500 transform translate-y-full group-hover:translate-y-0">
