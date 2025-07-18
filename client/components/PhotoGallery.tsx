@@ -162,7 +162,7 @@ function GalleryItem({
         <img
           src={photo.src}
           alt={photo.title}
-          className={`w-full h-full object-contain transition-transform duration-700 ease-out group-hover:scale-110 ${
+          className={`w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-110 ${
             isLoaded ? "opacity-100" : "opacity-0"
           }`}
           loading="lazy"
