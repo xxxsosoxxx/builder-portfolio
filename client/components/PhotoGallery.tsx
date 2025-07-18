@@ -157,8 +157,8 @@ function GalleryItem({
         <img
           src={photo.src}
           alt={photo.title}
-          className={`w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-105 ${
-            isLoaded ? "opacity-100" : "opacity-0"
+          className={`w-full h-full object-contain object-top transition-transform duration-500 ease-out group-hover:scale-105 ${
+          isLoaded ? "opacity-100" : "opacity-0"
           }`}
           loading="lazy"
           onLoad={() => setIsLoaded(true)}
