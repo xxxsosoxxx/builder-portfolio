@@ -21,7 +21,7 @@ function GalleryItem({
 }) {
   return (
     <div
-      className="group relative mb-4 cursor-pointer overflow-hidden bg-white border border-gray-100 hover:border-gray-300 transition-all duration-700 hover:shadow-2xl rounded-lg"
+      className="group relative break-inside-avoid cursor-pointer overflow-hidden bg-white border border-gray-100 hover:border-gray-300 transition-all duration-700 hover:shadow-2xl rounded-lg"
       onClick={() => onOpen(photo)}
     >
       <div className="relative w-full overflow-hidden rounded-lg">
