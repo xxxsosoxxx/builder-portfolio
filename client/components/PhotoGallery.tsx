@@ -11,6 +11,7 @@ export interface Photo {
   description?: string;
 }
 
+// ...existing code...
 function GalleryItem({
   photo,
   index,
@@ -37,7 +38,7 @@ function GalleryItem({
       onClick={() => onOpen(photo)}
       style={{ transitionDelay: `${index * 0.05}s` }}
     >
-      <div className="relative w-full aspect-[4/5] overflow-hidden rounded-lg">
+      <div className="relative w-full overflow-hidden rounded-lg">
         {!isLoaded && (
           <div className="absolute inset-0 bg-gray-100 animate-pulse flex items-center justify-center z-10 rounded-lg">
             <div className="w-8 h-8 border-2 border-gray-300 border-t-gray-600 rounded-full animate-spin"></div>
@@ -47,7 +48,7 @@ function GalleryItem({
         <img
           src={photo.src}
           alt={photo.title}
-          className={`w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-105 rounded-lg ${
+          className={`w-full h-auto object-cover transition-transform duration-500 ease-out group-hover:scale-105 rounded-lg ${
             isLoaded ? "opacity-100" : "opacity-0"
           }`}
           loading="lazy"
@@ -68,6 +69,7 @@ function GalleryItem({
     </div>
   );
 }
+// ...existing code...
 export function PhotoGallery() {
   const [selectedPhoto, setSelectedPhoto] = useState<Photo | null>(null);
   const [currentIndex, setCurrentIndex] = useState(0);
