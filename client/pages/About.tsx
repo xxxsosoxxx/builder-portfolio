@@ -4,7 +4,7 @@ import { Footer } from "@/components/Footer";
 
 export default function About() {
   const aboutRef = useRef<HTMLDivElement>(null);
-  const [aboutHeight, setAboutHeight] = useState<number | null>(null);
+  const [aboutHeight, setAboutHeight] = useState<number>(0);
 
   useEffect(() => {
     function updateHeight() {
@@ -20,29 +20,31 @@ export default function About() {
   return (
     <div className="min-h-screen flex flex-col">
       <Navigation />
-      {/* contenu About */}
+
       <section className="flex-1 bg-background pt-32 pb-16">
         <div className="section-padding">
           <div className="container-narrow">
 
-            {/* Container principal flex avec inversion ordre mobile */}
-            <div className="flex flex-col-reverse md:flex-row gap-16">
-              {/* Image */}
+            {/* Desktop layout : 2 colonnes About + Photo */}
+            <div className="flex flex-col md:flex-row md:gap-16">
+
+              {/* Photo : à droite sur desktop, en premier sur mobile */}
               <div
-                className="flex items-center justify-center mb-8 md:mb-0"
-                style={{ height: aboutHeight ?? "auto", minWidth: "300px" }}
+                className="order-1 md:order-2 flex items-center justify-center mb-8 md:mb-0"
+                style={{ height: aboutHeight || "auto", minWidth: "300px", flex: '1' }}
               >
                 <img
                   src="/DSC_0666.jpg"
                   alt="Souheila"
-                  className="rounded-lg shadow-lg w-auto object-contain max-h-full"
+                  className="rounded-lg shadow-lg w-auto max-h-full object-contain"
+                  style={{ maxHeight: aboutHeight }}
                 />
               </div>
 
-              {/* Texte About */}
+              {/* Texte About : à gauche sur desktop, en second sur mobile */}
               <div
                 ref={aboutRef}
-                className="max-w-xl flex flex-col justify-center"
+                className="order-2 md:order-1 max-w-xl flex flex-col justify-center flex-1"
                 style={{ fontSize: "16px", lineHeight: "24px" }}
               >
                 <h1 className="text-4xl font-semibold mb-6">About</h1>
