@@ -1,6 +1,5 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { X, ChevronLeft, ChevronRight } from "lucide-react";
-import { useIntersectionObserver } from "@/hooks/use-intersection-observer";
 import { portfolioPhotos } from "./portfolioPhotos";
 
 export interface Photo {
@@ -15,49 +14,45 @@ function GalleryItem({
   photo,
   index,
   onOpen,
+  setRowSpan,
 }: {
   photo: Photo;
   index: number;
   onOpen: (photo: Photo) => void;
+  setRowSpan: (index: number, span: number) => void;
 }) {
-  const { ref, isVisible } = useIntersectionObserver({
-    threshold: 0.1,
-    freezeOnceVisible: true,
-  });
-  const [isLoaded, setIsLoaded] = useState(false);
+  const imgRef = useRef<HTMLImageElement>(null);
+
+  // When image loads, measure its height and set grid row span
+  const handleLoad = () => {
+    if (imgRef.current) {
+      // 8px is the grid auto-rows value below
+      const rowHeight = 8;
+      const height = imgRef.current.getBoundingClientRect().height;
+      const span = Math.ceil(height / rowHeight);
+      setRowSpan(index, span);
+    }
+  };
 
   return (
     <div
-      ref={ref}
-      className={`group relative break-inside-avoid cursor-pointer overflow-hidden bg-white border border-gray-100 hover:border-gray-300 transition-all duration-700 hover:shadow-2xl ${
-        isVisible
-          ? "animate-fade-in opacity-100 translate-y-0"
-          : "opacity-0 translate-y-8"
-      }`}
+      className="group relative cursor-pointer overflow-hidden bg-white border border-gray-100 hover:border-gray-300 transition-all duration-700 hover:shadow-2xl rounded-lg"
       onClick={() => onOpen(photo)}
-      style={{ transitionDelay: `${index * 0.05}s` }}
     >
       <div className="relative w-full overflow-hidden rounded-lg">
-        {!isLoaded && (
-          <div className="absolute inset-0 bg-gray-100 animate-pulse flex items-center justify-center z-10 rounded-lg">
-            <div className="w-8 h-8 border-2 border-gray-300 border-t-gray-600 rounded-full animate-spin"></div>
-          </div>
-        )}
-
         <img
+          ref={imgRef}
           src={photo.src}
           alt={photo.title}
-          className={`w-full h-auto object-cover transition-transform duration-500 ease-out group-hover:scale-105 rounded-lg ${
-            isLoaded ? "opacity-100" : "opacity-0"
-          }`}
+          className="w-full h-auto object-cover transition-transform duration-500 ease-out group-hover:scale-105 rounded-lg"
           loading="lazy"
-          onLoad={() => setIsLoaded(true)}
+          onLoad={handleLoad}
         />
 
-        {/* Overlay qui couvre toute la photo */}
+        {/* Overlay */}
         <div className="absolute inset-0 bg-black/0 group-hover:bg-black/25 transition duration-500 pointer-events-none z-20 rounded-lg" />
 
-        {/* Texte positionné en bas avec gradient */}
+        {/* Text gradient */}
         <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-30 rounded-b-lg">
           <h3 className="text-white font-heading font-semibold text-lg mb-1 leading-tight">
             {photo.title}
@@ -68,10 +63,14 @@ function GalleryItem({
     </div>
   );
 }
+
 export function PhotoGallery() {
   const [selectedPhoto, setSelectedPhoto] = useState<Photo | null>(null);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [columnCount, setColumnCount] = useState(4);
+  const [rowSpans, setRowSpans] = useState<number[]>(() =>
+    Array(portfolioPhotos.length).fill(30)
+  );
 
   // Responsive column count
   useEffect(() => {
@@ -86,39 +85,14 @@ export function PhotoGallery() {
     return () => window.removeEventListener("resize", updateColumnCount);
   }, []);
 
-  useEffect(() => {
-    const handleKeyDown = (e: KeyboardEvent) => {
-      if (!selectedPhoto) return;
-
-      switch (e.key) {
-        case "Escape":
-          setSelectedPhoto(null);
-          break;
-        case "ArrowLeft":
-          navigatePhoto(-1);
-          break;
-        case "ArrowRight":
-          navigatePhoto(1);
-          break;
-      }
-    };
-
-    window.addEventListener("keydown", handleKeyDown);
-    return () => window.removeEventListener("keydown", handleKeyDown);
-  }, [selectedPhoto, currentIndex]);
-
-  // Prevent body scroll when lightbox is open
-  useEffect(() => {
-    if (selectedPhoto) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "unset";
-    }
-
-    return () => {
-      document.body.style.overflow = "unset";
-    };
-  }, [selectedPhoto]);
+  // Set row span for each image
+  const setRowSpan = (index: number, span: number) => {
+    setRowSpans((prev) => {
+      const next = [...prev];
+      next[index] = span;
+      return next;
+    });
+  };
 
   const openLightbox = (photo: Photo) => {
     setSelectedPhoto(photo);
@@ -137,31 +111,33 @@ export function PhotoGallery() {
     }
   };
 
-  // Calculate placeholders for bottom alignment
-  const remainder = portfolioPhotos.length % columnCount;
-  const placeholders = remainder === 0 ? 0 : columnCount - remainder;
-
   return (
     <>
-      {/* Gallery Grid */}
+      {/* Masonry Grid */}
       <div className="w-full bg-white">
         <div className="mx-auto max-w-none px-0">
-          <div className="columns-1 gap-4 space-y-4 md:columns-2 lg:columns-3 xl:columns-4 p-4 masonry-grid">
+          <div
+            className={`grid gap-4 p-4
+              grid-cols-1
+              md:grid-cols-2
+              lg:grid-cols-3
+              xl:grid-cols-4
+              auto-rows-[8px]`}
+          >
             {portfolioPhotos.map((photo, index) => (
-              <GalleryItem
-                key={photo.id}
-                photo={photo}
-                index={index}
-                onOpen={openLightbox}
-              />
-            ))}
-            {/* Add invisible placeholders to align bottom */}
-            {Array.from({ length: placeholders }).map((_, idx) => (
               <div
-                key={`placeholder-${idx}`}
-                className="break-inside-avoid w-full h-0 invisible"
-                aria-hidden="true"
-              />
+                key={photo.id}
+                style={{
+                  gridRowEnd: `span ${rowSpans[index]}`,
+                }}
+              >
+                <GalleryItem
+                  photo={photo}
+                  index={index}
+                  onOpen={openLightbox}
+                  setRowSpan={setRowSpan}
+                />
+              </div>
             ))}
           </div>
         </div>
