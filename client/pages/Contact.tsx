@@ -11,31 +11,36 @@ export default function Contact() {
 
   const [status, setStatus] = useState<null | "success" | "error">(null);
 
-const handleSubmit = async (e: React.FormEvent) => {
-  e.preventDefault();
-  setStatus(null);
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setStatus(null);
 
-  try {
-    const response = await fetch("https://formspree.io/f/mzzvzywj", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json",
-      },
-      body: JSON.stringify(formData),
-    });
+    // Création du FormData
+    const form = new FormData();
+    form.append("name", formData.name);
+    form.append("email", formData.email);
+    form.append("message", formData.message);
 
-    if (response.ok) {
-      setStatus("success");
-      setFormData({ name: "", email: "", message: "" });
-    } else {
+    try {
+      const response = await fetch("https://formspree.io/f/mzzvzywj", {
+        method: "POST",
+        headers: {
+          Accept: "application/json",
+          // Ne pas mettre Content-Type ici, fetch la définit automatiquement pour FormData
+        },
+        body: form,
+      });
+
+      if (response.ok) {
+        setStatus("success");
+        setFormData({ name: "", email: "", message: "" });
+      } else {
+        setStatus("error");
+      }
+    } catch (error) {
       setStatus("error");
     }
-  } catch (error) {
-    setStatus("error");
-  }
-};
-
+  };
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -55,7 +60,7 @@ const handleSubmit = async (e: React.FormEvent) => {
           <div className="container-narrow text-center">
             <h1 className="text-hero mb-8 animate-fade-in-up">Contact</h1>
             <p className="text-subhero text-muted-foreground max-w-2xl mx-auto animate-fade-in-up">
-              Ready to collaborate? Let's create something beautiful together.
+              Ready to collaborate? Let's create something impactful together.
             </p>
           </div>
         </div>
