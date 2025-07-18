@@ -1,5 +1,6 @@
 import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
+// import styles from "/styles/About.module.css";
 
 export default function About() {
   return (
@@ -40,69 +41,39 @@ export default function About() {
                   <br />
                   <br />I believe in fashion as form, not distraction.
                   <br />
-                  <span
-                    style={{
-                      color: "inherit",
-                      fontFamily: "inherit",
-                      fontSize: "inherit",
-                      fontWeight: "inherit",
-                      letterSpacing: "inherit",
-                      textAlign: "inherit",
-                    }}
-                  >
-                    My body is not a product. It's a language.
-                    <br />I belong to form. To tension. To matter.
-                  </span>
-                  <br />
-                  <br />
-                  I stand with those who cut, fold, build, and question.
-                  <br />
-                  Who see fabric as structure, and the body as statement.
-                  <br />
-                  <br />
-                  Not a logo. Not a trend. Not an accessory.
-                  <br />
-                  <br />
-                  I believe in silhouettes that hold space.
-                  <br />
-                  In vision that outlives hype.
-                  <br />
-                  In silence that resists noise.
-                  <br />
-                  <br />
-                  I move for designers, not marketers.
-                  <br />
-                  For creators who shape futures, not followers.
-                  <br />
-                  <br />
-                  I am not here to decorate.
-                  <br />I am here to collaborate.
+<span className="about-text">
+  <span className="about-text-highlight">
+    My body is not a product. It is an expression.  
+    <br />It belongs to form, to movement, to substance.
+  </span>
+  <br />
+  <br />
+  I stand with those who design, construct, and reflect.  
+  <br />
+  Those who see fabric as structure, and the body as narrative.  
+  <br />
+  <br />
+  Not a label. Not a passing style. Not an accessory.  
+  <br />
+  <br />
+  I believe in silhouettes that create presence.  
+  <br />
+  In visions that endure.  
+  <br />
+  In quiet strength that speaks beyond the noise.  
+  <br />
+  <br />
+  I move with designers who imagine the future.  
+  <br />
+  With creators who build meaning.  
+  <br />
+  <br />
+  I am not here to embellish.  
+  <br />I am here to contribute.
+</span>
                 </p>
-              </div>
-              <div className="animate-fade-in">
-                <img
-                  src="https://cdn.builder.io/api/v1/image/assets%2F32dbebdc41de4f02a397c4bcb49e3699%2Fa9c6c355c3b34ef5af9ab0329c7dd443"
-                  alt="Souheila Said"
-                  className="w-full object-cover object-center"
-                  style={{ height: "758px" }}
-                />
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Bio Section */}
-      <section className="py-24">
-        <div className="section-padding">
-          <div className="container-narrow">
-            <div className="grid md:grid-cols-3 gap-16">
-              <div
-                className="md:col-span-2 space-y-6 flex flex-col justify-center"
-                style={{ marginBottom: "-1px" }}
-              >
                 <h2
-                  className="text-section-title"
+                  className="text-subhero text-muted-foreground animate-fade-in-up"
                   style={{
                     margin: "-56px 0 32px",
                     fontSize: "36px",
