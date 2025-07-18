@@ -21,11 +21,12 @@ export default function About() {
                   flexDirection: "column",
                   justifyContent: "flex-start",
                   alignItems: "flex-start",
+                  marginTop: "24px", // Ajoute de l'espace en haut
                 }}
               >
                 <h1
                   className="text-hero animate-fade-in-up"
-                  style={{ paddingTop: "74px", margin: "19px 0 -23px" }}
+                  style={{ margin: "0 0 24px" }}
                 >
                   About
                 </h1>
@@ -73,7 +74,7 @@ export default function About() {
                 <h2
                   className="text-subhero text-muted-foreground animate-fade-in-up"
                   style={{
-                    margin: "-56px 0 32px",
+                    margin: "32px 0 32px",
                     fontSize: "36px",
                     lineHeight: "48px",
                   }}
@@ -109,9 +110,9 @@ export default function About() {
 
               <div className="space-y-8">
                 {/* PHOTO */}
-                <div className="w-full flex justify-center">
+                <div className="w-full flex justify-center mb-8">
                   <img
-                    src="/IMG_4742.png" 
+                    src="/DSC0666.png"
                     alt="Souheila"
                     className="rounded-lg shadow-lg max-w-xs w-full h-auto"
                     style={{ objectFit: "cover" }}
@@ -122,7 +123,7 @@ export default function About() {
                   <h3
                     className="font-heading font-semibold"
                     style={{
-                      margin: "-15px 0 24px",
+                      margin: "0 0 24px",
                       fontSize: "36px",
                       fontWeight: "600",
                       letterSpacing: "-0.2px",
