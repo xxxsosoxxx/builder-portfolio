@@ -9,14 +9,36 @@ export default function Contact() {
     message: "",
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    // Form submission logic would go here
-    console.log("Form submitted:", formData);
-  };
+  const [status, setStatus] = useState<null | "success" | "error">(null);
+
+const handleSubmit = async (e: React.FormEvent) => {
+  e.preventDefault();
+  setStatus(null);
+
+  try {
+    const response = await fetch("https://formspree.io/f/mzzvzywj", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+      body: JSON.stringify(formData),
+    });
+
+    if (response.ok) {
+      setStatus("success");
+      setFormData({ name: "", email: "", message: "" });
+    } else {
+      setStatus("error");
+    }
+  } catch (error) {
+    setStatus("error");
+  }
+};
+
 
   const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
     setFormData({
       ...formData,
@@ -28,7 +50,6 @@ export default function Contact() {
     <div className="min-h-screen">
       <Navigation />
 
-      {/* Hero Section */}
       <section className="pt-32 pb-16 bg-background">
         <div className="section-padding">
           <div className="container-narrow text-center">
@@ -40,15 +61,13 @@ export default function Contact() {
         </div>
       </section>
 
-      {/* Contact Form & Info */}
       <section className="pb-24">
         <div className="section-padding">
           <div className="container-narrow">
             <div className="grid md:grid-cols-2 gap-16">
-              {/* Contact Form */}
               <div className="animate-fade-in">
                 <h2 className="text-section-title mb-8">Send a Message</h2>
-                <form onSubmit={handleSubmit} className="space-y-6">
+                <form onSubmit={handleSubmit} className="space-y-6" noValidate>
                   <div>
                     <label
                       htmlFor="name"
@@ -116,6 +135,15 @@ export default function Contact() {
                     </button>
                   </div>
                 </form>
+
+                {status === "success" && (
+                  <p className="mt-4 text-green-600">Message envoyé avec succès !</p>
+                )}
+                {status === "error" && (
+                  <p className="mt-4 text-red-600">
+                    Une erreur est survenue, merci de réessayer.
+                  </p>
+                )}
               </div>
 
               {/* Contact Information */}
@@ -139,9 +167,7 @@ export default function Contact() {
                       <h3 className="text-lg font-heading font-semibold mb-2">
                         Location
                       </h3>
-                      <p className="text-body text-muted-foreground">
-                        Brussels, Belgium
-                      </p>
+                      <p className="text-body text-muted-foreground">Brussels, Belgium</p>
                     </div>
 
                     <div>
@@ -176,8 +202,8 @@ export default function Contact() {
                   </h3>
                   <p className="text-body text-muted-foreground">
                     Available for editorial shoots, runway shows, and creative
-                    collaborations. Based in Brussels with availability for
-                    travel across Europe.
+                    collaborations. Based in Brussels with availability for travel
+                    across Europe.
                   </p>
                 </div>
 
