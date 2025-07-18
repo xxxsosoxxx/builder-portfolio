@@ -145,42 +145,39 @@ function GalleryItem({
           : "opacity-0 translate-y-8"
       }`}
       onClick={() => onOpen(photo)}
-      style={{
-        transitionDelay: `${index * 0.05}s`,
-      }}
+      style={{ transitionDelay: `${index * 0.05}s` }}
     >
-      {/* Image container avec hover overlay */}
-      <div className="relative w-full h-full group overflow-hidden aspect-[2/3]">
-        {/* Image loading skeleton */}
+      <div className="relative w-full overflow-hidden aspect-[2/3]">
         {!isLoaded && (
           <div className="absolute inset-0 bg-gray-100 animate-pulse flex items-center justify-center z-10">
             <div className="w-8 h-8 border-2 border-gray-300 border-t-gray-600 rounded-full animate-spin"></div>
           </div>
         )}
 
-        {/* Image */}
         <img
           src={photo.src}
           alt={photo.title}
-          className={`w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-110 ${
+          className={`w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-105 ${
             isLoaded ? "opacity-100" : "opacity-0"
           }`}
           loading="lazy"
           onLoad={() => setIsLoaded(true)}
         />
 
-        {/* Overlay au hover */}
-        <div className="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition duration-500 pointer-events-none z-20" />
+        {/* Overlay qui couvre toute la photo */}
+        <div className="absolute inset-0 bg-black/0 group-hover:bg-black/25 transition duration-500 pointer-events-none z-20" />
 
-        {/* Texte qui remonte au hover */}
-        <div className="absolute inset-0 flex items-end p-4 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-30">
-          <h3 className="text-white font-heading font-semibold text-lg mb-1">{photo.title}</h3>
-          <p className="text-white/80 text-sm">{photo.date}</p>
+        {/* Texte positionné en bas avec gradient */}
+        <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-30">
+          <h3 className="text-white font-heading font-semibold text-lg mb-1 leading-tight">
+            {photo.title}
+          </h3>
+          <p className="text-white/80 text-sm leading-snug">{photo.date}</p>
         </div>
       </div>
     </div>
   );
-}   
+}
 export function PhotoGallery() {
   const [selectedPhoto, setSelectedPhoto] = useState<Photo | null>(null);
   const [currentIndex, setCurrentIndex] = useState(0);
