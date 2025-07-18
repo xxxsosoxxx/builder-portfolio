@@ -147,7 +147,7 @@ function GalleryItem({
       onClick={() => onOpen(photo)}
       style={{ transitionDelay: `${index * 0.05}s` }}
     >
-      <div className="relative w-full overflow-hidden aspect-[2/3]">
+      <div className="relative w-full overflow-hidden ">
         {!isLoaded && (
           <div className="absolute inset-0 bg-gray-100 animate-pulse flex items-center justify-center z-10">
             <div className="w-8 h-8 border-2 border-gray-300 border-t-gray-600 rounded-full animate-spin"></div>
