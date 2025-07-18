@@ -29,7 +29,7 @@ function GalleryItem({
   return (
     <div
       ref={ref}
-      className={`group relative cursor-pointer overflow-hidden bg-white border border-gray-100 hover:border-gray-300 transition-all duration-700 hover:shadow-2xl rounded-lg ${
+      className={`group relative break-inside-avoid cursor-pointer overflow-hidden bg-white border border-gray-100 hover:border-gray-300 transition-all duration-700 hover:shadow-2xl ${
         isVisible
           ? "animate-fade-in opacity-100 translate-y-0"
           : "opacity-0 translate-y-8"
@@ -37,7 +37,7 @@ function GalleryItem({
       onClick={() => onOpen(photo)}
       style={{ transitionDelay: `${index * 0.05}s` }}
     >
-      <div className="relative w-full h-80 overflow-hidden rounded-lg flex items-center justify-center">
+      <div className="relative w-full overflow-hidden rounded-lg">
         {!isLoaded && (
           <div className="absolute inset-0 bg-gray-100 animate-pulse flex items-center justify-center z-10 rounded-lg">
             <div className="w-8 h-8 border-2 border-gray-300 border-t-gray-600 rounded-full animate-spin"></div>
@@ -47,7 +47,7 @@ function GalleryItem({
         <img
           src={photo.src}
           alt={photo.title}
-          className={`w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-105 rounded-lg ${
+          className={`w-full h-auto object-cover transition-transform duration-500 ease-out group-hover:scale-105 rounded-lg ${
             isLoaded ? "opacity-100" : "opacity-0"
           }`}
           loading="lazy"
@@ -68,10 +68,23 @@ function GalleryItem({
     </div>
   );
 }
-
 export function PhotoGallery() {
   const [selectedPhoto, setSelectedPhoto] = useState<Photo | null>(null);
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [columnCount, setColumnCount] = useState(4);
+
+  // Responsive column count
+  useEffect(() => {
+    const updateColumnCount = () => {
+      if (window.innerWidth >= 1280) setColumnCount(4); // xl
+      else if (window.innerWidth >= 1024) setColumnCount(3); // lg
+      else if (window.innerWidth >= 768) setColumnCount(2); // md
+      else setColumnCount(1);
+    };
+    updateColumnCount();
+    window.addEventListener("resize", updateColumnCount);
+    return () => window.removeEventListener("resize", updateColumnCount);
+  }, []);
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -124,18 +137,30 @@ export function PhotoGallery() {
     }
   };
 
+  // Calculate placeholders for bottom alignment
+  const remainder = portfolioPhotos.length % columnCount;
+  const placeholders = remainder === 0 ? 0 : columnCount - remainder;
+
   return (
     <>
       {/* Gallery Grid */}
       <div className="w-full bg-white">
         <div className="mx-auto max-w-none px-0">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 p-4">
+          <div className="columns-1 gap-4 space-y-4 md:columns-2 lg:columns-3 xl:columns-4 p-4 masonry-grid">
             {portfolioPhotos.map((photo, index) => (
               <GalleryItem
                 key={photo.id}
                 photo={photo}
                 index={index}
                 onOpen={openLightbox}
+              />
+            ))}
+            {/* Add invisible placeholders to align bottom */}
+            {Array.from({ length: placeholders }).map((_, idx) => (
+              <div
+                key={`placeholder-${idx}`}
+                className="break-inside-avoid w-full h-0 invisible"
+                aria-hidden="true"
               />
             ))}
           </div>
