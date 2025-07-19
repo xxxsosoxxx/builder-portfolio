@@ -9,31 +9,24 @@ export default function Contact() {
     message: "",
   });
 
-  const [status, setStatus] = useState<null | "success" | "error">(null);
+  const [status, setStatus] = useState<"idle" | "success" | "error" | "loading">("idle");
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setStatus(null);
-
-    // Création du FormData
-    const form = new FormData();
-    form.append("name", formData.name);
-    form.append("email", formData.email);
-    form.append("message", formData.message);
+    setStatus("loading");
 
     try {
       const response = await fetch("https://formspree.io/f/mzzvzywj", {
         method: "POST",
         headers: {
           Accept: "application/json",
-          // Ne pas mettre Content-Type ici, fetch la définit automatiquement pour FormData
         },
-        body: form,
+        body: new FormData(e.target as HTMLFormElement),
       });
 
       if (response.ok) {
-        setStatus("success");
         setFormData({ name: "", email: "", message: "" });
+        setStatus("success");
       } else {
         setStatus("error");
       }
@@ -55,24 +48,27 @@ export default function Contact() {
     <div className="min-h-screen">
       <Navigation />
 
+      {/* Hero Section */}
       <section className="pt-32 pb-16 bg-background">
         <div className="section-padding">
           <div className="container-narrow text-center">
             <h1 className="text-hero mb-8 animate-fade-in-up">Contact</h1>
             <p className="text-subhero text-muted-foreground max-w-2xl mx-auto animate-fade-in-up">
-              Ready to collaborate? Let's create something impactful together.
+              Ready to collaborate? Let's create something beautiful together.
             </p>
           </div>
         </div>
       </section>
 
+      {/* Contact Form & Info */}
       <section className="pb-24">
         <div className="section-padding">
           <div className="container-narrow">
             <div className="grid md:grid-cols-2 gap-16">
+              {/* Contact Form */}
               <div className="animate-fade-in">
                 <h2 className="text-section-title mb-8">Send a Message</h2>
-                <form onSubmit={handleSubmit} className="space-y-6" noValidate>
+                <form onSubmit={handleSubmit} className="space-y-6">
                   <div>
                     <label
                       htmlFor="name"
@@ -87,6 +83,7 @@ export default function Contact() {
                       value={formData.name}
                       onChange={handleChange}
                       required
+                      autoComplete="name"
                       className="w-full px-0 py-3 border-0 border-b border-border bg-transparent text-foreground placeholder-muted-foreground focus:outline-none focus:border-foreground transition-colors duration-300"
                       placeholder="Your full name"
                     />
@@ -106,6 +103,7 @@ export default function Contact() {
                       value={formData.email}
                       onChange={handleChange}
                       required
+                      autoComplete="email"
                       className="w-full px-0 py-3 border-0 border-b border-border bg-transparent text-foreground placeholder-muted-foreground focus:outline-none focus:border-foreground transition-colors duration-300"
                       placeholder="your.email@example.com"
                     />
@@ -135,20 +133,22 @@ export default function Contact() {
                       type="submit"
                       className="btn-minimal w-full md:w-auto"
                       style={{ fontFamily: "Orbitron, sans-serif" }}
+                      disabled={status === "loading"}
                     >
-                      Send Message
+                      {status === "loading" ? "Sending..." : "Send Message"}
                     </button>
+                    {status === "success" && (
+                      <p className="text-green-600 mt-4">
+                        Thank you! Your message has been sent.
+                      </p>
+                    )}
+                    {status === "error" && (
+                      <p className="text-red-600 mt-4">
+                        Something went wrong. Please try again later.
+                      </p>
+                    )}
                   </div>
                 </form>
-
-                {status === "success" && (
-                  <p className="mt-4 text-green-600">Message envoyé avec succès !</p>
-                )}
-                {status === "error" && (
-                  <p className="mt-4 text-red-600">
-                    Une erreur est survenue, merci de réessayer.
-                  </p>
-                )}
               </div>
 
               {/* Contact Information */}
@@ -172,7 +172,9 @@ export default function Contact() {
                       <h3 className="text-lg font-heading font-semibold mb-2">
                         Location
                       </h3>
-                      <p className="text-body text-muted-foreground">Brussels, Belgium</p>
+                      <p className="text-body text-muted-foreground">
+                        Brussels, Belgium
+                      </p>
                     </div>
 
                     <div>
@@ -207,8 +209,8 @@ export default function Contact() {
                   </h3>
                   <p className="text-body text-muted-foreground">
                     Available for editorial shoots, runway shows, and creative
-                    collaborations. Based in Brussels with availability for travel
-                    across Europe.
+                    collaborations. Based in Brussels with availability for
+                    travel across Europe.
                   </p>
                 </div>
 
@@ -217,7 +219,7 @@ export default function Contact() {
                     Response Time
                   </h3>
                   <p className="text-body text-muted-foreground">
-                    I typically respond to inquiries within 24-48 hours.
+                    I typically respond to inquiries within 24–48 hours.
                   </p>
                 </div>
               </div>
