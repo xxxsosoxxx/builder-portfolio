@@ -173,14 +173,6 @@ export default function Contact() {
                         >
                           Instagram
                         </a>
-                        <a
-                          href="https://linkedin.com/in/souheila-said"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="block text-muted-foreground hover:text-foreground transition-colors duration-300"
-                        >
-                          LinkedIn
-                        </a>
                       </div>
                     </div>
                   </div>
