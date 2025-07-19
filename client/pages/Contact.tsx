@@ -1,4 +1,5 @@
 import { useState } from "react";
+import emailjs from "@emailjs/browser";
 import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
 
@@ -16,20 +17,19 @@ export default function Contact() {
     setStatus("loading");
 
     try {
-      const response = await fetch("https://formspree.io/f/mzzvzywj", {
-        method: "POST",
-        headers: {
-          Accept: "application/json",
+      await emailjs.send(
+        "service_2fxp84m",
+        "contact_form_template",
+        {
+          from_name: formData.name,
+          from_email: formData.email,
+          message: formData.message,
         },
-        body: new FormData(e.target as HTMLFormElement),
-      });
+        "FE0d3sdUzojv9oAQ3"
+      );
 
-      if (response.ok) {
-        setFormData({ name: "", email: "", message: "" });
-        setStatus("success");
-      } else {
-        setStatus("error");
-      }
+      setFormData({ name: "", email: "", message: "" });
+      setStatus("success");
     } catch (error) {
       setStatus("error");
     }
@@ -70,10 +70,7 @@ export default function Contact() {
                 <h2 className="text-section-title mb-8">Send a Message</h2>
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div>
-                    <label
-                      htmlFor="name"
-                      className="block text-sm font-medium text-foreground mb-2"
-                    >
+                    <label htmlFor="name" className="block text-sm font-medium text-foreground mb-2">
                       Name
                     </label>
                     <input
@@ -90,10 +87,7 @@ export default function Contact() {
                   </div>
 
                   <div>
-                    <label
-                      htmlFor="email"
-                      className="block text-sm font-medium text-foreground mb-2"
-                    >
+                    <label htmlFor="email" className="block text-sm font-medium text-foreground mb-2">
                       Email
                     </label>
                     <input
@@ -110,10 +104,7 @@ export default function Contact() {
                   </div>
 
                   <div>
-                    <label
-                      htmlFor="message"
-                      className="block text-sm font-medium text-foreground mb-2"
-                    >
+                    <label htmlFor="message" className="block text-sm font-medium text-foreground mb-2">
                       Message
                     </label>
                     <textarea
@@ -157,9 +148,7 @@ export default function Contact() {
                   <h2 className="text-section-title mb-8">Get in Touch</h2>
                   <div className="space-y-6">
                     <div>
-                      <h3 className="text-lg font-heading font-semibold mb-2">
-                        Email
-                      </h3>
+                      <h3 className="text-lg font-heading font-semibold mb-2">Email</h3>
                       <a
                         href="mailto:contact@souheilasaid.com"
                         className="text-muted-foreground hover:text-foreground transition-colors duration-300"
@@ -169,18 +158,12 @@ export default function Contact() {
                     </div>
 
                     <div>
-                      <h3 className="text-lg font-heading font-semibold mb-2">
-                        Location
-                      </h3>
-                      <p className="text-body text-muted-foreground">
-                        Brussels, Belgium
-                      </p>
+                      <h3 className="text-lg font-heading font-semibold mb-2">Location</h3>
+                      <p className="text-body text-muted-foreground">Brussels, Belgium</p>
                     </div>
 
                     <div>
-                      <h3 className="text-lg font-heading font-semibold mb-2">
-                        Social
-                      </h3>
+                      <h3 className="text-lg font-heading font-semibold mb-2">Social</h3>
                       <div className="space-y-2">
                         <a
                           href="https://instagram.com/souheila.said"
@@ -204,20 +187,15 @@ export default function Contact() {
                 </div>
 
                 <div className="pt-8">
-                  <h3 className="text-lg font-heading font-semibold mb-4">
-                    Professional Inquiries
-                  </h3>
+                  <h3 className="text-lg font-heading font-semibold mb-4">Professional Inquiries</h3>
                   <p className="text-body text-muted-foreground">
-                    Available for editorial shoots, runway shows, and creative
-                    collaborations. Based in Brussels with availability for
-                    travel across Europe.
+                    Available for editorial shoots, runway shows, and creative collaborations.
+                    Based in Brussels with availability for travel across Europe.
                   </p>
                 </div>
 
                 <div className="pt-8">
-                  <h3 className="text-lg font-heading font-semibold mb-4">
-                    Response Time
-                  </h3>
+                  <h3 className="text-lg font-heading font-semibold mb-4">Response Time</h3>
                   <p className="text-body text-muted-foreground">
                     I typically respond to inquiries within 24–48 hours.
                   </p>
