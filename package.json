@@ -18,8 +18,7 @@
     "start": "node dist/server/node-build.mjs",
     "test": "vitest --run",
     "format.fix": "prettier --write .",
-    "typecheck": "tsc",
-    "sitemap": "next-sitemap"
+    "typecheck": "tsc"
   },
   "dependencies": {
     "@emailjs/browser": "^4.4.1",
