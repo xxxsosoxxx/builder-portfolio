@@ -2,6 +2,18 @@ import { Navigation } from "@/components/Navigation";
 import { PhotoGallery } from "@/components/PhotoGallery";
 import { Footer } from "@/components/Footer";
 import { useSmoothScroll } from "@/hooks/use-smooth-scroll";
+import { Helmet } from "react-helmet";
+      <Helmet>
+        <title>Portfolio – Souheila Said</title>
+        <meta
+          name="description"
+          content="Discover the editorial and visual work of Souheila Said, a model and creative based in Brussels."
+        />
+        <meta name="keywords" content="portfolio, fashion, editorial, creative, Brussels, runway" />
+        <meta name="author" content="Souheila Said" />
+      </Helmet>
+      {/* contenu visuel */}
+  
 
 export default function Portfolio() {
   useSmoothScroll();

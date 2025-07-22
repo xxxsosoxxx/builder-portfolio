@@ -2,6 +2,20 @@ import { useState } from "react";
 import emailjs from "@emailjs/browser";
 import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
+import { Helmet } from "react-helmet";
+
+<Helmet>
+  <title>Contact – Souheila Said</title>
+  <meta
+    name="description"
+    content="Get in touch with Souheila Said — available for editorial shoots, runway projects and creative collaborations across Europe. Based in Brussels."
+  />
+  <meta
+    name="keywords"
+    content="Contact Souheila Said, fashion collaboration, editorial inquiries, runway availability, Brussels model contact, Europe model creative"
+  />
+  <meta name="author" content="Souheila Said" />
+</Helmet>
 
 export default function Contact() {
   const [formData, setFormData] = useState({

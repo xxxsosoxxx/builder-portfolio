@@ -1,6 +1,20 @@
 import { useEffect, useState } from "react";
 import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
+import { Helmet } from "react-helmet";
+
+<Helmet>
+  <title>Souheila Said – Model & Creative</title>
+  <meta
+    name="description"
+    content="Discover the editorial and visual universe of Souheila Said — a model and creative voice based in Brussels. Sculptural presence between fashion, art and body architecture."
+  />
+  <meta
+    name="keywords"
+    content="Souheila Said, fashion model, creative, editorial portfolio, Brussels, sculptural fashion, runway presence, body narrative"
+  />
+  <meta name="author" content="Souheila Said" />
+</Helmet>
 
 export default function Index() {
   const [isLoaded, setIsLoaded] = useState(false);

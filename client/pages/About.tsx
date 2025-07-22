@@ -1,6 +1,20 @@
 import React, { useState, useRef, useEffect } from "react";
 import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
+import { Helmet } from "react-helmet";
+
+<Helmet>
+  <title>About – Souheila Said</title>
+  <meta
+    name="description"
+    content="Meet Souheila Said, a Brussels-based model and creative whose body becomes structure, and fashion a language. Presence as resistance, style as declaration."
+  />
+  <meta
+    name="keywords"
+    content="Souheila Said, model biography, creative direction, fashion manifesto, body architecture, editorial identity, Brussels"
+  />
+  <meta name="author" content="Souheila Said" />
+</Helmet>
 
 export default function About() {
   const aboutContentRef = useRef<HTMLDivElement>(null);
