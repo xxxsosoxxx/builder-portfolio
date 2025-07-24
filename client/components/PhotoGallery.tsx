@@ -1,3 +1,6 @@
+<div className="min-h-screen bg-background text-foreground"> 
+  <PhotoGallery />
+</div>
 import { useState, useEffect } from "react";
 import { X, ChevronLeft, ChevronRight } from "lucide-react";
 import { portfolioPhotos } from "./portfolioPhotos";
