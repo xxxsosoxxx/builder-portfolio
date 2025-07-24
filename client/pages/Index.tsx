@@ -39,7 +39,7 @@ export default function Index() {
               loading="lazy"
               onLoad={() => setIsLoaded(true)}
             />
-            <div className="absolute inset-0 bg-black/20" />
+            <div className="absolute inset-0 bg-black/10" />
           </div>
 
           {/* Text Overlay */}
