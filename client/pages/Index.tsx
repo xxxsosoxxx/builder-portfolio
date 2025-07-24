@@ -3,19 +3,6 @@ import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
 import { Helmet } from "react-helmet";
 
-<Helmet>
-  <title>Souheila Said – Model & Creative</title>
-  <meta
-    name="description"
-    content="Discover the editorial and visual universe of Souheila Said — a model and creative voice based in Brussels. Sculptural presence between fashion, art and body architecture."
-  />
-  <meta
-    name="keywords"
-    content="Souheila Said, fashion model, creative, editorial portfolio, Brussels, sculptural fashion, runway presence, body narrative"
-  />
-  <meta name="author" content="Souheila Said" />
-</Helmet>
-
 export default function Index() {
   const [isLoaded, setIsLoaded] = useState(false);
 
@@ -25,19 +12,31 @@ export default function Index() {
 
   return (
     <div className="min-h-screen relative overflow-x-hidden">
+      <Helmet>
+        <title>Souheila Said – Model & Creative</title>
+        <meta
+          name="description"
+          content="Provence-born, globally unbothered."
+        />
+        <meta
+          name="keywords"
+          content="Souheila Said, fashion model, creative, editorial portfolio, Brussels, sculptural fashion, runway presence, body narrative"
+        />
+        <meta name="author" content="Souheila Said" />
+      </Helmet>
+
       <Navigation />
 
       {/* Hero Section */}
       <section className="relative h-screen flex items-center justify-center">
-        {/* Background Image */}
-        <div className="relative min-h-screen flex items-center justify-center overflow-hidden">
+        {/* Background Image en absolute sous le contenu */}
+        <div className="absolute inset-0 z-0">
           <img
             src="https://cdn.builder.io/api/v1/image/assets%2F32dbebdc41de4f02a397c4bcb49e3699%2F7f99b673551e42f7a1aa9f5d299383b4"
             alt="Souheila Said Fashion Model"
-            className="w-full h-full object-cover object-center bg-fixed"
+            className="w-full h-full object-cover object-center"
             onLoad={() => setIsLoaded(true)}
           />
-          {/* Subtle overlay for text readability */}
           <div className="absolute inset-0 bg-black/20" />
         </div>
 
@@ -116,7 +115,7 @@ export default function Index() {
       </section>
 
       {/* Quick Links Section */}
-      <section className="py-20 border-t border-border bg-muted dark:bg-muted-foreground">
+      <section className="py-20 border-t border-border bg-muted dark:bg-secondary">
         <div className="section-padding">
           <div className="container-wide">
             <div className="grid md:grid-cols-3 gap-12 text-center">
@@ -124,7 +123,7 @@ export default function Index() {
                 <h3 className="text-xl font-heading font-semibold mb-4 group-hover:text-muted-foreground transition-colors duration-300">
                   Portfolio
                 </h3>
-                <p className="text-body text-muted-foreground mb-6">
+                <p className="text-body text-muted-foreground dark:text-muted-foreground mb-6">
                   Editorial shoots and polaroïds
                 </p>
                 <a
@@ -140,10 +139,9 @@ export default function Index() {
                 <h3 className="text-xl font-heading font-semibold mb-4 group-hover:text-muted-foreground transition-colors duration-300">
                   About
                 </h3>
-                <p className="text-body text-muted-foreground dark:text-muted-foreground">
+                <p className="text-body text-muted-foreground dark:text-muted-foreground mb-6">
                   Background and measurements
                 </p>
-
                 <a
                   href="/about"
                   className="tracking-wider uppercase hover:text-muted-foreground transition-colors duration-300"
@@ -157,11 +155,8 @@ export default function Index() {
                 <h3 className="text-xl font-heading font-semibold mb-4 group-hover:text-muted-foreground transition-colors duration-300">
                   Contact
                 </h3>
-                <p className="text-body mb-6">
-                  <span style={{ color: "rgba(74, 74, 74, 1)" }}>
-                    Ready to collaborate?
-                  </span>
-                  <br />
+                <p className="text-body text-muted-foreground dark:text-muted-foreground mb-6">
+                  Ready to collaborate?
                 </p>
                 <a
                   href="/contact"
