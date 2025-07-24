@@ -63,7 +63,7 @@ export default function About() {
                 style={{ fontSize: "16px", lineHeight: "24px" }}
               >
                 {/* Title at the top */}
-                <h1 className="text-4xl font-semibold mb-6">About</h1>
+                <h2 className="text-4xl font-semibold mb-6">About</h2>
 
                 {/* Text aligned bottom */}
                 <div className="text-subhero text-muted-foreground mt-auto">
