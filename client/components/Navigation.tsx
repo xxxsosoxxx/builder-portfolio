@@ -36,7 +36,7 @@ export function Navigation() {
             : "bg-transparent",
         )}
       >
-        <div className="section-padding py-6">
+        <div className={cn("section-padding", isScrolled ? "py-6" : "py-0")}>
           <div className="flex items-center justify-between">
             {/* Logo */}
             <Link
