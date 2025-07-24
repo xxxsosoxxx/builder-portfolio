@@ -41,6 +41,7 @@ export default {
         sans: ["Inter", "system-ui", "sans-serif"],
         display: ["Space Grotesk", "Inter", "system-ui", "sans-serif"],
         heading: ["Space Grotesk", "Inter", "system-ui", "sans-serif"],
+        orbitron: ["Orbitron", "sans-serif"],
       },
       fontSize: {
         xs: ["0.75rem", { lineHeight: "1rem" }],

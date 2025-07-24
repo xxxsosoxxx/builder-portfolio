@@ -21,7 +21,7 @@ function GalleryItem({
 }) {
   return (
     <div
-      className="group relative break-inside-avoid cursor-pointer overflow-hidden bg-white border border-gray-100 hover:border-gray-300 transition-all duration-700 hover:shadow-2xl rounded-lg"
+      className="group relative break-inside-avoid cursor-pointer overflow-hidden bg-background border border-border hover:border-muted transition-all duration-700 hover:shadow-2xl rounded-lg"
       onClick={() => onOpen(photo)}
     >
       <div className="relative w-full overflow-hidden rounded-lg">
@@ -32,15 +32,17 @@ function GalleryItem({
           loading="lazy"
         />
 
-        {/* Overlay */}
+        {/* Overlay subtile */}
         <div className="absolute inset-0 bg-black/0 group-hover:bg-black/25 transition duration-500 pointer-events-none z-20 rounded-lg" />
 
-        {/* Text gradient */}
-        <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-30 rounded-b-lg">
-          <h3 className="text-white font-heading font-semibold text-lg mb-1 leading-tight">
+        {/* Texte stylisé avec gradient */}
+        <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/70 via-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-30 rounded-b-lg">
+          <h3 className="font-orbitron text-foreground text-sm font-semibold tracking-widest uppercase mb-1 leading-tight">
             {photo.title}
           </h3>
-          <p className="text-white/80 text-sm leading-snug">{photo.date}</p>
+          <p className="text-muted-foreground text-xs tracking-wide leading-snug">
+            {photo.date}
+          </p>
         </div>
       </div>
     </div>
@@ -71,7 +73,7 @@ export function PhotoGallery() {
   return (
     <>
       {/* Masonry Columns */}
-      <div className="w-full bg-white">
+      <div className="w-full bg-background text-foreground">
         <div className="mx-auto max-w-none px-0">
           <div className="columns-1 md:columns-2 lg:columns-3 xl:columns-4 gap-4 p-4">
             {portfolioPhotos.map((photo, index) => (
@@ -95,7 +97,7 @@ export function PhotoGallery() {
           {/* Close button */}
           <button
             onClick={closeLightbox}
-            className="absolute top-6 right-6 z-60 text-white hover:text-gray-300 transition-colors duration-300 p-2 rounded-full hover:bg-white/10"
+            className="absolute top-6 right-6 z-60 text-muted-foreground hover:text-foreground transition-colors duration-300 p-2 rounded-full hover:bg-white/10"
             aria-label="Close lightbox"
           >
             <X size={32} />
@@ -108,7 +110,7 @@ export function PhotoGallery() {
                 e.stopPropagation();
                 navigatePhoto(-1);
               }}
-              className="absolute left-6 top-1/2 -translate-y-1/2 z-60 text-white hover:text-gray-300 transition-colors duration-300 p-2 rounded-full hover:bg-white/10"
+              className="absolute left-6 top-1/2 -translate-y-1/2 z-60 text-muted-foreground hover:text-foreground transition-colors duration-300 p-2 rounded-full hover:bg-white/10"
               aria-label="Previous image"
             >
               <ChevronLeft size={48} />
@@ -121,7 +123,7 @@ export function PhotoGallery() {
                 e.stopPropagation();
                 navigatePhoto(1);
               }}
-              className="absolute right-6 top-1/2 -translate-y-1/2 z-60 text-white hover:text-gray-300 transition-colors duration-300 p-2 rounded-full hover:bg-white/10"
+              className="absolute right-6 top-1/2 -translate-y-1/2 z-60 text-muted-foreground hover:text-foreground transition-colors duration-300 p-2 rounded-full hover:bg-white/10"
               aria-label="Next image"
             >
               <ChevronRight size={48} />
@@ -136,17 +138,17 @@ export function PhotoGallery() {
             <img
               src={selectedPhoto.src}
               alt={selectedPhoto.title}
-              className="max-w-full max-h-[90vh] object-contain"
+              className="max-w-full max-h-[90vh] object-contain rounded-md"
             />
 
             {/* Image info */}
-            <div className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black/80 to-transparent">
-              <h2 className="text-white text-2xl font-heading font-semibold mb-2">
+            <div className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black/80 to-transparent text-foreground font-orbitron">
+              <h2 className="text-xl font-semibold mb-2 uppercase tracking-wider">
                 {selectedPhoto.title}
               </h2>
-              <p className="text-white/80 text-lg">{selectedPhoto.date}</p>
+              <p className="text-muted-foreground text-sm">{selectedPhoto.date}</p>
               {selectedPhoto.description && (
-                <p className="text-white/70 text-body mt-2">
+                <p className="text-muted-foreground text-sm mt-2 font-light leading-relaxed">
                   {selectedPhoto.description}
                 </p>
               )}
@@ -154,7 +156,7 @@ export function PhotoGallery() {
           </div>
 
           {/* Image counter */}
-          <div className="absolute bottom-6 left-1/2 -translate-x-1/2 text-white text-sm bg-black/30 px-3 py-1 rounded-full">
+          <div className="absolute bottom-6 left-1/2 -translate-x-1/2 text-xs px-3 py-1 bg-black/30 text-white rounded-full font-orbitron tracking-widest uppercase">
             {currentIndex + 1} / {portfolioPhotos.length}
           </div>
         </div>
