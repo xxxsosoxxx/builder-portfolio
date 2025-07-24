@@ -30,7 +30,7 @@
     --radius: 0rem;
   }
 
-        .dark {
+        html.dark {
       --background: 0 0% 8%;               /* charbon profond */
       --foreground: 0 0% 92%;              /* blanc velours */
       
