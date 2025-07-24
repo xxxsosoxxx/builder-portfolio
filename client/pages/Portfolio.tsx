@@ -29,7 +29,7 @@ export default function Portfolio() {
       <section className="pt-32 pb-16 bg-background">
         <div className="section-padding">
           <div className="container-narrow text-center">
-            <h1 className="text-hero mb-8 animate-fade-in-up font-orbitron uppercase tracking-[0.2em]">
+            <h1 className="text-hero mb-8 animate-fade-in-up uppercase tracking-[0.2em]">
               Portfolio
             </h1>
             <p className="text-subhero text-muted-foreground max-w-2xl mx-auto animate-fade-in-up">
@@ -48,7 +48,7 @@ export default function Portfolio() {
       <section className="py-24 bg-background">
         <div className="section-padding">
           <div className="container-narrow text-center">
-            <h2 className="text-section-title mb-6 font-orbitron uppercase tracking-[0.15em]">
+            <h2 className="text-section-title mb-6 uppercase tracking-[0.15em]">
               Interested in working together?
             </h2>
             <a
