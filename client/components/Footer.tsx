@@ -2,7 +2,7 @@ import DarkModeToggle from "@/components/ui/darkmodetoggle";
 
 export function Footer() {
   return (
-    <footer className="bg-white border-t border-border py-12">
+    <footer className="bg-background border-t border-border py-12">
       <div className="section-padding">
         <div className="container-narrow">
           <div className="flex flex-col md:flex-row justify-between items-start md:items-center space-y-6 md:space-y-0">
