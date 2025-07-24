@@ -24,17 +24,17 @@ export default function Index() {
   }, []);
 
   return (
-    <div className="min-h-screen relative overflow-hidden">
+    <div className="min-h-screen relative overflow-x-hidden">
       <Navigation />
 
       {/* Hero Section */}
       <section className="relative h-screen flex items-center justify-center">
         {/* Background Image */}
-        <div className="absolute inset-0 z-0">
+        <div className="relative min-h-screen flex items-center justify-center overflow-hidden">
           <img
             src="https://cdn.builder.io/api/v1/image/assets%2F32dbebdc41de4f02a397c4bcb49e3699%2F7f99b673551e42f7a1aa9f5d299383b4"
             alt="Souheila Said Fashion Model"
-            className="w-full h-full object-cover object-center"
+            className="w-full h-full object-cover object-center bg-fixed"
             onLoad={() => setIsLoaded(true)}
           />
           {/* Subtle overlay for text readability */}
@@ -116,10 +116,7 @@ export default function Index() {
       </section>
 
       {/* Quick Links Section */}
-      <section
-        className="py-20 border-t border-border"
-        style={{ backgroundColor: "#d3d3d3" }}
-      >
+      <section className="py-20 border-t border-border bg-muted dark:bg-muted-foreground">
         <div className="section-padding">
           <div className="container-wide">
             <div className="grid md:grid-cols-3 gap-12 text-center">
@@ -143,12 +140,10 @@ export default function Index() {
                 <h3 className="text-xl font-heading font-semibold mb-4 group-hover:text-muted-foreground transition-colors duration-300">
                   About
                 </h3>
-                <p
-                  className="text-body mb-6"
-                  style={{ color: "rgba(74, 74, 74, 1)" }}
-                >
+                <p className="text-body text-muted-foreground dark:text-muted-foreground">
                   Background and measurements
                 </p>
+
                 <a
                   href="/about"
                   className="tracking-wider uppercase hover:text-muted-foreground transition-colors duration-300"
