@@ -9,21 +9,30 @@ import Contact from "./pages/Contact";
 import Accessibility from "./pages/Accessibility";
 import TermsOfUse from "./pages/TermsOfUse";
 import NotFound from "./pages/NotFound";
+import DarkModeToggle from "./components/ui/darkmodetoggle";
 
-const App = () => (
-  <BrowserRouter>
-    <div className="smooth-scroll">
-      <Routes>
-        <Route path="/" element={<Index />} />
-        <Route path="/portfolio" element={<Portfolio />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/contact" element={<Contact />} />
-        <Route path="/accessibility" element={<Accessibility />} />
-        <Route path="/terms-of-use" element={<TermsOfUse />} />
-        <Route path="*" element={<NotFound />} />
-      </Routes>
+function App() {
+  return (
+    <div className="min-h-screen bg-background text-foreground">
+      <header className="p-4">
+        <DarkModeToggle />
+      </header>
+
+      <BrowserRouter>
+        <div className="smooth-scroll">
+          <Routes>
+            <Route path="/" element={<Index />} />
+            <Route path="/portfolio" element={<Portfolio />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/accessibility" element={<Accessibility />} />
+            <Route path="/terms-of-use" element={<TermsOfUse />} />
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </div>
+      </BrowserRouter>
     </div>
-  </BrowserRouter>
-);
+  );
+}
 
 createRoot(document.getElementById("root")!).render(<App />);
