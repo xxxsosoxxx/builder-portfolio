@@ -29,7 +29,15 @@ export default function Portfolio() {
       <section className="pt-32 pb-16 bg-background">
         <div className="section-padding">
           <div className="container-narrow text-center">
-            <h1 className="text-hero mb-8 animate-fade-in-up uppercase tracking-[0.2em]">
+            <h1
+            className="text-hero mb-8 animate-fade-in-up font-heading font-semibold"
+            style={{
+            fontSize: "36px",
+            fontWeight: 600,
+            letterSpacing: "-0.2px",
+            lineHeight: "44px"
+            }}
+            >
               Portfolio
             </h1>
             <p className="text-subhero text-muted-foreground max-w-2xl mx-auto animate-fade-in-up">
@@ -48,9 +56,7 @@ export default function Portfolio() {
       <section className="py-24 bg-background">
         <div className="section-padding">
           <div className="container-narrow text-center">
-            <h2 className="text-section-title mb-6 uppercase tracking-[0.15em]">
-              Interested in working together?
-            </h2>
+            <h2 class="text-section-title mb-6">Interested in working together?</h2>
             <a
               href="/contact"
               className="btn-minimal"
