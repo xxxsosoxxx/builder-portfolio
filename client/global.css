@@ -8,7 +8,7 @@
 
 @layer base {
   :root {
-    --background: 0 0% 0%;
+    --background: 0 0% 100%;
     --foreground: 0 0% 0%;
 
     --primary: 0 0% 0%;
@@ -29,7 +29,13 @@
 
     --radius: 0rem;
   }
+  nav.unscrolled {
+  background-color: transparent;
+  }
 
+  nav.scrolled {
+  background-color: hsl(var(--background) / 0.9);
+  }
         html.dark {
       --background: 0 0% 8%;               /* charbon profond */
       --foreground: 0 0% 92%;              /* blanc velours */

@@ -33,7 +33,7 @@ export function Navigation() {
          "fixed top-0 left-0 right-0 z-50 transition-all duration-500",
           isScrolled? 
           "bg-background/90 backdrop-blur-md border-b border-border"
-          : "bg-transparent"
+          : "bg-none"
         )}
       >
         <div className={cn("section-padding", isScrolled ? "py-5" : "py-0")}>
