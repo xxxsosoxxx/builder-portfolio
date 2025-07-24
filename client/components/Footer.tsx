@@ -1,3 +1,5 @@
+import DarkModeToggle from "@/components/ui/darkmodetoggle";
+
 export function Footer() {
   return (
     <footer className="bg-white border-t border-border py-12">
@@ -8,25 +10,31 @@ export function Footer() {
             <div className="text-sm text-muted-foreground">
               © Souheila Said 2025 – All rights reserved
             </div>
+          </div>
 
-            {/* Legal Links */}
-            <div className="flex flex-col md:flex-row space-y-3 md:space-y-0 md:space-x-8">
-              <a
-                href="/accessibility"
-                className="text-sm text-muted-foreground hover:text-foreground transition-colors duration-300"
-              >
-                Accessibility statement
-              </a>
-              <a
-                href="/terms-of-use"
-                className="text-sm text-muted-foreground hover:text-foreground transition-colors duration-300"
-              >
-                Terms of Use
-              </a>
-            </div>
+          {/* Legal Links */}
+          <div className="flex flex-col md:flex-row space-y-3 md:space-y-0 md:space-x-8">
+            <a
+              href="/accessibility"
+              className="text-sm text-muted-foreground hover:text-foreground transition-colors duration-300"
+            >
+              Accessibility statement
+            </a>
+            <a
+              href="/terms-of-use"
+              className="text-sm text-muted-foreground hover:text-foreground transition-colors duration-300"
+            >
+              Terms of Use
+            </a>
+          </div>
+
+          {/* Dark Mode Toggle */}
+          <div className="mt-6">
+            <DarkModeToggle />
           </div>
         </div>
       </div>
     </footer>
   );
 }
+

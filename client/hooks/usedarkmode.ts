@@ -1,49 +1,44 @@
 import { useEffect, useState } from "react";
 
-type Theme = "light" | "dark" | "system";
+export default function useDarkMode() {
+  const [isDark, setIsDark] = useState<boolean>(false);
 
-export default function useDarkMode(): [Theme, (theme: Theme) => void] {
-  const [theme, setTheme] = useState<Theme>("system");
-
-  // Charger le thème sauvegardé au montage
   useEffect(() => {
-    const saved = localStorage.getItem("theme") as Theme | null;
-    if (saved === "light" || saved === "dark" || saved === "system") {
-      setTheme(saved);
+    const userPref = localStorage.getItem("theme");
+    const hour = new Date().getHours();
+
+    // Définir si on est dans le créneau automatique (21h-6h)
+    const isAutoDark = hour >= 21 || hour < 6;
+
+    if (userPref === "dark") {
+      setIsDark(true);
+      document.documentElement.classList.add("dark");
+    } else if (userPref === "light") {
+      setIsDark(false);
+      document.documentElement.classList.remove("dark");
+    } else {
+      // pas de préférence : on applique auto
+      setIsDark(isAutoDark);
+      if (isAutoDark) {
+        document.documentElement.classList.add("dark");
+      } else {
+        document.documentElement.classList.remove("dark");
+      }
     }
   }, []);
 
-  // Appliquer la classe dark en fonction du thème
-  useEffect(() => {
-    const root = window.document.documentElement;
-
-    function applyTheme(t: Theme) {
-      if (t === "system") {
-        const isDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-        root.classList.toggle("dark", isDark);
+  const toggleDarkMode = () => {
+    setIsDark(prev => {
+      const newValue = !prev;
+      localStorage.setItem("theme", newValue ? "dark" : "light");
+      if (newValue) {
+        document.documentElement.classList.add("dark");
       } else {
-        root.classList.toggle("dark", t === "dark");
+        document.documentElement.classList.remove("dark");
       }
-    }
+      return newValue;
+    });
+  };
 
-    applyTheme(theme);
-
-    if (theme === "system") {
-      const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
-      const handler = (e: MediaQueryListEvent) => {
-        root.classList.toggle("dark", e.matches);
-      };
-      mediaQuery.addEventListener("change", handler);
-      return () => mediaQuery.removeEventListener("change", handler);
-    }
-
-    return;
-  }, [theme]);
-
-  // Sauvegarder le choix utilisateur
-  useEffect(() => {
-    localStorage.setItem("theme", theme);
-  }, [theme]);
-
-  return [theme, setTheme];
+  return { isDark, toggleDarkMode };
 }
