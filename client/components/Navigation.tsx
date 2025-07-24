@@ -30,10 +30,8 @@ export function Navigation() {
     <>
       <nav
         className={cn(
-         "fixed top-0 left-0 right-0 z-50 transition-all duration-500",
-          isScrolled? 
-          "bg-background/90 backdrop-blur-md border-b border-border"
-          : "bg-none"
+          "fixed top-0 left-0 right-0 z-50 transition-all duration-500",
+          isScrolled ? "scrolled bg-nav backdrop-blur-md border-b border-border" : "unscrolled"
         )}
       >
         <div className={cn("section-padding", isScrolled ? "py-5" : "py-0")}>
@@ -55,7 +53,7 @@ export function Navigation() {
                   to={item.href}
                   className={cn(
                     "nav-link",
-                    location.pathname === item.href && "text-muted-foreground",
+                    location.pathname === item.href && "text-muted-foreground"
                   )}
                 >
                   {item.label}
@@ -72,19 +70,19 @@ export function Navigation() {
               <span
                 className={cn(
                   "w-6 h-px bg-foreground transition-all duration-300",
-                  isMenuOpen && "rotate-45 translate-y-2",
+                  isMenuOpen && "rotate-45 translate-y-2"
                 )}
               />
               <span
                 className={cn(
                   "w-6 h-px bg-foreground transition-all duration-300",
-                  isMenuOpen && "opacity-0",
+                  isMenuOpen && "opacity-0"
                 )}
               />
               <span
                 className={cn(
                   "w-6 h-px bg-foreground transition-all duration-300",
-                  isMenuOpen && "-rotate-45 -translate-y-2",
+                  isMenuOpen && "-rotate-45 -translate-y-2"
                 )}
               />
             </button>
@@ -96,7 +94,7 @@ export function Navigation() {
       <div
         className={cn(
           "fixed inset-0 z-40 bg-background transition-transform duration-300 md:hidden",
-          isMenuOpen ? "transform translate-x-0" : "transform translate-x-full",
+          isMenuOpen ? "transform translate-x-0" : "transform translate-x-full"
         )}
       >
         <div className="flex flex-col items-center justify-center h-full space-y-8">
@@ -108,7 +106,7 @@ export function Navigation() {
                 "text-2xl font-light tracking-wider transition-colors duration-300",
                 location.pathname === item.href
                   ? "text-muted-foreground"
-                  : "text-foreground hover:text-muted-foreground",
+                  : "text-foreground hover:text-muted-foreground"
               )}
             >
               {item.label}

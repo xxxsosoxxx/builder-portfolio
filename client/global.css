@@ -7,57 +7,56 @@
 @tailwind utilities;
 
 @layer base {
-  :root {
-    --background: 0 0% 100%;
-    --foreground: 0 0% 0%;
+:root {
+  /* Mode clair */
+  --background: 0 0% 100%;          /* blanc */
+  --foreground: 0 0% 10%;           /* noir */
 
-    --primary: 0 0% 0%;
-    --primary-foreground: 0 0% 100%;
+  --primary: 0 0% 0%;
+  --primary-foreground: 0 0% 100%;
 
-    --secondary: 0 0% 95%;
-    --secondary-foreground: 0 0% 0%;
+  --secondary: 0 0% 95%;
+  --secondary-foreground: 0 0% 0%;
 
-    --muted: 0 0% 96%;
-    --muted-foreground: 0 0% 45%;
+  --muted: 0 0% 96%;
+  --muted-foreground: 0 0% 45%;
 
-    --accent: 0 0% 90%;
-    --accent-foreground: 0 0% 0%;
+  --accent: 0 0% 90%;
+  --accent-foreground: 0 0% 0%;
 
-    --border: 0 0% 90%;
-    --input: 0 0% 90%;
-    --ring: 0 0% 0%;
+  --border: 0 0% 90%;
+  --input: 0 0% 90%;
+  --ring: 0 0% 0%;
+}
+nav.unscrolled {
+  background-color: transparent !important;
+}
+nav.scrolled {
+  background-color: rgba(0, 0, 0, 0.4); /* ou hsl(var(--background) / 0.9) si tu préfères */
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid hsl(var(--border));
+}
+html.dark {
+  /* Mode sombre */
+  --background: 0 0% 8%;            /* noir profond */
+  --foreground: 0 0% 92%;           /* blanc doux */
 
-    --radius: 0rem;
-  }
-  nav.unscrolled {
-  background-color: transparent;
-  }
+  --primary: 0 0% 92%;
+  --primary-foreground: 0 0% 8%;
 
-  nav.scrolled {
-  background-color: hsl(var(--background) / 0.9);
-  }
-        html.dark {
-      --background: 0 0% 8%;               /* charbon profond */
-      --foreground: 0 0% 92%;              /* blanc velours */
-      
-      --primary: 0 0% 92%;
-      --primary-foreground: 0 0% 8%;
+  --secondary: 0 0% 14%;
+  --secondary-foreground: 0 0% 85%;
 
-      --secondary: 0 0% 14%;               /* gris pierre */
-      --secondary-foreground: 0 0% 85%;
+  --muted: 0 0% 12%;
+  --muted-foreground: 0 0% 60%;
 
-      --muted: 0 0% 12%;                   /* gris minéral */
-      --muted-foreground: 0 0% 60%;
+  --accent: 0 0% 20%;
+  --accent-foreground: 0 0% 92%;
 
-      --accent: 0 0% 20%;                  /* graphite doux */
-      --accent-foreground: 0 0% 92%;
-
-      --border: 0 0% 18%;
-      --input: 0 0% 14%;
-      --ring: 0 0% 65%;
-    }
-
-  }
+  --border: 0 0% 18%;
+  --input: 0 0% 14%;
+  --ring: 0 0% 65%;
+}
 
 @layer base {
   * {
