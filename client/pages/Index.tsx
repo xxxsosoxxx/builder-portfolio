@@ -31,7 +31,7 @@ export default function Index() {
         {/* Hero Section */}
         <section className="relative h-screen flex items-center justify-center">
           {/* Background Image */}
-          <div className="absolute inset-0 z-index-0">
+          <div className="absolute inset-0 z-0">
             <img
               src="https://cdn.builder.io/api/v1/image/assets%2F32dbebdc41de4f02a397c4bcb49e3699%2F7f99b673551e42f7a1aa9f5d299383b4"
               alt="Souheila Said Fashion Model"
