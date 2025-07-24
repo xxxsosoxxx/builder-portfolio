@@ -56,7 +56,7 @@ export default function Portfolio() {
       <section className="py-24 bg-background">
         <div className="section-padding">
           <div className="container-narrow text-center">
-            <h2 class="text-section-title mb-6">Interested in working together?</h2>
+            <h2 className="text-section-title mb-6">Interested in working together?</h2>
             <a
               href="/contact"
               className="btn-minimal"
