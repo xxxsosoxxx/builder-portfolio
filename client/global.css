@@ -6,7 +6,7 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer base {
+@layer base { 
 :root {
   /* Mode clair */
   --background: 0 0% 100%;          /* blanc */
@@ -27,6 +27,7 @@
   --border: 0 0% 90%;
   --input: 0 0% 90%;
   --ring: 0 0% 0%;
+}
 }
 nav.unscrolled {
   background-color: transparent !important;
