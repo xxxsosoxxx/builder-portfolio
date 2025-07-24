@@ -122,85 +122,82 @@ export default function Index() {
           </div>
         </section>
 
-        {/* Quick Links Section */}
-        <section className="py-20 border-t border-border bg-blurred">
-          <div className="section-padding">
-            <div className="container-wide">
-              <div className="grid md:grid-cols-3 gap-12 text-center">
-                {/* Portfolio Link */}
-                <div className="group">
-                  <h3 className="text-xl font-heading font-semibold mb-4 group-hover:text-muted-foreground transition-colors duration-300">
-                    Portfolio
-                  </h3>
-                  <p className="text-body text-muted-foreground mb-6">
-                    Editorial shoots and polaroïds
-                  </p>
-                  <a
-                    href="/portfolio"
-                    className="tracking-wider uppercase hover:text-muted-foreground transition-colors duration-300"
-                    style={{
-                      fontFamily: "Orbitron, sans-serif",
-                      fontSize: "14px",
-                      lineHeight: "20px",
-                      fontWeight: 500,
-                    }}
-                  >
-                    Explore Work →
-                  </a>
-                </div>
+       {/* Quick Links Section */}
+<section className="py-20 border-t border-border bg-blurred">
+  <div className="section-padding">
+    <div className="container-wide">
+      <div className="grid md:grid-cols-3 gap-12 text-center">
 
-                {/* About Link */}
-                <div className="group">
-                  <h3 className="text-xl font-heading font-semibold mb-4 group-hover:text-muted-foreground transition-colors duration-300">
-                    About
-                  </h3>
-                  <p
-                    className="text-body mb-6"
-                    style={{ color: "rgba(74, 74, 74, 1)" }}
-                  >
-                    Background and measurements
-                  </p>
-                  <a
-                    href="/about"
-                    className="tracking-wider uppercase hover:text-muted-foreground transition-colors duration-300"
-                    style={{
-                      fontFamily: "Orbitron, sans-serif",
-                      fontSize: "14px",
-                      lineHeight: "20px",
-                      fontWeight: 500,
-                    }}
-                  >
-                    Learn More →
-                  </a>
-                </div>
+        {/* Portfolio Link */}
+        <div className="group">
+          <h3 className="text-xl font-heading font-semibold mb-4 group-hover:text-muted-foreground transition-colors duration-300">
+            Portfolio
+          </h3>
+          <p className="text-body text-muted-foreground mb-6">
+            Editorial shoots and polaroïds
+          </p>
+          <a
+            href="/portfolio"
+            className="tracking-wider uppercase hover:text-muted-foreground transition-colors duration-300"
+            style={{
+              fontFamily: "Orbitron, sans-serif",
+              fontSize: "14px",
+              lineHeight: "20px",
+              fontWeight: 500,
+            }}
+          >
+            Explore Work →
+          </a>
+        </div>
 
-                {/* Contact Link */}
-                <div className="group">
-                  <h3 className="text-xl font-heading font-semibold mb-4 group-hover:text-muted-foreground transition-colors duration-300">
-                    Contact
-                  </h3>
-                  <p className="text-body mb-6">
-                    <span style={{ color: "rgba(74, 74, 74, 1)" }}>
-                      Ready to collaborate?
-                    </span>
-                  </p>
-                  <a
-                    href="/contact"
-                    className="tracking-wider uppercase hover:text-muted-foreground transition-colors duration-300"
-                    style={{
-                      fontFamily: "Orbitron, sans-serif",
-                      fontSize: "14px",
-                      lineHeight: "20px",
-                      fontWeight: 500,
-                    }}
-                  >
-                    Get In Touch →
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
+        {/* About Link */}
+        <div className="group">
+          <h3 className="text-xl font-heading font-semibold mb-4 group-hover:text-muted-foreground transition-colors duration-300">
+            About
+          </h3>
+          <p className="text-body text-muted-foreground mb-6">
+            Background and measurements
+          </p>
+          <a
+            href="/about"
+            className="tracking-wider uppercase hover:text-muted-foreground transition-colors duration-300"
+            style={{
+              fontFamily: "Orbitron, sans-serif",
+              fontSize: "14px",
+              lineHeight: "20px",
+              fontWeight: 500,
+            }}
+          >
+            Learn More →
+          </a>
+        </div>
+
+        {/* Contact Link */}
+        <div className="group">
+          <h3 className="text-xl font-heading font-semibold mb-4 group-hover:text-muted-foreground transition-colors duration-300">
+            Contact
+          </h3>
+          <p className="text-body text-muted-foreground mb-6">
+            Ready to collaborate?
+          </p>
+          <a
+            href="/contact"
+            className="tracking-wider uppercase hover:text-muted-foreground transition-colors duration-300"
+            style={{
+              fontFamily: "Orbitron, sans-serif",
+              fontSize: "14px",
+              lineHeight: "20px",
+              fontWeight: 500,
+            }}
+          >
+            Get In Touch →
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
 
         <Footer />
       </div>
