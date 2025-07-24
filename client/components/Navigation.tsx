@@ -31,7 +31,8 @@ export function Navigation() {
       <nav
         className={cn(
           "fixed top-0 left-0 right-0 z-50 transition-all duration-500",
-          isScrolled ? "scrolled bg-nav backdrop-blur-md border-b border-border" : "unscrolled"
+          isScrolled ? "scrolled bg-[rgba(0,0,0,0.4)] backdrop-blur-md border-b border-border"
+  : "unscrolled bg-transparent"
         )}
       >
         <div className={cn("section-padding", isScrolled ? "py-5" : "py-0")}>
