@@ -11,7 +11,7 @@ export default function Index() {
   }, []);
 
   return (
-    <div className="min-h-screen relative overflow-x-hidden">
+    <div className="min-h-screen flex flex-col overflow-x-hidden bg-background text-foreground">
       <Helmet>
         <title>Souheila Said – Model & Creative</title>
         <meta
@@ -29,18 +29,18 @@ export default function Index() {
 
       {/* Hero Section */}
       <section className="relative h-screen flex items-center justify-center">
-        {/* Background Image en absolute sous le contenu */}
-        <div className="absolute inset-0 z-0">
+        {/* Fixed background image */}
+        <div className="fixed inset-0 z-0">
           <img
             src="https://cdn.builder.io/api/v1/image/assets%2F32dbebdc41de4f02a397c4bcb49e3699%2F7f99b673551e42f7a1aa9f5d299383b4"
             alt="Souheila Said Fashion Model"
             className="w-full h-full object-cover object-center"
             onLoad={() => setIsLoaded(true)}
           />
-          <div className="absolute inset-0 bg-black/20" />
+          <div className="absolute inset-0 bg-black/30" />
         </div>
 
-        {/* Text Overlay */}
+        {/* Hero content */}
         <div
           className={`relative z-10 text-center text-white px-6 transition-all duration-1000 ${
             isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
@@ -87,7 +87,6 @@ export default function Index() {
                   Too tall to hide.
                   <br />
                   Too tired to conform.
-                  <br />
                 </p>
                 <div className="pt-4">
                   <a
@@ -115,20 +114,20 @@ export default function Index() {
       </section>
 
       {/* Quick Links Section */}
-      <section className="py-20 border-t border-border bg-muted dark:bg-secondary">
+      <section className="py-20 border-t border-border bg-muted dark:bg-[#1a1a1a]">
         <div className="section-padding">
           <div className="container-wide">
             <div className="grid md:grid-cols-3 gap-12 text-center">
               <div className="group">
-                <h3 className="text-xl font-heading font-semibold mb-4 group-hover:text-muted-foreground transition-colors duration-300">
+                <h3 className="text-xl font-heading font-semibold mb-4 group-hover:text-primary transition-colors duration-300">
                   Portfolio
                 </h3>
-                <p className="text-body text-muted-foreground dark:text-muted-foreground mb-6">
+                <p className="text-body text-muted-foreground dark:text-[#cfcfcf] mb-6">
                   Editorial shoots and polaroïds
                 </p>
                 <a
                   href="/portfolio"
-                  className="tracking-wider uppercase hover:text-muted-foreground transition-colors duration-300"
+                  className="tracking-wider uppercase hover:text-primary transition-colors duration-300"
                   style={{ font: "500 14px/20px Orbitron, sans-serif" }}
                 >
                   Explore Work →
@@ -136,15 +135,15 @@ export default function Index() {
               </div>
 
               <div className="group">
-                <h3 className="text-xl font-heading font-semibold mb-4 group-hover:text-muted-foreground transition-colors duration-300">
+                <h3 className="text-xl font-heading font-semibold mb-4 group-hover:text-primary transition-colors duration-300">
                   About
                 </h3>
-                <p className="text-body text-muted-foreground dark:text-muted-foreground mb-6">
+                <p className="text-body text-muted-foreground dark:text-[#cfcfcf] mb-6">
                   Background and measurements
                 </p>
                 <a
                   href="/about"
-                  className="tracking-wider uppercase hover:text-muted-foreground transition-colors duration-300"
+                  className="tracking-wider uppercase hover:text-primary transition-colors duration-300"
                   style={{ font: "500 14px/20px Orbitron, sans-serif" }}
                 >
                   Learn More →
@@ -152,15 +151,15 @@ export default function Index() {
               </div>
 
               <div className="group">
-                <h3 className="text-xl font-heading font-semibold mb-4 group-hover:text-muted-foreground transition-colors duration-300">
+                <h3 className="text-xl font-heading font-semibold mb-4 group-hover:text-primary transition-colors duration-300">
                   Contact
                 </h3>
-                <p className="text-body text-muted-foreground dark:text-muted-foreground mb-6">
+                <p className="text-body text-muted-foreground dark:text-[#cfcfcf] mb-6">
                   Ready to collaborate?
                 </p>
                 <a
                   href="/contact"
-                  className="tracking-wider uppercase hover:text-muted-foreground transition-colors duration-300"
+                  className="tracking-wider uppercase hover:text-primary transition-colors duration-300"
                   style={{ font: "500 14px/20px Orbitron, sans-serif" }}
                 >
                   Get In Touch →
@@ -175,3 +174,4 @@ export default function Index() {
     </div>
   );
 }
+
