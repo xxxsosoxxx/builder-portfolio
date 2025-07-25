@@ -33,7 +33,7 @@ nav.unscrolled {
   background-color: transparent !important;
 }
 nav.scrolled {
-  background-color: rgba(0, 0, 0, 0.4); /* ou hsl(var(--background) / 0.9) si tu préfères */
+  background-color: hsl(var(--background) / 0.9)
   backdrop-filter: blur(8px);
   border-bottom: 1px solid hsl(var(--border));
 }
