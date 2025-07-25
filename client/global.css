@@ -39,10 +39,10 @@
     --ring:                0 0% 0%;
 
     /* Variables dédiées à la nav */
-    --nav-bg-unscrolled: rgba(255, 255, 255, 0.49);
-    --nav-bg-scrolled: rgba(255, 255, 255, 0.49);
-    --nav-border-color:    rgba(255,255,255,0.15);
-    --nav-shadow-color:    rgba(255,255,255,0.10);
+    --nav-bg-unscrolled: rgba(255,255,255,0.85);
+    --nav-bg-scrolled: rgba(255,255,255,0.85);
+    --nav-border-color:    rgba(255,255,255,0.10);
+    --nav-shadow-color:    rgba(255,255,255,0.08);
     --nav-text:            rgba(0,0,0,0.80);
     --nav-text-scrolled:   rgba(0,0,0,0.85);
   }
