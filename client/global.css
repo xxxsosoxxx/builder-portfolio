@@ -111,16 +111,30 @@
 @layer components {
   /* Nav avec effet scroll & glass */
   .nav {
-    @apply fixed top-0 w-full z-50 transition-all duration-500 ease-in-out;
+    @apply fixed top-0 left-0 right-0 z-50 backdrop-blur-lg transition-colors duration-500 ease-in-out;
+    background-color: var(--nav-bg-unscrolled);
+    box-shadow: 0 10px 15px -10px rgba(0, 0, 0, 0.1);
+    position: relative;
+    border: none;
+  }
+  .nav.unscrolled {
+    @apply transition-colors duration-300 ease-in-out;
     background-color: var(--nav-bg-unscrolled);
     color: var(--nav-text);
-    box-shadow: none;
   }
+  .nav::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0; right: 0;
+  height: 20px;
+  pointer-events: none;
+  background: linear-gradient(to bottom, rgba(255,255,255,0), rgba(255,255,255,0.1));
+}
 
-  .nav.unscrolled .nav-link,
-  .nav.unscrolled .logo {
-    text-shadow: 0 0 6px rgba(255, 255, 255, 0.75);
-  }
+html.dark .nav::after {
+  background: linear-gradient(to bottom, rgba(0,0,0,0), rgba(0,0,0,0.15));
+}
 
   .nav.scrolled {
     @apply backdrop-blur-xl transition-colors duration-300 ease-in-out shadow-md;

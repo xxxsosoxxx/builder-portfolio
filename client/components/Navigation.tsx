@@ -9,7 +9,7 @@ export function Navigation() {
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50); // seuil un peu plus haut
+      setIsScrolled(window.scrollY > 50);
     };
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
@@ -33,11 +33,14 @@ export function Navigation() {
         className={cn(
           "fixed top-0 left-0 right-0 z-50 transition-all duration-500",
           isScrolled
-            ? "bg-background/90 backdrop-blur-md border-b border-border"
-            : "bg-transparent"
+            ? "bg-background/80 backdrop-blur-xl shadow-lg"
+            : "bg-transparent opacity-100"
         )}
+        style={{
+          transition: "background-color 0.5s ease, box-shadow 0.5s ease",
+        }}
       >
-        <div className="section-padding py-6">
+        <div className="section-padding py-6 transition-all duration-500 ease-in-out">
           <div className="flex items-center justify-between">
             {/* Logo */}
             <Link
@@ -55,8 +58,8 @@ export function Navigation() {
                   key={item.href}
                   to={item.href}
                   className={cn(
-                    "relative nav-link transition-colors duration-300 hover:opacity-70",
-                    location.pathname === item.href && "active"
+                    "relative nav-link transition-opacity duration-300 hover:opacity-70",
+                    location.pathname === item.href && "opacity-60"
                   )}
                 >
                   {item.label}
