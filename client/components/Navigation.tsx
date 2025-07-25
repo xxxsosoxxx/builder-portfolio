@@ -11,7 +11,6 @@ export function Navigation() {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 100);
     };
-
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
@@ -28,20 +27,13 @@ export function Navigation() {
 
   return (
     <>
-      <nav
-        className={cn(
-          "fixed top-0 left-0 right-0 z-50 backdrop-blur-xl transition-all duration-500",
-          isScrolled
-            ? "bg-primary-nav/70 text-foreground shadow-lg"
-            : "bg-transparent text-foreground"
-        )}
-      >
+      <nav className={cn("nav", isScrolled && "scrolled")}>
         <div className="section-padding py-4">
           <div className="flex items-center justify-between">
             {/* Logo */}
             <Link
               to="/"
-              className="logo text-2xl font-orbitron tracking-wide transition-transform duration-300 hover:scale-105"
+              className="logo text-2xl font-orbitron tracking-wide transition-transform duration-300 hover:scale-105 text-inherit"
             >
               SOUHEILA SAID
             </Link>
@@ -53,8 +45,8 @@ export function Navigation() {
                   key={item.href}
                   to={item.href}
                   className={cn(
-                    "relative transition-colors duration-300 hover:text-muted-foreground",
-                    location.pathname === item.href && "text-muted-foreground"
+                    "relative nav-link transition-colors duration-300 hover:opacity-70",
+                    location.pathname === item.href && "active"
                   )}
                 >
                   {item.label}
@@ -70,19 +62,19 @@ export function Navigation() {
             >
               <span
                 className={cn(
-                  "w-6 h-px bg-foreground transition-all duration-300",
+                  "w-6 h-px bg-current transition-all duration-300",
                   isMenuOpen && "rotate-45 translate-y-2"
                 )}
               />
               <span
                 className={cn(
-                  "w-6 h-px bg-foreground transition-all duration-300",
+                  "w-6 h-px bg-current transition-all duration-300",
                   isMenuOpen && "opacity-0"
                 )}
               />
               <span
                 className={cn(
-                  "w-6 h-px bg-foreground transition-all duration-300",
+                  "w-6 h-px bg-current transition-all duration-300",
                   isMenuOpen && "-rotate-45 -translate-y-2"
                 )}
               />
@@ -104,10 +96,8 @@ export function Navigation() {
               key={item.href}
               to={item.href}
               className={cn(
-                "text-2xl font-light tracking-wide transition-colors duration-300",
-                location.pathname === item.href
-                  ? "text-muted-foreground"
-                  : "text-foreground hover:text-muted-foreground"
+                "text-2xl font-light tracking-wide transition-opacity duration-300",
+                location.pathname === item.href ? "opacity-60" : "opacity-100 hover:opacity-70"
               )}
             >
               {item.label}

@@ -39,12 +39,10 @@
     --ring:                0 0% 0%;
 
     /* Variables dédiées à la nav */
-    --nav-bg-unscrolled: rgba(255,255,255,0.85);
-    --nav-bg-scrolled: rgba(255,255,255,0.85);
-    --nav-border-color:    rgba(255,255,255,0.10);
-    --nav-shadow-color:    rgba(255,255,255,0.08);
-    --nav-text:            rgba(0,0,0,0.80);
-    --nav-text-scrolled:   rgba(0,0,0,0.85);
+    --nav-bg-unscrolled:   rgba(255, 255, 255, 0.12);
+    --nav-bg-scrolled:     rgba(255, 255, 255, 0.18);
+    --nav-text:            rgba(0, 0, 0, 0.90);
+    --nav-text-scrolled:   rgba(0, 0, 0, 0.95);
   }
 
   html.dark {
@@ -115,33 +113,39 @@
 @layer components {
   /* Nav fixe avec effet glassmorphism */
   .nav {
-    @apply fixed top-0 w-full z-50 backdrop-blur-[32px] backdrop-saturate-[180%] bg-opacity-10 backdrop-brightness-[1.15];
+    @apply fixed top-0 w-full z-50
+           backdrop-blur-[28px] backdrop-saturate-[180%]
+           backdrop-brightness-[1.1]
+           transition-all duration-500 ease-in-out;
     background-color: var(--nav-bg-unscrolled);
-    box-shadow: 0 2px 24px rgba(0,0,0,0.05);
-    color: var(--nav-text);
+    color:            var(--nav-text);
+    box-shadow:       none;
   }
+
 
   .nav.scrolled {
-    @apply transition-all duration-300 ease-in-out;
+    @apply transition-colors duration-300 ease-in-out;
     background-color: var(--nav-bg-scrolled);
-    border-bottom: none;
-    box-shadow: 0 2px 24px rgba(0,0,0,0.05);
-    color: var(--nav-text-scrolled);
+    color:            var(--nav-text-scrolled);
   }
+
 
   .logo {
-    transition: color 0.4s ease-in-out, text-shadow 0.4s ease-in-out;
+    @apply text-2xl font-orbitron transition-transform duration-300 ease-out;
+    color: var(--nav-text);
+  }
+  .logo:hover {
+    @apply scale-105;
   }
 
-  /* Liens de navigation */
   .nav-link {
     @apply font-orbitron text-sm font-medium uppercase tracking-wider
-           transition-colors duration-300 ease-in-out;
+           transition-colors duration-200 ease-in-out;
+    color: var(--nav-text);
   }
-
   .nav-link:hover {
-    color: hsl(var(--muted-foreground));
-    text-shadow: 0 0 8px rgba(255, 255, 255, 0.2);
+    color:         hsl(var(--muted-foreground));
+    text-shadow:   0 0 6px rgba(0, 0, 0, 0.1);
   }
   .dark .nav-link:hover {
   text-shadow: 0 0 8px rgba(0, 255, 255, 0.25);
