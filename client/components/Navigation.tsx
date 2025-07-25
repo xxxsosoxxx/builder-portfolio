@@ -9,7 +9,7 @@ export function Navigation() {
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 10);
+      setIsScrolled(window.scrollY > 50); // seuil un peu plus haut
     };
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
@@ -28,19 +28,22 @@ export function Navigation() {
   return (
     <>
       <nav
+        role="navigation"
+        aria-label="Primary Navigation"
         className={cn(
-          "fixed top-0 left-0 w-full z-50 transition-all duration-300",
+          "fixed top-0 left-0 right-0 z-50 transition-all duration-500",
           isScrolled
-            ? "bg-background/70 backdrop-blur-xl shadow-md"
-            : "bg-transparent text-white drop-shadow-[0_0_10px_rgba(255,255,255,0.4)]"
+            ? "bg-background/90 backdrop-blur-md border-b border-border"
+            : "bg-transparent"
         )}
       >
-        <div className="section-padding py-4">
+        <div className="section-padding py-6">
           <div className="flex items-center justify-between">
             {/* Logo */}
             <Link
               to="/"
-              className="logo text-2xl font-orbitron tracking-wide transition-transform duration-300 hover:scale-105"
+              className="text-xl font-light tracking-wider text-foreground hover:text-muted-foreground transition-colors duration-300"
+              style={{ font: "25px/28px Orbitron, sans-serif" }}
             >
               SOUHEILA SAID
             </Link>
@@ -66,6 +69,7 @@ export function Navigation() {
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               className="md:hidden flex flex-col items-center justify-center w-6 h-6 space-y-1"
               aria-label="Toggle menu"
+              aria-expanded={isMenuOpen}
             >
               <span
                 className={cn(
