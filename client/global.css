@@ -1,208 +1,157 @@
+/*────────────────────────────────────────────────────────────────────────*/
+/*                            Imports Google Fonts                       */
+/*────────────────────────────────────────────────────────────────────────*/
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&display=swap");
 
+/*────────────────────────────────────────────────────────────────────────*/
+/*                          Tailwind Directives                          */
+/*────────────────────────────────────────────────────────────────────────*/
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-@layer base { 
-:root {
-  /* Mode clair */
-  --background: 0 0% 100%;          /* blanc */
-  --foreground: 0 0% 10%;           /* noir */
-
-  --primary: 0 0% 0%;
-  --primary-foreground: 0 0% 100%;
-
-  --secondary: 0 0% 95%;
-  --secondary-foreground: 0 0% 0%;
-
-  --muted: 0 0% 96%;
-  --muted-foreground: 0 0% 45%;
-
-  --accent: 0 0% 90%;
-  --accent-foreground: 0 0% 0%;
-
-  --border: 0 0% 90%;
-  --input: 0 0% 90%;
-  --ring: 0 0% 0%;
-}
-}
-nav.unscrolled {
-  background-color: rgba(255, 255, 255, 0.04); /* encore plus léger */
-  backdrop-filter: blur(24px) saturate(200%);
-  -webkit-backdrop-filter: blur(24px) saturate(200%);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
-  box-shadow: inset 0 0 0.5px rgba(255, 255, 255, 0.15);
-  transition: all 0.4s ease;
-  color: rgba(0, 0, 0, 0.8); /* plus net en clair */
-}
-html.dark nav.unscrolled {
-  background-color: rgba(0, 0, 0, 0.04);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  box-shadow: inset 0 0 0.5px rgba(255, 255, 255, 0.08);
-  color: rgba(255, 255, 255, 0.85); /* douceur lisible en sombre */
-}
-
-nav.scrolled {
-  background-color: rgba(255, 255, 255, 0.06); /* ultra light */
-  backdrop-filter: blur(24px) saturate(200%);
-  -webkit-backdrop-filter: blur(24px) saturate(200%);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
-  box-shadow: inset 0 0 1px rgba(255, 255, 255, 0.1);
-  transition: all 0.3s ease-in-out;
-  color: rgba(0, 0, 0, 0.85); /* clair optimisé */
-}
-
-html.dark nav.scrolled {
-  background-color: rgba(0, 0, 0, 0.06);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-  box-shadow: inset 0 0 1px rgba(255, 255, 255, 0.06);
-  color: rgba(255, 255, 255, 0.85); /* sombre optimisé */
-}
-
-html.dark {
-  /* Mode sombre */
-  --background: 0 0% 8%;            /* noir profond */
-  --foreground: 0 0% 92%;           /* blanc doux */
-
-  --primary: 0 0% 92%;
-  --primary-foreground: 0 0% 8%;
-
-  --secondary: 0 0% 14%;
-  --secondary-foreground: 0 0% 85%;
-
-  --muted: 0 0% 12%;
-  --muted-foreground: 0 0% 60%;
-
-  --accent: 0 0% 20%;
-  --accent-foreground: 0 0% 92%;
-
-  --border: 0 0% 18%;
-  --input: 0 0% 14%;
-  --ring: 0 0% 65%;
-}
-
+/*────────────────────────────────────────────────────────────────────────*/
+/*                              Base Layer                                */
+/*────────────────────────────────────────────────────────────────────────*/
 @layer base {
-  * {
-    @apply border-border;
+  /* Thèmes clair / sombre */
+  :root {
+    /* Couleurs générales (HSL) */
+    --background: 0 0% 100%;
+    --foreground: 0 0% 10%;
+
+    --primary:             0 0% 0%;
+    --primary-foreground:  0 0% 100%;
+
+    --secondary:           0 0% 95%;
+    --secondary-foreground:0 0% 0%;
+
+    --muted:               0 0% 96%;
+    --muted-foreground:    0 0% 45%;
+
+    --accent:              0 0% 90%;
+    --accent-foreground:   0 0% 0%;
+
+    --border:              0 0% 90%;
+    --input:               0 0% 90%;
+    --ring:                0 0% 0%;
+
+    /* Variables dédiées à la nav */
+    --nav-bg-unscrolled:   rgba(255,255,255,0.04);
+    --nav-bg-scrolled:     rgba(255,255,255,0.06);
+    --nav-border-color:    rgba(255,255,255,0.15);
+    --nav-shadow-color:    rgba(255,255,255,0.10);
+    --nav-text:            rgba(0,0,0,0.80);
+    --nav-text-scrolled:   rgba(0,0,0,0.85);
   }
 
+  html.dark {
+    --background:          0 0% 8%;
+    --foreground:          0 0% 92%;
+
+    --primary:             0 0% 92%;
+    --primary-foreground:  0 0% 8%;
+
+    --secondary:           0 0% 14%;
+    --secondary-foreground:0 0% 85%;
+
+    --muted:               0 0% 12%;
+    --muted-foreground:    0 0% 60%;
+
+    --accent:              0 0% 20%;
+    --accent-foreground:   0 0% 92%;
+
+    --border:              0 0% 18%;
+    --input:               0 0% 14%;
+    --ring:                0 0% 65%;
+
+    --nav-bg-unscrolled:   rgba(0,0,0,0.04);
+    --nav-bg-scrolled:     rgba(0,0,0,0.06);
+    --nav-border-color:    rgba(255,255,255,0.10);
+    --nav-shadow-color:    rgba(255,255,255,0.08);
+    --nav-text:            rgba(255,255,255,0.85);
+    --nav-text-scrolled:   rgba(255,255,255,0.85);
+  }
+
+  /* Réinitialisation typographique et focus pour l’accessibilité */
   body {
-    @apply bg-background text-foreground;
-    font-family: "Inter", system-ui, sans-serif;
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 1.6;
-    letter-spacing: -0.01em;
-    transition: background-color 0.5s ease, color 0.5s ease;
-
+    @apply bg-[hsl(var(--background))] text-[hsl(var(--foreground))] 
+           font-[Inter] font-normal text-base leading-7 
+           transition-colors duration-500 ease;
   }
 
+  a:focus-visible,
+  button:focus-visible {
+    outline: 2px solid hsl(var(--ring));
+    outline-offset: 2px;
+  }
+
+  /* Titres */
   h1 {
-    font-family: "Space Grotesk", system-ui, sans-serif;
-    font-weight: 700;
-    font-size: clamp(48px, 8vw, 64px);
+    @apply font-[Space Grotesk] font-bold;
+    font-size: clamp(48px,8vw,64px);
     line-height: 1.1;
     letter-spacing: -0.04em;
   }
 
   h2 {
-    font-family: "Space Grotesk", system-ui, sans-serif;
-    font-weight: 600;
-    font-size: clamp(32px, 5vw, 40px);
+    @apply font-[Space Grotesk] font-semibold;
+    font-size: clamp(32px,5vw,40px);
     line-height: 1.2;
     letter-spacing: -0.02em;
   }
 
-  h3,
-  h4,
-  h5,
-  h6 {
-    font-family: "Space Grotesk", system-ui, sans-serif;
-    font-weight: 500;
+  h3, h4, h5, h6 {
+    @apply font-[Space Grotesk] font-medium;
     letter-spacing: -0.01em;
   }
 }
 
+/*────────────────────────────────────────────────────────────────────────*/
+/*                            Components Layer                           */
+/*────────────────────────────────────────────────────────────────────────*/
 @layer components {
-  .text-display {
-    font-family: "Space Grotesk", system-ui, sans-serif;
-    font-weight: 300;
-    letter-spacing: -0.03em;
+  /* Nav fixe avec effet glassmorphism */
+  .nav {
+    @apply fixed top-0 w-full z-50 backdrop-blur-[24px] backdrop-saturate-200
+           transition-all duration-400 ease-in-out;
+    background-color: var(--nav-bg-unscrolled);
+    border-bottom: 1px solid var(--nav-border-color);
+    box-shadow: inset 0 0 0.5px var(--nav-border-color);
+    color: var(--nav-text);
   }
 
-  .text-hero {
-    font-family: "Space Grotesk", system-ui, sans-serif;
-    font-size: clamp(48px, 8vw, 64px);
-    line-height: 0.9;
-    font-weight: 700;
-    letter-spacing: -0.04em;
+  .nav.scrolled {
+    @apply transition-all duration-300 ease-in-out;
+    background-color: var(--nav-bg-scrolled);
+    border-bottom: 1px solid var(--nav-border-color);
+    box-shadow: inset 0 0 1px var(--nav-shadow-color);
+    color: var(--nav-text-scrolled);
   }
 
-  .text-subhero {
-    font-family: "Inter", system-ui, sans-serif;
-    font-size: clamp(16px, 2.5vw, 18px);
-    line-height: 1.6;
-    font-weight: 400;
-    letter-spacing: -0.01em;
+  .logo {
+    transition: color 0.4s ease, text-shadow 0.4s ease;
   }
 
-  .text-section-title {
-    font-family: "Space Grotesk", system-ui, sans-serif;
-    font-size: clamp(32px, 5vw, 40px);
-    line-height: 1.2;
-    font-weight: 600;
-    letter-spacing: -0.02em;
-  }
-
-  .text-body {
-    font-family: "Inter", system-ui, sans-serif;
-    font-size: 16px;
-    line-height: 1.6;
-    font-weight: 400;
-  }
-
-  .text-body-large {
-    font-family: "Inter", system-ui, sans-serif;
-    font-size: 18px;
-    line-height: 1.6;
-    font-weight: 400;
-  }
-
-  .text-caption {
-    font-family: "Inter", system-ui, sans-serif;
-    font-size: 14px;
-    line-height: 1.4;
-    font-weight: 300;
-    color: hsl(var(--muted-foreground));
-  }
-
+  /* Liens de navigation */
   .nav-link {
-    font-family: "Orbitron", sans-serif;
-    font-size: 14px;
-    font-weight: 500;
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
-    transition: all 0.3s ease;
+    @apply font-[Orbitron] text-sm font-medium uppercase tracking-wider
+           transition-colors duration-300 ease;
   }
 
   .nav-link:hover {
     color: hsl(var(--muted-foreground));
   }
 
+  /* Bouton minimal */
   .btn-minimal {
-    font-family: "Orbitron", sans-serif;
-    font-size: 14px;
-    font-weight: 500;
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
-    padding: 12px 32px;
+    @apply font-[Orbitron] text-sm font-medium uppercase tracking-wider 
+           px-8 py-3 border text-[hsl(var(--foreground))] 
+           transition-all duration-300 ease;
     background: transparent;
     border: 1px solid hsl(var(--foreground));
-    color: hsl(var(--foreground));
-    transition: all 0.3s ease;
   }
 
   .btn-minimal:hover {
@@ -210,6 +159,27 @@ html.dark {
     color: hsl(var(--background));
   }
 
+  /* Typographies spécifiques */
+  .text-hero {
+    @apply font-[Space Grotesk] font-bold;
+    font-size: clamp(48px,8vw,64px);
+    line-height: 0.9;
+    letter-spacing: -0.04em;
+  }
+
+  .text-subhero {
+    @apply font-[Inter] font-normal;
+    font-size: clamp(16px,2.5vw,18px);
+    line-height: 1.6;
+    letter-spacing: -0.01em;
+  }
+
+  .text-caption {
+    @apply font-[Inter] text-sm font-light leading-[1.4];
+    color: hsl(var(--muted-foreground));
+  }
+
+  /* Conteneurs réutilisables */
   .section-padding {
     @apply px-6 md:px-12 lg:px-24;
   }
@@ -223,6 +193,9 @@ html.dark {
   }
 }
 
+/*────────────────────────────────────────────────────────────────────────*/
+/*                           Utilities Layer                             */
+/*────────────────────────────────────────────────────────────────────────*/
 @layer utilities {
   .smooth-scroll {
     scroll-behavior: smooth;
@@ -232,55 +205,44 @@ html.dark {
     -ms-overflow-style: none;
     scrollbar-width: none;
   }
-
   .no-scrollbar::-webkit-scrollbar {
     display: none;
   }
 
-  /* Gallery specific styles */
+  /* Galerie */
   .gallery-item {
-    transition: all 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    @apply transition-transform duration-[700ms] 
+           ease-[cubic-bezier(0.25,0.46,0.45,0.94)];
   }
-
   .gallery-item:hover {
     transform: scale(1.05);
-    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25);
   }
 
-  /* Smooth scroll with inertia */
-  html {
-    scroll-behavior: smooth;
-    scroll-padding-top: 100px;
+  .photo-title {
+    color: #fff !important;
+    text-shadow: 0 1px 3px rgba(0,0,0,0.5);
   }
 
-  @media (prefers-reduced-motion: no-preference) {
-    html {
-      scroll-behavior: smooth;
-    }
-  }
-
-  /* Masonry layout optimization */
+  /* Masonry layout */
   .masonry-grid {
     column-fill: balance;
   }
 
-  /* Lightbox animations */
+  /* Lightbox */
   .lightbox-enter {
     opacity: 0;
     transform: scale(0.9);
   }
-
   .lightbox-enter-active {
     opacity: 1;
     transform: scale(1);
     transition: all 0.3s ease-out;
   }
-
   .lightbox-exit {
     opacity: 1;
     transform: scale(1);
   }
-
   .lightbox-exit-active {
     opacity: 0;
     transform: scale(0.9);

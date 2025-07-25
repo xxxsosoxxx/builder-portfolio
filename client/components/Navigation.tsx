@@ -6,6 +6,50 @@ export function Navigation() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const location = useLocation();
+  useEffect(() => {
+  const nav = document.querySelector("nav");
+  const sections = document.querySelectorAll("section");
+  const isDark = document.documentElement.classList.contains("dark");
+
+  if (isDark) return; // En dark mode : ne rien changer, ton CSS gère déjà
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const bg = window.getComputedStyle(entry.target).backgroundColor;
+          const rgb = bg.match(/\d+/g)?.map(Number);
+          const brightness =
+            rgb && rgb.length === 3
+              ? (rgb[0] + rgb[1] + rgb[2]) / 3
+              : 255;
+                    const logo = document.querySelector(".logo") as HTMLElement;
+
+      if (logo) {
+        const newColor =
+          brightness < 128 ? "rgba(255,255,255,0.85)" : "rgba(0,0,0,0.85)";
+        const shadow =
+          brightness < 128
+            ? "0 1px 2px rgba(0,0,0,0.4)"
+            : "0 1px 2px rgba(255,255,255,0.4)";
+
+        logo.style.color = newColor;
+        logo.style.textShadow = shadow;
+      }
+
+          nav!.style.color =
+            brightness < 128
+              ? "rgba(255,255,255,0.85)"
+              : "rgba(0,0,0,0.85)";
+        }
+      });
+    },
+    { threshold: 0.3 }
+  );
+
+  sections.forEach((section) => observer.observe(section));
+  return () => observer.disconnect();
+}, []);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -39,9 +83,9 @@ export function Navigation() {
           <div className="flex items-center justify-between">
             {/* Logo */}
             <Link
-              to="/"
-              className="text-xl font-light tracking-wider text-foreground hover:text-muted-foreground transition-colors duration-300"
-              style={{ font: "25px/28px Orbitron, sans-serif" }}
+            to="/"
+            className="logo text-xl font-light tracking-wider text-foreground hover:text-muted-foreground transition-colors duration-300"
+            style={{ font: "25px/28px Orbitron, sans-serif" }}
             >
               SOUHEILA SAID
             </Link>

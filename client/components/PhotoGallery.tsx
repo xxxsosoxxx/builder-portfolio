@@ -40,9 +40,10 @@ function GalleryItem({
 
         {/* Texte stylisé avec gradient */}
         <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/70 via-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-30 rounded-b-lg">
-          <h3 className="font-orbitron text-foreground text-sm font-semibold tracking-widest uppercase mb-1 leading-tight">
-            {photo.title}
+          <h3 className="photo-title font-orbitron text-foreground text-sm font-semibold tracking-widest uppercase mb-1 leading-tight">
+          {photo.title}
           </h3>
+
           <p className="text-muted-foreground text-xs tracking-wide leading-snug">
             {photo.date}
           </p>
