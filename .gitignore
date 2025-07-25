@@ -7,25 +7,17 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
+# Build outputs
 node_modules
 dist
 dist-ssr
+
+# Local env files
 *.local
+.env
+.env.*
 
 # Editor directories and files
-.vscode/*
-!.vscode/extensions.json
-.idea
-.DS_Store
-*.suo
-*.ntvs*
-*.njsproj
-*.sln
-*.sw?
-
-.config/
-
-# Allow only some .vscode files
 .vscode/*
 !.vscode/settings.json
 !.vscode/tasks.json
@@ -33,4 +25,12 @@ dist-ssr
 !.vscode/extensions.json
 !.vscode/*.code-snippets
 !*.code-workspace
-builder-portfolio/
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+.config/
+
