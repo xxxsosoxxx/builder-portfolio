@@ -79,7 +79,7 @@
   body {
     @apply bg-[hsl(var(--background))] text-[hsl(var(--foreground))] 
            font-[Inter] font-normal text-base leading-7 
-           transition-colors duration-500 ease;
+           transition-colors duration-500 ease-in-out;
   }
 
   a:focus-visible,
