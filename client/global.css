@@ -116,7 +116,7 @@
   /* Nav fixe avec effet glassmorphism */
   .nav {
     @apply fixed top-0 w-full z-50 backdrop-blur-[24px] backdrop-saturate-200
-           transition-all duration-400 ease-in-out;
+           transition-all duration-500 ease-in-out;
     background-color: var(--nav-bg-unscrolled);
     border-bottom: 1px solid var(--nav-border-color);
     box-shadow: inset 0 0 0.5px var(--nav-border-color);
