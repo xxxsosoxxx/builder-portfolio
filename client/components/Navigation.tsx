@@ -6,50 +6,6 @@ export function Navigation() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const location = useLocation();
-  useEffect(() => {
-  const nav = document.querySelector("nav");
-  const sections = document.querySelectorAll("section");
-  const isDark = document.documentElement.classList.contains("dark");
-
-  if (isDark) return; // En dark mode : ne rien changer, ton CSS gère déjà
-
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          const bg = window.getComputedStyle(entry.target).backgroundColor;
-          const rgb = bg.match(/\d+/g)?.map(Number);
-          const brightness =
-            rgb && rgb.length === 3
-              ? (rgb[0] + rgb[1] + rgb[2]) / 3
-              : 255;
-                    const logo = document.querySelector(".logo") as HTMLElement;
-
-      if (logo) {
-        const newColor =
-          brightness < 128 ? "rgba(255,255,255,0.85)" : "rgba(0,0,0,0.85)";
-        const shadow =
-          brightness < 128
-            ? "0 1px 2px rgba(0,0,0,0.4)"
-            : "0 1px 2px rgba(255,255,255,0.4)";
-
-        logo.style.color = newColor;
-        logo.style.textShadow = shadow;
-      }
-
-          nav!.style.color =
-            brightness < 128
-              ? "rgba(255,255,255,0.85)"
-              : "rgba(0,0,0,0.85)";
-        }
-      });
-    },
-    { threshold: 0.3 }
-  );
-
-  sections.forEach((section) => observer.observe(section));
-  return () => observer.disconnect();
-}, []);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -74,18 +30,18 @@ export function Navigation() {
     <>
       <nav
         className={cn(
-          "fixed top-0 left-0 right-0 z-50 transition-all duration-500",
-          isScrolled ? "scrolled bg-[rgba(0,0,0,0.4)] backdrop-blur-md border-b border-border"
-  : "unscrolled bg-transparent"
+          "fixed top-0 left-0 right-0 z-50 backdrop-blur-xl transition-all duration-500",
+          isScrolled
+            ? "bg-primary-nav/70 text-foreground shadow-lg"
+            : "bg-transparent text-foreground"
         )}
       >
-        <div className={cn("section-padding", isScrolled ? "py-5" : "py-0")}>
+        <div className="section-padding py-4">
           <div className="flex items-center justify-between">
             {/* Logo */}
             <Link
-            to="/"
-            className="logo text-xl font-light tracking-wider text-foreground hover:text-muted-foreground transition-colors duration-300"
-            style={{ font: "25px/28px Orbitron, sans-serif" }}
+              to="/"
+              className="logo text-2xl font-orbitron tracking-wide transition-transform duration-300 hover:scale-105"
             >
               SOUHEILA SAID
             </Link>
@@ -97,7 +53,7 @@ export function Navigation() {
                   key={item.href}
                   to={item.href}
                   className={cn(
-                    "nav-link",
+                    "relative transition-colors duration-300 hover:text-muted-foreground",
                     location.pathname === item.href && "text-muted-foreground"
                   )}
                 >
@@ -138,8 +94,8 @@ export function Navigation() {
       {/* Mobile Menu */}
       <div
         className={cn(
-          "fixed inset-0 z-40 bg-background transition-transform duration-300 md:hidden",
-          isMenuOpen ? "transform translate-x-0" : "transform translate-x-full"
+          "fixed inset-0 z-40 bg-background/90 backdrop-blur-xl transition-transform duration-500 md:hidden",
+          isMenuOpen ? "translate-x-0" : "translate-x-full"
         )}
       >
         <div className="flex flex-col items-center justify-center h-full space-y-8">
@@ -148,7 +104,7 @@ export function Navigation() {
               key={item.href}
               to={item.href}
               className={cn(
-                "text-2xl font-light tracking-wider transition-colors duration-300",
+                "text-2xl font-light tracking-wide transition-colors duration-300",
                 location.pathname === item.href
                   ? "text-muted-foreground"
                   : "text-foreground hover:text-muted-foreground"
