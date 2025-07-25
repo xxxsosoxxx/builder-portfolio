@@ -9,7 +9,7 @@ export function Navigation() {
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 100);
+      setIsScrolled(window.scrollY > 10);
     };
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
@@ -27,13 +27,20 @@ export function Navigation() {
 
   return (
     <>
-      <nav className={cn("nav", isScrolled && "scrolled")}>
+      <nav
+        className={cn(
+          "fixed top-0 left-0 w-full z-50 transition-all duration-300",
+          isScrolled
+            ? "bg-background/70 backdrop-blur-xl shadow-md"
+            : "bg-transparent text-white drop-shadow-[0_0_10px_rgba(255,255,255,0.4)]"
+        )}
+      >
         <div className="section-padding py-4">
           <div className="flex items-center justify-between">
             {/* Logo */}
             <Link
               to="/"
-              className="logo text-2xl font-orbitron tracking-wide transition-transform duration-300 hover:scale-105 text-inherit"
+              className="logo text-2xl font-orbitron tracking-wide transition-transform duration-300 hover:scale-105"
             >
               SOUHEILA SAID
             </Link>
@@ -97,7 +104,9 @@ export function Navigation() {
               to={item.href}
               className={cn(
                 "text-2xl font-light tracking-wide transition-opacity duration-300",
-                location.pathname === item.href ? "opacity-60" : "opacity-100 hover:opacity-70"
+                location.pathname === item.href
+                  ? "opacity-60"
+                  : "opacity-100 hover:opacity-70"
               )}
             >
               {item.label}
@@ -108,3 +117,4 @@ export function Navigation() {
     </>
   );
 }
+
