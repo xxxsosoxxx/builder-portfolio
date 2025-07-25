@@ -132,13 +132,13 @@
   }
 
   .logo {
-    transition: color 0.4s ease, text-shadow 0.4s ease;
+    transition: color 0.4s ease-in-out, text-shadow 0.4s ease-in-out;
   }
 
   /* Liens de navigation */
   .nav-link {
     @apply font-orbitron text-sm font-medium uppercase tracking-wider
-           transition-colors duration-300 ease;
+           transition-colors duration-300 ease-in-out;
   }
 
   .nav-link:hover {
@@ -149,7 +149,7 @@
   .btn-minimal {
     @apply font-orbitron text-sm font-medium uppercase tracking-wider 
            px-8 py-3 border text-[hsl(var(--foreground))] 
-           transition-all duration-300 ease;
+           transition-all duration-300 ease-in-out;
     background: transparent;
     border: 1px solid hsl(var(--foreground));
   }
