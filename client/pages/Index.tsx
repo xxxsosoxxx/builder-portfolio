@@ -105,7 +105,7 @@ export default function Index() {
                   <img
                     src="https://cdn.builder.io/api/v1/image/assets%2F32dbebdc41de4f02a397c4bcb49e3699%2Fd50b715b548f4eaca830b5aa1af7221e"
                     alt="Souheila Said Portrait"
-                    className="w-full h-[600px] object-cover object-center"
+                    className="w-full max-h-[80vh] object-contain sm:object-cover sm:h-[600px]"
                     loading="lazy"
                   />
                 </div>
@@ -115,76 +115,76 @@ export default function Index() {
         </section>
 
                {/* Quick Links Section */}
-<section className="py-20 border-t border-border bg-blurred">
-  <div className="section-padding">
-    <div className="container-wide">
-      <div className="grid md:grid-cols-3 gap-12 text-center">
+                <section className="py-20 border-t border-border bg-blurred">
+                  <div className="section-padding">
+                    <div className="container-wide">
+                      <div className="grid md:grid-cols-3 gap-12 text-center">
 
-        {/* Portfolio Link */}
-        <div className="group">
-          <h3 className="text-xl font-heading font-semibold mb-4 group-hover:text-muted-foreground transition-colors duration-300">
-            Portfolio
-          </h3>
-          <p className="text-body text-muted-foreground mb-6">
-            Editorial shoots and polaroïds
-          </p>
-          <a
-            href="/portfolio"
-            className="tracking-wider uppercase hover:text-muted-foreground transition-colors duration-300"
-            style={{
-              fontFamily: "Orbitron, sans-serif",
-              fontSize: "14px",
-              lineHeight: "20px",
-              fontWeight: 500,
-            }}
-          >
-            Explore Work →
-          </a>
-        </div>
+                {/* Portfolio Link */}
+                <div className="group">
+                  <h3 className="text-xl font-heading font-semibold mb-4 group-hover:text-muted-foreground transition-colors duration-300">
+                    Portfolio
+                  </h3>
+                  <p className="text-body text-muted-foreground mb-6">
+                    Editorial shoots and polaroïds
+                  </p>
+                  <a
+                    href="/portfolio"
+                    className="tracking-wider uppercase hover:text-muted-foreground transition-colors duration-300"
+                    style={{
+                      fontFamily: "Orbitron, sans-serif",
+                      fontSize: "14px",
+                      lineHeight: "20px",
+                      fontWeight: 500,
+                    }}
+                  >
+                    Explore Work →
+                  </a>
+                </div>
 
-        {/* About Link */}
-        <div className="group">
-          <h3 className="text-xl font-heading font-semibold mb-4 group-hover:text-muted-foreground transition-colors duration-300">
-            About
-          </h3>
-          <p className="text-body text-muted-foreground mb-6">
-            Background and measurements
-          </p>
-          <a
-            href="/about"
-            className="tracking-wider uppercase hover:text-muted-foreground transition-colors duration-300"
-            style={{
-              fontFamily: "Orbitron, sans-serif",
-              fontSize: "14px",
-              lineHeight: "20px",
-              fontWeight: 500,
-            }}
-          >
-            Learn More →
-          </a>
-        </div>
+                {/* About Link */}
+                <div className="group">
+                  <h3 className="text-xl font-heading font-semibold mb-4 group-hover:text-muted-foreground transition-colors duration-300">
+                    About
+                  </h3>
+                  <p className="text-body text-muted-foreground mb-6">
+                    Background and measurements
+                  </p>
+                  <a
+                    href="/about"
+                    className="tracking-wider uppercase hover:text-muted-foreground transition-colors duration-300"
+                    style={{
+                      fontFamily: "Orbitron, sans-serif",
+                      fontSize: "14px",
+                      lineHeight: "20px",
+                      fontWeight: 500,
+                    }}
+                  >
+                    Learn More →
+                  </a>
+                </div>
 
-        {/* Contact Link */}
-        <div className="group">
-          <h3 className="text-xl font-heading font-semibold mb-4 group-hover:text-muted-foreground transition-colors duration-300">
-            Contact
-          </h3>
-          <p className="text-body text-muted-foreground mb-6">
-            Ready to collaborate?
-          </p>
-          <a
-            href="/contact"
-            className="tracking-wider uppercase hover:text-muted-foreground transition-colors duration-300"
-            style={{
-              fontFamily: "Orbitron, sans-serif",
-              fontSize: "14px",
-              lineHeight: "20px",
-              fontWeight: 500,
-            }}
-          >
-            Get In Touch →
-          </a>
-        </div>
+                {/* Contact Link */}
+                <div className="group">
+                  <h3 className="text-xl font-heading font-semibold mb-4 group-hover:text-muted-foreground transition-colors duration-300">
+                    Contact
+                  </h3>
+                  <p className="text-body text-muted-foreground mb-6">
+                    Ready to collaborate?
+                  </p>
+                  <a
+                    href="/contact"
+                    className="tracking-wider uppercase hover:text-muted-foreground transition-colors duration-300"
+                    style={{
+                      fontFamily: "Orbitron, sans-serif",
+                      fontSize: "14px",
+                      lineHeight: "20px",
+                      fontWeight: 500,
+                    }}
+                  >
+                    Get In Touch →
+                  </a>
+                </div>
 
       </div>
     </div>
