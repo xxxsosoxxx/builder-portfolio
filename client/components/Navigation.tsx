@@ -46,7 +46,7 @@ export function Navigation() {
           {/* Logo */}
           <Link
             to="/"
-            className="text-2xl font-light tracking-widest text-foreground hover:text-muted-foreground transition-colors duration-300"
+            className="text-2xl font-light text-foreground hover:text-muted-foreground transition-colors duration-300"
             style={{ font: "25px/28px Orbitron, sans-serif" }}
           >
             SOUHEILA SAID
@@ -59,11 +59,10 @@ export function Navigation() {
                 key={item.href}
                 to={item.href}
                 className={cn(
-                  "relative text-base uppercase transition-opacity duration-200 hover:opacity-70",
-                  location.pathname === item.href
-                    ? "opacity-60"
-                    : "opacity-100"
+                  "relative text-base font-light transition-opacity duration-200 hover:opacity-70",
+                  location.pathname === item.href ? "opacity-60" : "opacity-100"
                 )}
+                style={{ fontFamily: "Orbitron, sans-serif" }}
               >
                 {item.label}
               </Link>
@@ -100,23 +99,22 @@ export function Navigation() {
       </nav>
 
       {/* Mobile Overlay */}
-      <div
-        className={cn(
-          "fixed inset-0 z-40 bg-background/60 backdrop-blur-lg transform transition-transform duration-300 md:hidden",
-          isMenuOpen ? "translate-x-0" : "translate-x-full"
-        )}
-      >
+      <div className={cn(
+        "fixed inset-0 z-40 bg-background/60 backdrop-blur-lg transform transition-transform duration-300 md:hidden",
+        isMenuOpen ? "translate-x-0" : "translate-x-full"
+      )}>
         <div className="flex flex-col items-center justify-center h-screen space-y-8 px-6">
           {navItems.map((item) => (
             <Link
               key={item.href}
               to={item.href}
               className={cn(
-                "text-2xl uppercase font-light transition-opacity duration-200",
+                "text-2xl font-light transition-opacity duration-200",
                 location.pathname === item.href
                   ? "opacity-60"
                   : "opacity-100 hover:opacity-70"
               )}
+              style={{ fontFamily: "Orbitron, sans-serif" }}
             >
               {item.label}
             </Link>
