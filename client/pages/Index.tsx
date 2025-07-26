@@ -33,7 +33,7 @@ export default function Index() {
       <main className="relative overflow-clip">
         {/* Hero */}
         <section
-          className={`relative h-screen flex items-center justify-center transition-opacity duration-700
+          className={`absolute h-screen flex items-center justify-center transition-opacity duration-700
             ${isLoaded ? "opacity-100" : "opacity-0"}
           `}
         >
@@ -45,7 +45,7 @@ export default function Index() {
               className="w-full h-full object-cover object-center"
               loading="lazy"
             />
-            <div className="absolute inset-0 bg-black/20" />
+            <div className="absolute inset-0 bg-black/10" />
           </div>
 
           {/* texte hero */}
