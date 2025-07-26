@@ -1,3 +1,5 @@
+// client/pages/Index.tsx
+
 import React, { useEffect, useState } from "react";
 import { Helmet } from "react-helmet";
 import { Navigation } from "@/components/Navigation";
@@ -6,6 +8,7 @@ import { Footer } from "@/components/Footer";
 export default function Index() {
   const [isLoaded, setIsLoaded] = useState(false);
 
+  // déclenche les animations et le lazy-load de la hero
   useEffect(() => {
     setIsLoaded(true);
   }, []);
@@ -25,90 +28,64 @@ export default function Index() {
         <meta name="author" content="Souheila Said" />
       </Helmet>
 
-      {/* Navigation always sits at the very top */}
+      {/* 1. La nav est directement sous Helmet, hors de tout wrapper à overflow-hidden */}
       <Navigation />
 
-      {/* Hero Section */}
-      <section
-        className={`relative h-screen flex items-center justify-center overflow-hidden transition-all duration-1000
-          ${isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}
-        `}
-      >
-        {/* Background image + dark overlay */}
-        <div className="absolute inset-0 z-0">
-          <img
-            src="https://cdn.builder.io/api/v1/image/assets%2F32dbebdc41de4f02a397c4bcb49e3699%2F7f99b673551e42f7a1aa9f5d299383b4"
-            alt="Souheila Said Fashion Model"
-            className="w-full h-full object-cover object-center"
-            loading="lazy"
-            onLoad={() => setIsLoaded(true)}
-          />
-          <div className="absolute inset-0 bg-black/10" />
-        </div>
-
-        {/* Hero text */}
-        <div
-          className={`relative z-10 text-center text-white px-6 transition-all duration-1000
-            ${isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}
+      {/* 2. Main en overflow-clip (remplace overflow-hidden) pour ne plus craquer la hero */}
+      <main className="relative overflow-clip">
+        {/* Hero */}
+        <section
+          className={`relative h-screen flex items-center justify-center transition-opacity duration-700
+            ${isLoaded ? "opacity-100" : "opacity-0"}
           `}
         >
-          <h1
-            className="text-hero mb-6 leading-none"
-            style={{
-              fontFamily: "Orbitron, sans-serif",
-              fontSize: "64px",
-              lineHeight: "64px",
-            }}
-          >
-            SOUHEILA SAID
-          </h1>
-          <p className="text-subhero max-w-2xl mx-auto">
-            Model based in Brussels. <br />
-            Available for editorial and runway.
-          </p>
-        </div>
-
-        {/* Scroll indicator */}
-        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-10">
-          <div className="animate-bounce">
-            <div className="w-px h-12 bg-foreground/30 mx-auto mb-2" />
-            <div className="w-1 h-1 bg-foreground/30 rounded-full" />
+          {/* arrière-plan image */}
+          <div className="absolute inset-0 z-0">
+            <img
+              src="https://cdn.builder.io/api/v1/image/assets%2F32dbebdc41de4f02a397c4bcb49e3699%2F7f99b673551e42f7a1aa9f5d299383b4"
+              alt="Souheila Said Fashion Model"
+              className="w-full h-full object-cover object-center"
+              loading="lazy"
+            />
+            <div className="absolute inset-0 bg-black/10" />
           </div>
-        </div>
-      </section>
 
-      {/* Brief Introduction */}
-      <section className="py-24 bg-background">
-        <div className="section-padding">
-          <div className="container-narrow">
-            <div
-              className={`grid md:grid-cols-2 gap-16 items-center transition-all duration-1000 delay-300
-                ${isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}
-              `}
+          {/* texte hero */}
+          <div
+            className={`relative z-10 text-center text-white px-6 transition-transform duration-700
+              ${isLoaded ? "translate-y-0" : "translate-y-8"}
+            `}
+          >
+            <h1
+              className="text-6xl md:text-7xl mb-4 leading-tight"
+              style={{ fontFamily: "Orbitron, sans-serif" }}
             >
+              SOUHEILA SAID
+            </h1>
+            <p className="text-lg md:text-xl max-w-2xl mx-auto">
+              Model based in Brussels. <br />
+              Available for editorial and runway.
+            </p>
+          </div>
+        </section>
+
+        {/* Brief Introduction */}
+        <section className="py-24 bg-background">
+          <div className="container-narrow mx-auto px-6 md:px-8">
+            <div className="md:grid md:grid-cols-2 gap-16 items-center">
               <div className="space-y-6">
-                <h2 className="text-section-title text-foreground">
-                  Long legs don't care.
-                </h2>
+                <h2 className="text-4xl font-light">Long legs don't care.</h2>
                 <p className="text-body-large text-muted-foreground">
-                  Too tall to hide. <br />
+                  Too tall to hide.<br />
                   Too tired to conform.
                 </p>
-                <div className="pt-4">
-                  <a
-                    href="/portfolio"
-                    className="btn-minimal inline-block"
-                    style={{
-                      cursor: "pointer",
-                      fontFamily: "Orbitron, sans-serif",
-                      fontSize: "14px",
-                      lineHeight: "22.4px",
-                      fontWeight: 400,
-                    }}
-                  >
-                    View Portfolio
-                  </a>
-                </div>
+                <a
+                  href="/portfolio"
+                  className="btn-minimal"
+                  style={{ fontFamily: "Orbitron, sans-serif" }}
+                >
+                  View Portfolio
+                </a>
               </div>
               <div className="relative">
                 <img
@@ -120,85 +97,37 @@ export default function Index() {
               </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* Quick Links */}
-      <section className="py-20 border-t border-border bg-blurred">
-        <div className="section-padding">
-          <div className="container-wide">
-            <div className="grid md:grid-cols-3 gap-12 text-center">
-              {/* Portfolio Link */}
-              <div className="group">
-                <h3 className="text-xl font-heading font-semibold mb-4 group-hover:text-muted-foreground transition-colors duration-300">
-                  Portfolio
-                </h3>
-                <p className="text-body text-muted-foreground mb-6">
-                  Editorial shoots and polaroïds
-                </p>
-                <a
-                  href="/portfolio"
-                  className="tracking-wider uppercase hover:text-muted-foreground transition-colors duration-300"
-                  style={{
-                    fontFamily: "Orbitron, sans-serif",
-                    fontSize: "14px",
-                    lineHeight: "20px",
-                    fontWeight: 500,
-                  }}
-                >
-                  Explore Work →
-                </a>
-              </div>
-
-              {/* About Link */}
-              <div className="group">
-                <h3 className="text-xl font-heading font-semibold mb-4 group-hover:text-muted-foreground transition-colors duration-300">
-                  About
-                </h3>
-                <p className="text-body text-muted-foreground mb-6">
-                  Background and measurements
-                </p>
-                <a
-                  href="/about"
-                  className="tracking-wider uppercase hover:text-muted-foreground transition-colors duration-300"
-                  style={{
-                    fontFamily: "Orbitron, sans-serif",
-                    fontSize: "14px",
-                    lineHeight: "20px",
-                    fontWeight: 500,
-                  }}
-                >
-                  Learn More →
-                </a>
-              </div>
-
-              {/* Contact Link */}
-              <div className="group">
-                <h3 className="text-xl font-heading font-semibold mb-4 group-hover:text-muted-foreground transition-colors duration-300">
-                  Contact
-                </h3>
-                <p className="text-body text-muted-foreground mb-6">
-                  Ready to collaborate?
-                </p>
-                <a
-                  href="/contact"
-                  className="tracking-wider uppercase hover:text-muted-foreground transition-colors duration-300"
-                  style={{
-                    fontFamily: "Orbitron, sans-serif",
-                    fontSize: "14px",
-                    lineHeight: "20px",
-                    fontWeight: 500,
-                  }}
-                >
-                  Get In Touch →
-                </a>
-              </div>
+        {/* Quick Links */}
+        <section className="py-20 border-t border-border bg-blurred">
+          <div className="container-wide mx-auto px-6 md:px-8">
+            <div className="md:grid md:grid-cols-3 gap-12 text-center">
+              {[
+                { title: "Portfolio", href: "/portfolio", desc: "Editorial shoots and polaroïds" },
+                { title: "About",     href: "/about",     desc: "Background and measurements" },
+                { title: "Contact",   href: "/contact",   desc: "Ready to collaborate?" },
+              ].map((block) => (
+                <div key={block.href} className="group">
+                  <h3 className="text-xl font-semibold mb-4 group-hover:text-muted-foreground transition-colors duration-300">
+                    {block.title}
+                  </h3>
+                  <p className="text-body text-muted-foreground mb-6">{block.desc}</p>
+                  <a
+                    href={block.href}
+                    className="uppercase tracking-wide hover:text-muted-foreground transition-colors duration-300"
+                    style={{ fontFamily: "Orbitron, sans-serif" }}
+                  >
+                    {block.title === "Contact" ? "Get In Touch →" : block.title === "About" ? "Learn More →" : "Explore Work →"}
+                  </a>
+                </div>
+              ))}
             </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      <Footer />
+        <Footer />
+      </main>
     </>
   );
 }
