@@ -14,10 +14,10 @@ export default function Index() {
   return (
     <>
       <Helmet>
-        <title>Souheila Said</title>
+        <title>Souheila Said – Model & Creative</title>
         <meta
           name="description"
-          content="Editorial and visual universe of Souheila Said — Model and creative based in Brussels."
+          content="Discover the editorial and visual universe of Souheila Said — a model and creative voice based in Brussels."
         />
         <meta
           name="keywords"
@@ -33,7 +33,7 @@ export default function Index() {
       <main className="relative overflow-clip">
         {/* Hero */}
         <section
-          className={`absolute h-screen flex items-center justify-center transition-opacity duration-700
+          className={`relative h-screen flex items-center justify-center transition-opacity duration-700
             ${isLoaded ? "opacity-100" : "opacity-0"}
           `}
         >
