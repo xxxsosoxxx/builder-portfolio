@@ -45,7 +45,7 @@ export default function Index() {
               className="w-full h-full object-cover object-center"
               loading="lazy"
             />
-            <div className="absolute inset-0 bg-black/10" />
+            <div className="absolute inset-0 w-full h-full object-cover bg-black/20" />
           </div>
 
           {/* texte hero */}
