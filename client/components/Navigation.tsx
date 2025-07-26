@@ -33,6 +33,8 @@ export function Navigation() {
   return (
     <>
       <nav
+        role="navigation"
+        aria-label="Primary Navigation"
         className={cn(
           "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
           isScrolled
@@ -44,8 +46,8 @@ export function Navigation() {
           {/* Logo */}
           <Link
             to="/"
-            className="text-2xl font-light tracking-widest text-foreground"
-            style={{ fontFamily: "Orbitron, sans-serif" }}
+            className="text-2xl font-light tracking-widest text-foreground hover:text-muted-foreground transition-colors duration-300"
+            style={{ font: "25px/28px Orbitron, sans-serif" }}
           >
             SOUHEILA SAID
           </Link>
