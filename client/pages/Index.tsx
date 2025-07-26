@@ -114,37 +114,86 @@ export default function Index() {
           </div>
         </section>
 
-        {/* Quick Links */}
-        <section className="py-20 border-t border-border bg-blurred">
-          <div className="container-wide mx-auto px-6 md:px-8">
-            <div className="md:grid md:grid-cols-3 gap-12 text-center">
-              {[
-                { title: "Portfolio", href: "/portfolio", desc: "Editorial shoots and polaroïds" },
-                { title: "About",     href: "/about",     desc: "Background and measurements" },
-                { title: "Contact",   href: "/contact",   desc: "Ready to collaborate?" },
-              ].map((block) => (
-                <div key={block.href} className="group">
-                  <h3 className="text-xl font-semibold mb-4 group-hover:text-muted-foreground transition-colors duration-300">
-                    {block.title}
-                  </h3>
-                  <p className="text-body text-muted-foreground mb-6">{block.desc}</p>
-                  <a
-                    href={block.href}
-                    className="uppercase tracking-wide hover:text-muted-foreground transition-colors duration-300"
-                    style={{ fontFamily: "Orbitron, sans-serif" }}
-                  >
-                    {block.title === "Contact" ? "Get In Touch →" : block.title === "About" ? "Learn More →" : "Explore Work →"}
-                  </a>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
+               {/* Quick Links Section */}
+<section className="py-20 border-t border-border bg-blurred">
+  <div className="section-padding">
+    <div className="container-wide">
+      <div className="grid md:grid-cols-3 gap-12 text-center">
+
+        {/* Portfolio Link */}
+        <div className="group">
+          <h3 className="text-xl font-heading font-semibold mb-4 group-hover:text-muted-foreground transition-colors duration-300">
+            Portfolio
+          </h3>
+          <p className="text-body text-muted-foreground mb-6">
+            Editorial shoots and polaroïds
+          </p>
+          <a
+            href="/portfolio"
+            className="tracking-wider uppercase hover:text-muted-foreground transition-colors duration-300"
+            style={{
+              fontFamily: "Orbitron, sans-serif",
+              fontSize: "14px",
+              lineHeight: "20px",
+              fontWeight: 500,
+            }}
+          >
+            Explore Work →
+          </a>
+        </div>
+
+        {/* About Link */}
+        <div className="group">
+          <h3 className="text-xl font-heading font-semibold mb-4 group-hover:text-muted-foreground transition-colors duration-300">
+            About
+          </h3>
+          <p className="text-body text-muted-foreground mb-6">
+            Background and measurements
+          </p>
+          <a
+            href="/about"
+            className="tracking-wider uppercase hover:text-muted-foreground transition-colors duration-300"
+            style={{
+              fontFamily: "Orbitron, sans-serif",
+              fontSize: "14px",
+              lineHeight: "20px",
+              fontWeight: 500,
+            }}
+          >
+            Learn More →
+          </a>
+        </div>
+
+        {/* Contact Link */}
+        <div className="group">
+          <h3 className="text-xl font-heading font-semibold mb-4 group-hover:text-muted-foreground transition-colors duration-300">
+            Contact
+          </h3>
+          <p className="text-body text-muted-foreground mb-6">
+            Ready to collaborate?
+          </p>
+          <a
+            href="/contact"
+            className="tracking-wider uppercase hover:text-muted-foreground transition-colors duration-300"
+            style={{
+              fontFamily: "Orbitron, sans-serif",
+              fontSize: "14px",
+              lineHeight: "20px",
+              fontWeight: 500,
+            }}
+          >
+            Get In Touch →
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
 
         <Footer />
       </main>
     </>
   );
 }
-
 
