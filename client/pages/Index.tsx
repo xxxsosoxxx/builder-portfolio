@@ -25,11 +25,11 @@ export default function Index() {
         <meta name="author" content="Souheila Said" />
       </Helmet>
 
-      <div className="min-h-screen relative overflow-hidden">
+      <div className="min-h-screen relative">
         <Navigation />
 
         {/* Hero Section */}
-        <section className="relative h-screen flex items-center justify-center">
+        <section className="relative h-screen flex items-center justify-center overflow-hidden">
           {/* Background Image */}
           <div className="absolute inset-0 z-0">
             <img

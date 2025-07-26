@@ -31,7 +31,7 @@ export function Navigation() {
         role="navigation"
         aria-label="Primary Navigation"
         className={cn(
-          "absolute top-0 left-0 right-0 z-50 transition-all duration-500",
+          "sticky top-0 left-0 right-0 z-50 transition-all duration-500",
           isScrolled
             ? "bg-background/80 backdrop-blur-xl shadow-lg"
             : "bg-transparent opacity-100"
@@ -40,7 +40,7 @@ export function Navigation() {
           transition: "background-color 0.5s ease, box-shadow 0.5s ease",
         }}
       >
-        <div className="section-padding py-6 transition-all duration-500 ease-in-out">
+        <div className={`section-padding ${isScrolled ? "py-4" : "py-0"} transition-all duration-500 ease-in-out`}>
           <div className="flex items-center justify-between">
             {/* Logo */}
             <Link
@@ -100,7 +100,7 @@ export function Navigation() {
       {/* Mobile Menu */}
       <div
         className={cn(
-          "absolute inset-0 z-40 bg-background/90 backdrop-blur-xl transition-transform duration-500 md:hidden",
+          "absolute inset-0 z-50 bg-background/90 backdrop-blur-xl transition-transform duration-500 md:hidden",
           isMenuOpen ? "translate-x-0" : "translate-x-full"
         )}
       >
